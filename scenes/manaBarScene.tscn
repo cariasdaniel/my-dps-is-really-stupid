@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ceaqbmrhwiqak"]
+
+[ext_resource type="Script" uid="uid://byu4bpcysk8pr" path="res://scenes/resource_bar_scene.gd" id="1_s5qdq"]
+[ext_resource type="Texture2D" uid="uid://bdb8nydg0ypir" path="res://assets/hp-bar/hp-under.png" id="2_wn04l"]
+[ext_resource type="Texture2D" uid="uid://d2yb6lxe2wopn" path="res://assets/hp-bar/hp-frame.png" id="3_0gnul"]
+[ext_resource type="Texture2D" uid="uid://lwg4ijue77lf" path="res://assets/hp-bar/hp-texture.png" id="4_42y6v"]
+
+[node name="ResourceBarScene" type="Control" unique_id=1908969633]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s5qdq")
+
+[node name="Texture" type="TextureProgressBar" parent="." unique_id=1672646519]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+texture_under = ExtResource("2_wn04l")
+texture_over = ExtResource("3_0gnul")
+texture_progress = ExtResource("4_42y6v")
+tint_over = Color(0.38039216, 0.65882355, 0.41568628, 1)
+tint_progress = Color(0.38039216, 0.65882355, 0.41568628, 1)
+
+[node name="DamageBar" type="TextureProgressBar" parent="." unique_id=1557210762]
+z_index = -1
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+value = 80.0
+nine_patch_stretch = true
+stretch_margin_left = 5
+stretch_margin_top = 5
+stretch_margin_right = 5
+stretch_margin_bottom = 5
+texture_under = ExtResource("2_wn04l")
+texture_over = ExtResource("3_0gnul")
+texture_progress = ExtResource("4_42y6v")
+tint_over = Color(0.38039216, 0.65882355, 0.41568628, 1)
+tint_progress = Color(0.38039216, 0.65882355, 0.41568628, 1)
+
+[node name="Text" type="Label" parent="." unique_id=540975992]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1637404472]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
