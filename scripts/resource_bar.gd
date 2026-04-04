@@ -1,5 +1,4 @@
 extends Control
-@onready var timer = $Timer
 @onready var resource_bar = $Texture
 @onready var damage_bar = $DamageBar
 
@@ -7,10 +6,10 @@ extends Control
 
 func _process(delta):
 	if Input.is_action_pressed("lose_health"):
-		_set_resource(resource - 1)
+		_set_resource(resource - 5)
 		
 	if Input.is_action_pressed("gain_health"):
-		_set_resource(resource + 1)
+		_set_resource(resource + 10)
 
 func _set_resource(new_resource):
 	var prev_res = resource
@@ -18,7 +17,8 @@ func _set_resource(new_resource):
 	resource_bar.value = resource
 	
 	if resource < prev_res:
-		timer.start()
+		await get_tree().create_timer(0.4).timeout
+		damage_bar.value = resource_bar.value
 	else:
 		damage_bar.value = resource
 
@@ -29,7 +29,3 @@ func init_resource(_resource):
 	resource_bar.value = resource
 	damage_bar.max_value = resource
 	damage_bar.value = resource
-
-
-func _on_timer_timeout() -> void:
-	damage_bar.value = resource_bar.value

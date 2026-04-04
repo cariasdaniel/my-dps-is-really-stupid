@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ceaqbmrhwiqak"]
 
-[ext_resource type="Script" uid="uid://byu4bpcysk8pr" path="res://scenes/resource_bar_scene.gd" id="1_s5qdq"]
+[ext_resource type="Script" uid="uid://byu4bpcysk8pr" path="res://scripts/resource_bar.gd" id="1_s5qdq"]
 [ext_resource type="Texture2D" uid="uid://bdb8nydg0ypir" path="res://assets/hp-bar/hp-under.png" id="2_wn04l"]
 [ext_resource type="Texture2D" uid="uid://d2yb6lxe2wopn" path="res://assets/hp-bar/hp-frame.png" id="3_0gnul"]
 [ext_resource type="Texture2D" uid="uid://lwg4ijue77lf" path="res://assets/hp-bar/hp-texture.png" id="4_42y6v"]
@@ -70,9 +70,3 @@ grow_vertical = 2
 text = "100 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="." unique_id=1637404472]
-wait_time = 0.3
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
