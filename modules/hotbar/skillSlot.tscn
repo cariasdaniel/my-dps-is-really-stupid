@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cy2pvnv4l0loq"]
 
-[ext_resource type="Script" uid="uid://dxqtb3o0r3nht" path="res://hotbar/skill_slot.gd" id="1_8r1bd"]
+[ext_resource type="Script" uid="uid://dxqtb3o0r3nht" path="res://modules/hotbar/skill_slot.gd" id="1_8r1bd"]
 [ext_resource type="Texture2D" uid="uid://dox1owjrlsdoe" path="res://assets/themes/hotbar-slot.png" id="1_ji42x"]
 
 [node name="SkillSlot" type="TextureButton" unique_id=355131357]

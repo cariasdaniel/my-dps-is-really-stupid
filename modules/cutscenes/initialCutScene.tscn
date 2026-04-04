@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ycmjfrtbmw56"]
 
-[ext_resource type="Script" uid="uid://diwgr6pg0hf7" path="res://scripts/initial_cutscene.gd" id="1_d0ii7"]
+[ext_resource type="Script" uid="uid://diwgr6pg0hf7" path="res://modules/cutscenes/initial_cutscene.gd" id="1_d0ii7"]
 
 [node name="InitialScene" type="Panel" unique_id=537796578]
 anchors_preset = 15

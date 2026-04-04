@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkwvubpqnkgph"]
 
-[ext_resource type="Script" uid="uid://ygb7vhu8pwv2" path="res://scripts/tooltip.gd" id="1_iqbuq"]
+[ext_resource type="Script" uid="uid://ygb7vhu8pwv2" path="res://modules/tooltip/tooltip.gd" id="1_iqbuq"]
 
 [node name="SkillTooltip" type="Control" unique_id=1221887908]
 custom_minimum_size = Vector2(256, 256)

@@ -17,7 +17,7 @@ func _make_custom_tooltip(whatever):
 	if !skill:
 		return null
 	
-	var tooltip = preload("res://scenes/tooltipScene.tscn").instantiate()
+	var tooltip = preload("res://modules/tooltip/tooltipScene.tscn").instantiate()
 	tooltip.update(skill)
 	
 	return tooltip

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b74wudo836lse"]
 
-[ext_resource type="Script" uid="uid://dsdc5kek28dt4" path="res://hotbar/hot_bar.gd" id="1_exljn"]
-[ext_resource type="Script" uid="uid://d2q5b63b0hlo5" path="res://hotbar/skill_data.gd" id="2_808ib"]
+[ext_resource type="Script" uid="uid://dsdc5kek28dt4" path="res://modules/hotbar/hot_bar.gd" id="1_exljn"]
+[ext_resource type="Script" uid="uid://d2q5b63b0hlo5" path="res://modules/hotbar/skill_data.gd" id="2_808ib"]
 [ext_resource type="Resource" uid="uid://db2kvighw32pk" path="res://resources/skills/engage.tres" id="3_x3poc"]
 [ext_resource type="Resource" uid="uid://0liq7ja46spx" path="res://resources/skills/recover.tres" id="4_k133m"]
-[ext_resource type="PackedScene" uid="uid://cy2pvnv4l0loq" path="res://hotbar/skillSlot.tscn" id="5_808ib"]
+[ext_resource type="PackedScene" uid="uid://cy2pvnv4l0loq" path="res://modules/hotbar/skillSlot.tscn" id="5_808ib"]
 
 [node name="HotBar" type="HBoxContainer" unique_id=714711800]
 size_flags_horizontal = 4
