@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b74wudo836lse"]
+
+[ext_resource type="Script" uid="uid://dsdc5kek28dt4" path="res://hotbar/hot_bar.gd" id="1_exljn"]
+[ext_resource type="Script" uid="uid://d2q5b63b0hlo5" path="res://hotbar/skill_data.gd" id="2_808ib"]
+[ext_resource type="Resource" uid="uid://db2kvighw32pk" path="res://resources/skills/engage.tres" id="3_x3poc"]
+[ext_resource type="Resource" uid="uid://0liq7ja46spx" path="res://resources/skills/recover.tres" id="4_k133m"]
+[ext_resource type="PackedScene" uid="uid://cy2pvnv4l0loq" path="res://hotbar/skillSlot.tscn" id="5_808ib"]
+
+[node name="HotBar" type="HBoxContainer" unique_id=714711800]
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("1_exljn")
+skills = Array[ExtResource("2_808ib")]([ExtResource("3_x3poc"), null, ExtResource("4_k133m"), null, null, null])
+
+[node name="SkillSlot" parent="." unique_id=766923649 instance=ExtResource("5_808ib")]
+layout_mode = 2
+
+[node name="SkillSlot2" parent="." unique_id=1203165439 instance=ExtResource("5_808ib")]
+layout_mode = 2
+
+[node name="SkillSlot3" parent="." unique_id=160791457 instance=ExtResource("5_808ib")]
+layout_mode = 2
+
+[node name="SkillSlot4" parent="." unique_id=1183727459 instance=ExtResource("5_808ib")]
+layout_mode = 2
+
+[node name="SkillSlot5" parent="." unique_id=1973187714 instance=ExtResource("5_808ib")]
+layout_mode = 2
+
+[node name="SkillSlot6" parent="." unique_id=1488043619 instance=ExtResource("5_808ib")]
+layout_mode = 2

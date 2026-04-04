@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://kf6d0wfgbgld" path="res://assets/cocoa.png" id="1_8dubc"]
 [ext_resource type="PackedScene" uid="uid://bqidt4w25578u" path="res://scenes/healthBarScene.tscn" id="4_cgfq5"]
 [ext_resource type="PackedScene" uid="uid://ceaqbmrhwiqak" path="res://scenes/manaBarScene.tscn" id="5_7dvkv"]
-[ext_resource type="PackedScene" uid="uid://b74wudo836lse" path="res://scenes/hotBar.tscn" id="6_vdcm2"]
+[ext_resource type="PackedScene" uid="uid://b74wudo836lse" path="res://hotbar/hotBar.tscn" id="6_vdcm2"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=428319222]
 

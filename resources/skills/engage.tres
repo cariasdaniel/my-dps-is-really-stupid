@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://db2kvighw32pk"]
+
+[ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="1_3aadu"]
+[ext_resource type="Script" uid="uid://d2q5b63b0hlo5" path="res://hotbar/skill_data.gd" id="1_4s8t6"]
+
+[resource]
+script = ExtResource("1_4s8t6")
+name = "Engage"
+description = "Call the focus of the DPS to something in the map for %s seconds."
+cost = 5.0
+cooldown = 15.0
+icon = ExtResource("1_3aadu")
+vars = Array[int]([5])
+metadata/_custom_type_script = "uid://d2q5b63b0hlo5"
