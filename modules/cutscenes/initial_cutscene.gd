@@ -52,4 +52,4 @@ func _on_timer2start_timeout() -> void:
 # navigate to title screen
 func _on_continue_button_pressed() -> void:
 	print("continue...")
-	get_tree().change_scene_to_file("res://modules/title_screen/title.tscn")
+	SceneChanger.change_to("res://modules/title_screen/title.tscn")

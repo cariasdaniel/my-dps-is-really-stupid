@@ -113,11 +113,11 @@ text = "[pulse]Continue...[/pulse]"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1998559541]
-wait_time = 2.0
+wait_time = 1.6999999999999997
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=309202132]
-wait_time = 3.0
+wait_time = 2.5
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=87726256]
