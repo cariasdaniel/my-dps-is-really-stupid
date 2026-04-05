@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://da820lroyr6to"]
 
-[ext_resource type="Script" uid="uid://c08idnppk252y" path="res://modules/cutscenes/scene_changer.gd" id="1_5ta4w"]
+[ext_resource type="Script" uid="uid://c08idnppk252y" path="res://modules/managers/scene_changer.gd" id="1_5ta4w"]
 
 [sub_resource type="Animation" id="Animation_cu5ro"]
 length = 0.001
