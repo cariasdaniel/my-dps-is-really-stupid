@@ -1,7 +1,8 @@
-extends Panel
+extends Control
 
 @onready var timer = $Timer
 @onready var timer2start = $Timer2
+@onready var continue_label: RichTextLabel = $VBoxContainer/ContinueButton/Text
 
 @onready var thought_labels = [
 	$VBoxContainer/Label,
@@ -14,19 +15,24 @@ extends Panel
 
 @onready var disclaimer = $VBoxContainer/Label7
 
-
+# function to show cutscene labels one by one
 func _on_timer_timeout() -> void:
+	# If "that's what dps thinks..." is visible
+	# start timer to show "continue" button
 	if disclaimer.visible:
-		timer.autostart = false
+		timer.queue_free()
 		timer2start.start()
 		return
-		
+	
+	# if all thoughts labels are visible, add quotes
+	# in first and last labels + show disclaimer
 	var hidden_labels = thought_labels.filter(func(l: Label): return l.visible == false)
 	if not hidden_labels:
 		thought_labels[0].text = '"' + thought_labels[0].text
 		thought_labels[-1].text = thought_labels[-1].text + '"'
 		disclaimer.show()
 	
+	# if not all thought labels are shown, show next
 	for label: Label in hidden_labels:
 		if !label.visible:
 			label.modulate.a = 0.0
@@ -34,3 +40,16 @@ func _on_timer_timeout() -> void:
 			label.show()
 			tween.tween_property(label, "modulate:a", 1.0, 1.0)
 			break
+
+# after all labels are visible, show "Continue" button
+func _on_timer2start_timeout() -> void:
+	continue_label.modulate.a = 0.0
+	var tween = create_tween()
+	continue_label.show()
+	tween.tween_property(continue_label, "modulate:a", 1.0, 1.0)
+
+
+# navigate to title screen
+func _on_continue_button_pressed() -> void:
+	print("continue...")
+	get_tree().change_scene_to_file("res://modules/title_screen/title.tscn")

@@ -1,14 +1,25 @@
 [gd_scene format=3 uid="uid://ycmjfrtbmw56"]
 
 [ext_resource type="Script" uid="uid://diwgr6pg0hf7" path="res://modules/cutscenes/initial_cutscene.gd" id="1_d0ii7"]
+[ext_resource type="AudioStream" uid="uid://dtcos4cwhidi1" path="res://assets/bgm/title-bg-music.mp3" id="2_t31kc"]
 
-[node name="InitialScene" type="Panel" unique_id=537796578]
+[node name="InitialScene" type="Control" unique_id=91329868]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d0ii7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=70885281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=590825357]
 layout_mode = 1
@@ -81,11 +92,39 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=1212110729]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+
+[node name="Text" type="RichTextLabel" parent="VBoxContainer/ContinueButton" unique_id=1433169599]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[pulse]Continue...[/pulse]"
+horizontal_alignment = 1
+
 [node name="Timer" type="Timer" parent="." unique_id=1998559541]
-wait_time = 2.5
+wait_time = 2.0
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=309202132]
-wait_time = 7.5
+wait_time = 3.0
+one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=87726256]
+stream = ExtResource("2_t31kc")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer2start_timeout"]
