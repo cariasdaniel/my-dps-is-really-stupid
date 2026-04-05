@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://duf3v48qfccun" path="res://assets/themes/button-pressed-bg.png" id="3_dmluj"]
 [ext_resource type="Texture2D" uid="uid://m24upxrmyqtg" path="res://assets/themes/panel-bg.png" id="4_eff52"]
 
+[sub_resource type="SystemFont" id="SystemFont_eff52"]
+font_names = PackedStringArray("Upheaval TT (BRK)")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfkqh"]
 texture = ExtResource("1_dmluj")
 texture_margin_left = 5.0
@@ -17,28 +20,35 @@ texture = ExtResource("1_x8h5s")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
-texture_margin_bottom = 10.0
+texture_margin_bottom = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bua28"]
 texture = ExtResource("1_x8h5s")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
-texture_margin_bottom = 10.0
+texture_margin_bottom = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkkli"]
 texture = ExtResource("4_eff52")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
-texture_margin_bottom = 10.0
+texture_margin_bottom = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5rcv"]
 texture = ExtResource("3_dmluj")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
-texture_margin_bottom = 10.0
+texture_margin_bottom = 2.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="SystemFont" id="SystemFont_dmluj"]
+font_names = PackedStringArray("Upheaval TT (BRK)")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmluj"]
 texture = ExtResource("4_eff52")
@@ -47,10 +57,46 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 10.0
 
+[sub_resource type="SystemFont" id="SystemFont_eoeoq"]
+font_names = PackedStringArray("Upheaval TT (BRK)")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eff52"]
+texture = ExtResource("1_x8h5s")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivb5k"]
+texture = ExtResource("4_eff52")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bo8a6"]
+texture = ExtResource("1_dmluj")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
 [resource]
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 24
+Button/fonts/font = SubResource("SystemFont_eff52")
 Button/styles/disabled = SubResource("StyleBoxTexture_dfkqh")
 Button/styles/focus = SubResource("StyleBoxTexture_eoeoq")
 Button/styles/hover = SubResource("StyleBoxTexture_bua28")
 Button/styles/normal = SubResource("StyleBoxTexture_xkkli")
 Button/styles/pressed = SubResource("StyleBoxTexture_w5rcv")
+Label/constants/outline_size = 5
+Label/font_sizes/font_size = 24
+Label/fonts/font = SubResource("SystemFont_dmluj")
 Panel/styles/panel = SubResource("StyleBoxTexture_dmluj")
+TabBar/constants/outline_size = 5
+TabBar/font_sizes/font_size = 20
+TabBar/fonts/font = SubResource("SystemFont_eoeoq")
+TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_eff52")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_ivb5k")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_bo8a6")

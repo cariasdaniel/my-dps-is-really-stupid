@@ -26,6 +26,7 @@ theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1066051024]
 layout_mode = 2
+theme_override_constants/separation = -2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=636599418]
 layout_mode = 2
@@ -46,7 +47,7 @@ tab_3/title = "Shortcuts"
 
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1897524563]
 layout_mode = 2
-text = "Close"
+text = " X "
 
 [node name="GeneralPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1887335944]
 layout_mode = 2

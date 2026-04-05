@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://dxqtb3o0r3nht" path="res://modules/hotbar/skill_slot.gd" id="1_8r1bd"]
 [ext_resource type="Texture2D" uid="uid://dox1owjrlsdoe" path="res://assets/themes/hotbar-slot.png" id="1_ji42x"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_740p2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ety38"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mw4k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m63b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fngls"]
+
 [node name="SkillSlot" type="Button" unique_id=1735122855]
 custom_minimum_size = Vector2(48, 48)
 anchors_preset = 15
@@ -10,6 +20,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_740p2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ety38")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3mw4k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0m63b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fngls")
 script = ExtResource("1_8r1bd")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1895626801]
