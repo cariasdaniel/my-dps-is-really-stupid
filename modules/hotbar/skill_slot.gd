@@ -1,16 +1,19 @@
-extends TextureButton
+extends Button
 
 class_name SkillSlot
 
 @export var skill : SkillData
+@onready var item_sprite: TextureRect = $MarginContainer/ItemSprite
+
+var selected: bool = false
 
 func update(new_skill: SkillData):
 	if !new_skill:
-		texture_normal = load("res://assets/themes/hotbar-slot.png")
+		item_sprite = null
 		
 	else:
 		skill = new_skill
-		texture_normal = new_skill.icon
+		item_sprite.texture = new_skill.icon
 		
 
 func _make_custom_tooltip(whatever):
@@ -21,4 +24,3 @@ func _make_custom_tooltip(whatever):
 	tooltip.update(skill)
 	
 	return tooltip
-	

@@ -21,11 +21,3 @@ func _set_resource(new_resource):
 		damage_bar.value = resource_bar.value
 	else:
 		damage_bar.value = resource
-
-
-func init_resource(_resource):
-	resource = _resource
-	resource_bar.max_value = resource
-	resource_bar.value = resource
-	damage_bar.max_value = resource
-	damage_bar.value = resource
