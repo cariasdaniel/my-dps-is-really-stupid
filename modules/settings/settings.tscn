@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://0c8hgx7cbbmk"]
+
+[ext_resource type="Script" uid="uid://bsxlcmpyjppb1" path="res://modules/settings/Settings.gd" id="1_cnujn"]
+
+[node name="Settings" type="Control" unique_id=343796743]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cnujn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2098109289]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 144
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 144
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1066051024]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=636599418]
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2094053344]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+close_with_middle_mouse = false
+select_with_rmb = true
+tab_count = 4
+tab_0/title = "General"
+tab_1/title = "Audio"
+tab_2/title = "Gameplay"
+tab_3/title = "Shortcuts"
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1897524563]
+layout_mode = 2
+text = "Close"
+
+[node name="GeneralPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1887335944]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+
+[node name="AudioPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1037101979]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AudioPanel" unique_id=44739984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer" unique_id=1449919852]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1618187035]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=969660816]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.01
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1259100680]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=349654038]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.01
+value = 100.0
+
+[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=918715376]
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="SfxVolume" type="HSlider" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1587962246]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+size_flags_vertical = 4
+step = 0.01
+value = 100.0
+
+[node name="GameplayPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1499620029]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+
+[node name="ShortcutsPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1722530759]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.0
+
+[connection signal="tab_changed" from="MarginContainer/VBoxContainer/HBoxContainer/TabBar" to="." method="_on_tab_bar_tab_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

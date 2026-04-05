@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbxawqkn2om0"]
 
 [ext_resource type="Script" uid="uid://ds5lvaity2anc" path="res://modules/title_screen/title_screen.gd" id="1_bdnv4"]
-[ext_resource type="Texture2D" uid="uid://duldnbtq6gjm7" path="res://assets/bg.png" id="2_pfg60"]
+[ext_resource type="Texture2D" uid="uid://dk28julmvoyre" path="res://assets/bg.png" id="2_pfg60"]
 [ext_resource type="Texture2D" uid="uid://cq8hnlaguqxpg" path="res://assets/title.png" id="3_pfg60"]
 
 [node name="TitleScreen" type="Control" unique_id=115301865]
@@ -18,62 +18,77 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = 118.0
+offset_top = -34.0
+offset_right = 66.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_pfg60")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Title" type="TextureRect" parent="." unique_id=969846786]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=361664761]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -419.0
-offset_top = 29.0
-offset_right = 406.80157
-offset_bottom = 298.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=539512702]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer" unique_id=1855309908]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control3" type="Control" parent="HBoxContainer/CenterColumn" unique_id=1234930238]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Title" type="TextureRect" parent="HBoxContainer/CenterColumn" unique_id=969846786]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
 texture = ExtResource("3_pfg60")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1855309908]
-custom_minimum_size = Vector2(144, 0)
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_right = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Control" type="Control" parent="VBoxContainer" unique_id=441714777]
+[node name="Control" type="Control" parent="HBoxContainer/CenterColumn" unique_id=441714777]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
+size_flags_stretch_ratio = 2.0
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=552987483]
+[node name="ButtonsMenu" type="VBoxContainer" parent="HBoxContainer/CenterColumn" unique_id=1910299534]
+custom_minimum_size = Vector2(144, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="Play" type="Button" parent="HBoxContainer/CenterColumn/ButtonsMenu" unique_id=552987483]
 layout_mode = 2
 text = "PLAY"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1899022165]
+[node name="Settings" type="Button" parent="HBoxContainer/CenterColumn/ButtonsMenu" unique_id=1899022165]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1122541426]
+[node name="Quit" type="Button" parent="HBoxContainer/CenterColumn/ButtonsMenu" unique_id=1122541426]
 layout_mode = 2
 text = "QUIT"
 
-[node name="Control2" type="Control" parent="VBoxContainer" unique_id=1365737556]
+[node name="Control2" type="Control" parent="HBoxContainer/CenterColumn" unique_id=1365737556]
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=945695542]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/CenterColumn/ButtonsMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterColumn/ButtonsMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterColumn/ButtonsMenu/Quit" to="." method="_on_quit_pressed"]
