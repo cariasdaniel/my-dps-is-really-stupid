@@ -22,6 +22,7 @@ buses/default_bus_layout="res://assets/themes/default_bus_layout.tres"
 [autoload]
 
 SceneChanger="*uid://da820lroyr6to"
+ScenePaths="*uid://oilqtiyjlag4"
 SignalBus="*uid://d1curlfmsot2h"
 
 [display]

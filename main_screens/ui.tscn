@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bvwi44xsm1hdf"]
 
-[ext_resource type="Texture2D" uid="uid://kf6d0wfgbgld" path="res://assets/cocoa.png" id="1_8dubc"]
-[ext_resource type="PackedScene" uid="uid://bqidt4w25578u" path="res://modules/resource_bars/healthBarScene.tscn" id="4_cgfq5"]
-[ext_resource type="PackedScene" uid="uid://ceaqbmrhwiqak" path="res://modules/resource_bars/manaBarScene.tscn" id="5_7dvkv"]
-[ext_resource type="PackedScene" uid="uid://b74wudo836lse" path="res://modules/hotbar/hotBar.tscn" id="6_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://kf6d0wfgbgld" path="res://assets/cocoa.png" id="1_g4anm"]
+[ext_resource type="PackedScene" uid="uid://bqidt4w25578u" path="res://modules/resource_bars/healthBarScene.tscn" id="2_k42hb"]
+[ext_resource type="PackedScene" uid="uid://ceaqbmrhwiqak" path="res://modules/resource_bars/manaBarScene.tscn" id="3_pbvhl"]
+[ext_resource type="PackedScene" uid="uid://b74wudo836lse" path="res://modules/hotbar/hotBar.tscn" id="4_qhgim"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=428319222]
 
@@ -11,13 +11,13 @@
 custom_minimum_size = Vector2(0, 64)
 offset_left = 10.0
 offset_top = 19.0
-offset_right = 352.0
+offset_right = 344.0
 offset_bottom = 83.0
 
 [node name="PlayerImage" type="TextureRect" parent="PlayerStatusPanel" unique_id=1702732632]
 layout_mode = 2
 size_flags_stretch_ratio = 0.75
-texture = ExtResource("1_8dubc")
+texture = ExtResource("1_g4anm")
 expand_mode = 2
 stretch_mode = 5
 
@@ -30,14 +30,14 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerStatusPanel/MarginContainer" unique_id=928587536]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 
-[node name="ResourceBarScene" parent="PlayerStatusPanel/MarginContainer/VBoxContainer" unique_id=1908969633 instance=ExtResource("4_cgfq5")]
+[node name="ResourceBarScene" parent="PlayerStatusPanel/MarginContainer/VBoxContainer" unique_id=1908969633 instance=ExtResource("2_k42hb")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResourceBarScene2" parent="PlayerStatusPanel/MarginContainer/VBoxContainer" unique_id=455315218 instance=ExtResource("5_7dvkv")]
+[node name="ResourceBarScene2" parent="PlayerStatusPanel/MarginContainer/VBoxContainer" unique_id=455315218 instance=ExtResource("3_pbvhl")]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -55,7 +55,7 @@ layout_mode = 2
 [node name="DpsImage" type="TextureRect" parent="PartyStatusLateral/DpsStatusPanel" unique_id=1981182493]
 layout_mode = 2
 size_flags_stretch_ratio = 0.75
-texture = ExtResource("1_8dubc")
+texture = ExtResource("1_g4anm")
 expand_mode = 2
 stretch_mode = 5
 flip_h = true
@@ -72,15 +72,15 @@ theme_override_constants/margin_bottom = 5
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="ResourceBarScene" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=800821387 instance=ExtResource("4_cgfq5")]
+[node name="ResourceBarScene" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=800821387 instance=ExtResource("2_k42hb")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResourceBarScene2" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=1247731732 instance=ExtResource("5_7dvkv")]
+[node name="ResourceBarScene2" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=1247731732 instance=ExtResource("3_pbvhl")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HotBar" parent="." unique_id=714711800 instance=ExtResource("6_vdcm2")]
+[node name="HotBar" parent="." unique_id=714711800 instance=ExtResource("4_qhgim")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

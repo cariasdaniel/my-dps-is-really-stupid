@@ -2,50 +2,73 @@
 
 [ext_resource type="Script" uid="uid://ygb7vhu8pwv2" path="res://modules/tooltip/tooltip.gd" id="1_iqbuq"]
 
-[node name="SkillTooltip" type="Control" unique_id=1221887908]
+[sub_resource type="SystemFont" id="SystemFont_4uoj1"]
+font_names = PackedStringArray("Ari-W9500", "Upheaval TT (BRK)")
+
+[sub_resource type="SystemFont" id="SystemFont_6eora"]
+font_names = PackedStringArray("Ari-W9500", "Upheaval TT (BRK)")
+
+[sub_resource type="SystemFont" id="SystemFont_n0td0"]
+font_names = PackedStringArray("Ari-W9500", "Upheaval TT (BRK)")
+
+[node name="SkillTooltip" type="Control" unique_id=124368690]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -135.0
+offset_right = 184.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_iqbuq")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=964738406]
-custom_minimum_size = Vector2(256, 256)
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2131113379]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -138.0
-offset_top = -138.0
-offset_right = 138.0
-offset_bottom = 138.0
+offset_left = -179.0
+offset_top = -132.5
+offset_right = 179.0
+offset_bottom = 132.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1574601930]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1939797642]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 28
 text = "skill.name"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer3" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1149459798]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1054123246]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("SystemFont_4uoj1")
 theme_override_font_sizes/font_size = 18
 text = "COST: skill.cost MP"
 vertical_alignment = 1
@@ -53,11 +76,12 @@ vertical_alignment = 1
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1922456082]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("SystemFont_6eora")
 theme_override_font_sizes/font_size = 18
 text = "COOLDOWN: skill.cooldown s"
 vertical_alignment = 1
 
-[node name="Label4" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1708598577]
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1708598577]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
@@ -66,6 +90,6 @@ custom_minimum_size = Vector2(256, 144)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = SubResource("SystemFont_n0td0")
 text = "skill.description"
 autowrap_mode = 2
