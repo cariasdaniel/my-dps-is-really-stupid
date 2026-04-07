@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://diwgr6pg0hf7" path="res://modules/cutscenes/initial_cutscene.gd" id="1_d0ii7"]
 [ext_resource type="AudioStream" uid="uid://dtcos4cwhidi1" path="res://assets/bgm/title-bg-music.mp3" id="2_t31kc"]
 
+[sub_resource type="SystemFont" id="SystemFont_t31kc"]
+font_names = PackedStringArray("Upheaval TT (BRK)")
+
 [node name="InitialScene" type="Control" unique_id=91329868]
 layout_mode = 3
 anchors_preset = 15
@@ -23,15 +26,16 @@ color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=590825357]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.32098764
+anchor_right = 0.5
+anchor_bottom = 0.78549385
+offset_left = -311.0
+offset_right = 311.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Control" type="Control" parent="VBoxContainer" unique_id=1888070710]
-layout_mode = 2
-size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=662867735]
 visible = false
@@ -71,6 +75,7 @@ vertical_alignment = 1
 [node name="Label6" type="Label" parent="VBoxContainer" unique_id=1466095365]
 visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "INVINCIBLE."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -87,33 +92,42 @@ first into a dungeon full of dangerous enemies."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control3" type="Control" parent="VBoxContainer" unique_id=1085826744]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-
-[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=1212110729]
-layout_mode = 2
+[node name="ContinueButton" type="Button" parent="." unique_id=1212110729]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -67.0
+offset_right = -43.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
 size_flags_vertical = 3
 flat = true
 
-[node name="Text" type="RichTextLabel" parent="VBoxContainer/ContinueButton" unique_id=1433169599]
+[node name="Text" type="RichTextLabel" parent="ContinueButton" unique_id=1433169599]
 visible = false
+clip_contents = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 34.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 24
+theme_override_fonts/normal_font = SubResource("SystemFont_t31kc")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[pulse]Continue...[/pulse]"
-horizontal_alignment = 1
+text = "[pulse]Continue >[/pulse]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
 
 [node name="Timer" type="Timer" parent="." unique_id=1998559541]
-wait_time = 1.6999999999999997
+wait_time = 1.6999999999999995
 autostart = true
 
 [node name="Timer2" type="Timer" parent="." unique_id=309202132]
@@ -125,6 +139,6 @@ stream = ExtResource("2_t31kc")
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer2start_timeout"]

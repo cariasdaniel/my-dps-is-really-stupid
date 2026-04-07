@@ -6,12 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://lwg4ijue77lf" path="res://assets/hp-bar/hp-texture.png" id="4_42y6v"]
 
 [node name="ResourceBarScene" type="Control" unique_id=1908969633]
+custom_minimum_size = Vector2(192, 20)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_s5qdq")
 
 [node name="Texture" type="TextureProgressBar" parent="." unique_id=1672646519]
@@ -32,8 +29,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_wn04l")
 texture_over = ExtResource("3_0gnul")
 texture_progress = ExtResource("4_42y6v")
-tint_over = Color(0.38039216, 0.65882355, 0.41568628, 1)
-tint_progress = Color(0.38039216, 0.65882355, 0.41568628, 1)
+tint_over = Color(0.33898228, 0.588981, 0.91437346, 1)
+tint_progress = Color(0.3372549, 0.5882353, 0.9137255, 1)
 
 [node name="DamageBar" type="TextureProgressBar" parent="." unique_id=1557210762]
 z_index = -1
@@ -54,8 +51,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_wn04l")
 texture_over = ExtResource("3_0gnul")
 texture_progress = ExtResource("4_42y6v")
-tint_over = Color(0.38039216, 0.65882355, 0.41568628, 1)
-tint_progress = Color(0.38039216, 0.65882355, 0.41568628, 1)
+tint_over = Color(0.3372549, 0.5882353, 0.9137255, 1)
+tint_progress = Color(0.3372549, 0.5882353, 0.9137255, 1)
 
 [node name="Text" type="Label" parent="." unique_id=540975992]
 layout_mode = 1

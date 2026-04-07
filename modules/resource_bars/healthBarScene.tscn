@@ -6,12 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://lwg4ijue77lf" path="res://assets/hp-bar/hp-texture.png" id="4_m583w"]
 
 [node name="ResourceBarScene" type="Control" unique_id=1908969633]
+custom_minimum_size = Vector2(192, 20)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_hyumy")
 
 [node name="Texture" type="TextureProgressBar" parent="." unique_id=1672646519]
@@ -32,8 +29,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_2y3uk")
 texture_over = ExtResource("3_628o8")
 texture_progress = ExtResource("4_m583w")
-tint_over = Color(1, 0.2901961, 0.28235295, 1)
-tint_progress = Color(1, 0.28852, 0.28420362, 1)
+tint_over = Color(1, 0.13725491, 0.48235294, 1)
+tint_progress = Color(1, 0.13725491, 0.48235294, 1)
 
 [node name="DamageBar" type="TextureProgressBar" parent="." unique_id=723469975]
 z_index = -1
@@ -56,15 +53,9 @@ tint_progress = Color(1, 0.2901961, 0.28235295, 1)
 
 [node name="Text" type="Label" parent="." unique_id=540975992]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.5
-offset_top = -9.0
-offset_right = 42.5
-offset_bottom = 9.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20

@@ -27,68 +27,51 @@ texture = ExtResource("2_pfg60")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=361664761]
+[node name="Title" type="TextureRect" parent="." unique_id=969846786]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 69.0
+offset_right = 218.0
+offset_bottom = 287.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Spacer" type="Control" parent="HBoxContainer" unique_id=539512702]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CenterColumn" type="VBoxContainer" parent="HBoxContainer" unique_id=1855309908]
-custom_minimum_size = Vector2(144, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control3" type="Control" parent="HBoxContainer/CenterColumn" unique_id=1234930238]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Title" type="TextureRect" parent="HBoxContainer/CenterColumn" unique_id=969846786]
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 texture = ExtResource("3_pfg60")
-expand_mode = 3
-stretch_mode = 5
 
-[node name="Control" type="Control" parent="HBoxContainer/CenterColumn" unique_id=441714777]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="ButtonsMenu" type="VBoxContainer" parent="HBoxContainer/CenterColumn" unique_id=1910299534]
-custom_minimum_size = Vector2(144, 0)
-layout_mode = 2
+[node name="ButtonsMenu" type="VBoxContainer" parent="." unique_id=1910299534]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -186.0
+offset_right = 128.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/separation = 12
+theme_override_constants/separation = 24
 
-[node name="Play" type="Button" parent="HBoxContainer/CenterColumn/ButtonsMenu" unique_id=552987483]
+[node name="Play" type="Button" parent="ButtonsMenu" unique_id=552987483]
 layout_mode = 2
 text = "PLAY"
 
-[node name="Settings" type="Button" parent="HBoxContainer/CenterColumn/ButtonsMenu" unique_id=1899022165]
+[node name="Settings" type="Button" parent="ButtonsMenu" unique_id=1899022165]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="Quit" type="Button" parent="HBoxContainer/CenterColumn/ButtonsMenu" unique_id=1122541426]
+[node name="Quit" type="Button" parent="ButtonsMenu" unique_id=1122541426]
 layout_mode = 2
 text = "QUIT"
 
-[node name="Control2" type="Control" parent="HBoxContainer/CenterColumn" unique_id=1365737556]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="HBoxContainer" unique_id=945695542]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[connection signal="pressed" from="HBoxContainer/CenterColumn/ButtonsMenu/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterColumn/ButtonsMenu/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterColumn/ButtonsMenu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="ButtonsMenu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonsMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonsMenu/Quit" to="." method="_on_quit_pressed"]

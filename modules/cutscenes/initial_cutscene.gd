@@ -2,7 +2,7 @@ extends Control
 
 @onready var timer = $Timer
 @onready var timer2start = $Timer2
-@onready var continue_label: RichTextLabel = $VBoxContainer/ContinueButton/Text
+@onready var continue_label: RichTextLabel = $ContinueButton/Text
 
 @onready var thought_labels = [
 	$VBoxContainer/Label,
