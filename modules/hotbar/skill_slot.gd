@@ -16,7 +16,7 @@ func update(new_skill: SkillData):
 		item_sprite.texture = new_skill.icon
 		
 
-func _make_custom_tooltip(whatever):
+func _make_custom_tooltip(_n):
 	if !skill:
 		return null
 	

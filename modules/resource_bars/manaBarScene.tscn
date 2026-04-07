@@ -29,8 +29,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_wn04l")
 texture_over = ExtResource("3_0gnul")
 texture_progress = ExtResource("4_42y6v")
-tint_over = Color(0.33898228, 0.588981, 0.91437346, 1)
-tint_progress = Color(0.3372549, 0.5882353, 0.9137255, 1)
+tint_over = Color(0.12156863, 0.47843137, 1, 1)
+tint_progress = Color(0.12156863, 0.47843137, 1, 1)
 
 [node name="DamageBar" type="TextureProgressBar" parent="." unique_id=1557210762]
 z_index = -1
@@ -51,8 +51,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_wn04l")
 texture_over = ExtResource("3_0gnul")
 texture_progress = ExtResource("4_42y6v")
-tint_over = Color(0.3372549, 0.5882353, 0.9137255, 1)
-tint_progress = Color(0.3372549, 0.5882353, 0.9137255, 1)
+tint_over = Color(0.12156863, 0.47843137, 1, 1)
+tint_progress = Color(0.12156863, 0.47843137, 1, 1)
 
 [node name="Text" type="Label" parent="." unique_id=540975992]
 layout_mode = 1
