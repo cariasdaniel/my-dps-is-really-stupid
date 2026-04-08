@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://biy6w155xdk7u"]
+
+[ext_resource type="Texture2D" uid="uid://bfmqh6p0e4jas" path="res://assets/skill-icons/made_with_love.webp" id="1_ggsii"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skill_tree/skill_data.gd" id="1_prhft"]
+
+[resource]
+script = ExtResource("1_prhft")
+id = "defend"
+name = "WHAT R U DOING??"
+description = "Quickly jumps somewhere."
+icon = ExtResource("1_ggsii")
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

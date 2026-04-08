@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bg7evksmrj05j"]
+
+[ext_resource type="Script" uid="uid://djuhg0xa8h66x" path="res://modules/level_up_selection/levelUpOptions.gd" id="1_5w2r1"]
+[ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="1_nob4i"]
+[ext_resource type="PackedScene" uid="uid://bkwvubpqnkgph" path="res://modules/tooltip/tooltipScene.tscn" id="2_5w2r1"]
+
+[node name="LevelUpOptions" type="Control" unique_id=1130811228]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5w2r1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1750396703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06666667, 0, 0.4509804, 0.19215687)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1210543390]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -128.0
+offset_right = 258.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="Option1" type="Button" parent="HBoxContainer" unique_id=1784014251]
+custom_minimum_size = Vector2(280, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Option1" unique_id=1750356250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = -8.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon1" type="TextureRect" parent="HBoxContainer/Option1/VBoxContainer" unique_id=1514254092]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("1_nob4i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SkillTooltip" parent="HBoxContainer/Option1/VBoxContainer" unique_id=124368690 instance=ExtResource("2_5w2r1")]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+
+[node name="Option2" type="Button" parent="HBoxContainer" unique_id=1064707658]
+custom_minimum_size = Vector2(280, 300)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Option2" unique_id=1307787374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -4.0
+offset_right = -8.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon2" type="TextureRect" parent="HBoxContainer/Option2/VBoxContainer" unique_id=723275373]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("1_nob4i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SkillTooltip" parent="HBoxContainer/Option2/VBoxContainer" unique_id=978879851 instance=ExtResource("2_5w2r1")]
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+
+[connection signal="pressed" from="HBoxContainer/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Option2" to="." method="_on_option_2_pressed"]

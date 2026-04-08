@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://3n456n1vfi4c"]
+
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skill_tree/skill_data.gd" id="1_dnth8"]
+[ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="1_pu4ml"]
+
+[resource]
+script = ExtResource("1_dnth8")
+id = "retreat"
+name = "STOP RUNNING FROM ME!!"
+description = "Increases yours and DPSs defense."
+icon = ExtResource("1_pu4ml")
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"
