@@ -10,6 +10,8 @@ extends CanvasLayer
 
 @onready var continue_button: Button = $ContinueButton
 
+var SKILL_GAIN_LVL = 4
+
 func _ready():
 	_populate_options()
 	get_tree().paused = true
@@ -18,10 +20,9 @@ func _ready():
 # TODO: refactor to smart select -
 ## no duplicates
 ## by tier
-## no skill already chosen
-# IDEA: up atributo / up atributo / ganha skill 
+## no skill already maxxed
 func _select_skills() -> Array[SkillData]:
-	if ExpManager.level % 3 == 0:
+	if ExpManager.level % SKILL_GAIN_LVL == 0:
 		var skills = [
 			preload("res://resources/skills/call.tres"),
 			preload("res://resources/skills/engage.tres"),
@@ -59,23 +60,22 @@ func _populate_options():
 
 func _on_option_1_pressed() -> void:
 	print('option 1 selected')
-	option_2.disabled = true
-	var tween = create_tween()
-	tween.tween_property(option_2, "modulate:a", 0.0, 1.0)
-	await tween.finished
-	option_2.hide()
-	continue_button.show_text()
+	_handle_choice(option_1)
 
 
 func _on_option_2_pressed() -> void:
 	print('option 2 selected')
-	option_1.disabled = true
-	var tween = create_tween()
-	tween.tween_property(option_1, "modulate:a", 0.0, 1.0)
-	await tween.finished
-	option_1.hide()
-	continue_button.show_text()
+	_handle_choice(option_2)
 
+
+func _handle_choice(choice: Button) -> void:
+	var discarded = option_2 if choice == option_1 else option_1
+	discarded.disabled = true
+	var tween = create_tween()
+	tween.tween_property(discarded, "modulate:a", 0.0, 1.0)
+	await tween.finished
+	discarded.hide()
+	continue_button.show_text()
 
 func _on_continue_button_pressed() -> void:
 	queue_free()

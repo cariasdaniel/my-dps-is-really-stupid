@@ -82,6 +82,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ExpBar" parent="." unique_id=2066606507 instance=ExtResource("5_k42hb")]
+value = 0.0
 
 [node name="HotBar" parent="." unique_id=714711800 instance=ExtResource("4_qhgim")]
 anchors_preset = 7
