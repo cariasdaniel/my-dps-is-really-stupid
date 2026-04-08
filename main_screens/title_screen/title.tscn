@@ -4,6 +4,44 @@
 [ext_resource type="Texture2D" uid="uid://dk28julmvoyre" path="res://assets/bg.png" id="2_pfg60"]
 [ext_resource type="Texture2D" uid="uid://cq8hnlaguqxpg" path="res://assets/title.png" id="3_pfg60"]
 
+[sub_resource type="Animation" id="Animation_j0lui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(435, 220)]
+}
+
+[sub_resource type="Animation" id="Animation_v4gn7"]
+resource_name = "floating_title"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(435, 220), Vector2(435, 235), Vector2(435, 220)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_440id"]
+_data = {
+&"RESET": SubResource("Animation_j0lui"),
+&"floating_title": SubResource("Animation_v4gn7")
+}
+
 [node name="TitleScreen" type="Control" unique_id=115301865]
 layout_mode = 3
 anchors_preset = 15
@@ -34,13 +72,14 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -218.0
 offset_top = 69.0
-offset_right = 218.0
-offset_bottom = 287.0
+offset_right = 217.0
+offset_bottom = 289.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 texture = ExtResource("3_pfg60")
+stretch_mode = 5
 
 [node name="ButtonsMenu" type="VBoxContainer" parent="." unique_id=1910299534]
 custom_minimum_size = Vector2(200, 0)
@@ -71,6 +110,9 @@ text = "SETTINGS"
 [node name="Quit" type="Button" parent="ButtonsMenu" unique_id=1122541426]
 layout_mode = 2
 text = "QUIT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1112163089]
+libraries/ = SubResource("AnimationLibrary_440id")
 
 [connection signal="pressed" from="ButtonsMenu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonsMenu/Settings" to="." method="_on_settings_pressed"]

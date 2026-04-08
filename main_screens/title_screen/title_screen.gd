@@ -1,5 +1,10 @@
 extends Control
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _ready():
+	animation_player.play("floating_title")
+
 func _on_play_pressed() -> void:
 	print("pressed Play")
 	pass # Replace with function body.
