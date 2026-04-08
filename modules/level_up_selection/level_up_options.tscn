@@ -3,27 +3,21 @@
 [ext_resource type="Script" uid="uid://djuhg0xa8h66x" path="res://modules/level_up_selection/levelUpOptions.gd" id="1_5w2r1"]
 [ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="1_nob4i"]
 [ext_resource type="PackedScene" uid="uid://bkwvubpqnkgph" path="res://modules/tooltip/tooltipScene.tscn" id="2_5w2r1"]
+[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://modules/components/continue_button.tscn" id="4_7w8oh"]
 
-[node name="LevelUpOptions" type="Control" unique_id=1130811228]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="LevelUpOptions" type="CanvasLayer" unique_id=412054041]
+process_mode = 3
 script = ExtResource("1_5w2r1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1750396703]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06666667, 0, 0.4509804, 0.19215687)
+color = Color(0.019607844, 0.003921569, 0.05490196, 0.87058824)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1210543390]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -99,5 +93,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 1
 
+[node name="ContinueButton" parent="." unique_id=2082565337 instance=ExtResource("4_7w8oh")]
+
 [connection signal="pressed" from="HBoxContainer/Option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

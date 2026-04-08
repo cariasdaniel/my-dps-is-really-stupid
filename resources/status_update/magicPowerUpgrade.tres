@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://cp3b3dqvd5nuy"]
+
+[ext_resource type="Texture2D" uid="uid://bfmqh6p0e4jas" path="res://assets/skill-icons/made_with_love.webp" id="1_8iaqk"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skill_tree/skill_data.gd" id="2_wcjwc"]
+
+[resource]
+script = ExtResource("2_wcjwc")
+id = "magicPowerUpgrade"
+name = "Upgrade Magic Power"
+description = "Magic power increase from %s -> %s"
+max_level = 999
+icon = ExtResource("1_8iaqk")
+vars = Array[int]([15, 20])
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"
