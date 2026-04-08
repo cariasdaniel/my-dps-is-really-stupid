@@ -2,7 +2,7 @@ extends Control
 
 @onready var timer = $Timer
 @onready var timer2start = $Timer2
-@onready var continue_label: RichTextLabel = $ContinueButton/Text
+@onready var continue_button: Button = $ContinueButton
 
 @onready var thought_labels = [
 	$VBoxContainer/Label,
@@ -43,10 +43,7 @@ func _on_timer_timeout() -> void:
 
 # after all labels are visible, show "Continue" button
 func _on_timer2start_timeout() -> void:
-	continue_label.modulate.a = 0.0
-	var tween = create_tween()
-	continue_label.show()
-	tween.tween_property(continue_label, "modulate:a", 1.0, 1.0)
+	continue_button.show_text()
 
 
 # navigate to title screen
