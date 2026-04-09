@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://komhkimcqd35"]
 
-[ext_resource type="PackedScene" uid="uid://eppp5j6anqwj" path="res://modules/skill_tree/skill_button.tscn" id="1_bedce"]
+[ext_resource type="PackedScene" uid="uid://eppp5j6anqwj" path="res://modules/skills/skill_tree/skill_button.tscn" id="1_bedce"]
 
 [node name="SkillTree" type="Control" unique_id=2100684580]
 custom_minimum_size = Vector2(512, 512)

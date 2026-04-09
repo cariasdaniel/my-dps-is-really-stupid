@@ -1,5 +1,5 @@
 extends Node
-class_name PlayerMovement
+class_name EnemyMovement
 
 var direction:= Vector2.ZERO
 var aim_direction:= Vector2.ZERO

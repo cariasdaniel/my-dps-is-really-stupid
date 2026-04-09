@@ -34,6 +34,7 @@ buses/default_bus_layout="res://assets/themes/default_bus_layout.tres"
 
 [autoload]
 
+GlobalData="*uid://bd86751uf4yud"
 ScenePaths="*uid://oilqtiyjlag4"
 SignalBus="*uid://d1curlfmsot2h"
 SceneChanger="*uid://da820lroyr6to"
@@ -46,7 +47,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 

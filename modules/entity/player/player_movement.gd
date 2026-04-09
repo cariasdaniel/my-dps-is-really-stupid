@@ -4,7 +4,9 @@ class_name PlayerMovement
 var direction:= Vector2.ZERO
 var aim_direction:= Vector2.ZERO
 
-@export var curr_speed:= 500.0
+@export var max_speed:= 350
+@export var acceleration:= 20
+@export var friction:= 12
 
 var entity: CharacterBody2D
 
@@ -12,13 +14,18 @@ func _ready() -> void:
 	entity = get_parent()
 
 func _process(delta: float) -> void:
-	if entity.velocity.length() <= 0.1:
-		pass #play idle
+	if entity.velocity.length()/max_speed <= 0.2:
+		$"../AnimatedSprite2D".play("idle")
 	else:
-		pass #play moving
+		$"../AnimatedSprite2D".play("walk")
+		if entity.velocity.x < 0: $"../AnimatedSprite2D".flip_h = true
+		elif entity.velocity.x > 0: $"../AnimatedSprite2D".flip_h = false
+		$"../AnimatedSprite2D".speed_scale = entity.velocity.length()/max_speed
 
-func _physics_process(_delta: float) -> void:
-	entity.velocity = direction.normalized() * curr_speed
+func _physics_process(delta: float) -> void:	
+	var lerp_weight = delta * (acceleration if direction else friction)
+	entity.velocity = lerp(entity.velocity, direction.normalized() * max_speed, lerp_weight)
+	
 	entity.move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -44,4 +51,3 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var mouse_pos = entity.get_global_mouse_position()
 		aim_direction = entity.position.direction_to(mouse_pos)
-		print(aim_direction)

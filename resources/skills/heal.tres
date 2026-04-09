@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://bt0t2jh0f80n2"]
+
+[ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="1_ideiw"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_m8vy4"]
+
+[resource]
+script = ExtResource("1_m8vy4")
+id = "heal"
+name = "Heal"
+description = "Heals"
+cost = 10.0
+cooldown = 10.0
+max_level = 5
+distance = 40.0
+target = 1
+icon = ExtResource("1_ideiw")
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

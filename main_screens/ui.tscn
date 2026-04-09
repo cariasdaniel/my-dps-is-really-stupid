@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvwi44xsm1hdf"]
 
 [ext_resource type="Texture2D" uid="uid://kf6d0wfgbgld" path="res://assets/cocoa.png" id="1_g4anm"]
+[ext_resource type="Script" uid="uid://b0fvjbtgdpp1o" path="res://modules/resource_bars/resource_display.gd" id="1_pbvhl"]
 [ext_resource type="PackedScene" uid="uid://bqidt4w25578u" path="res://modules/resource_bars/healthBarScene.tscn" id="2_k42hb"]
 [ext_resource type="PackedScene" uid="uid://ceaqbmrhwiqak" path="res://modules/resource_bars/manaBarScene.tscn" id="3_pbvhl"]
 [ext_resource type="PackedScene" uid="uid://b74wudo836lse" path="res://modules/hotbar/hotBar.tscn" id="4_qhgim"]
@@ -8,21 +9,29 @@
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=428319222]
 
-[node name="PlayerStatusPanel" type="HBoxContainer" parent="." unique_id=434493705]
+[node name="PlayerResourceDisplay" type="Control" parent="." unique_id=480325217 node_paths=PackedStringArray("health_bar", "mana_bar")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pbvhl")
+health_bar = NodePath("PlayerStatusPanel/MarginContainer/PlayerStats/Health")
+mana_bar = NodePath("PlayerStatusPanel/MarginContainer/PlayerStats/Mana")
+
+[node name="PlayerStatusPanel" type="HBoxContainer" parent="PlayerResourceDisplay" unique_id=434493705]
 custom_minimum_size = Vector2(0, 64)
+layout_mode = 0
 offset_left = 10.0
 offset_top = 19.0
 offset_right = 344.0
 offset_bottom = 83.0
 
-[node name="PlayerImage" type="TextureRect" parent="PlayerStatusPanel" unique_id=1702732632]
+[node name="PlayerImage" type="TextureRect" parent="PlayerResourceDisplay/PlayerStatusPanel" unique_id=1702732632]
 layout_mode = 2
 size_flags_stretch_ratio = 0.75
 texture = ExtResource("1_g4anm")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="PlayerStatusPanel" unique_id=962684981]
+[node name="MarginContainer" type="MarginContainer" parent="PlayerResourceDisplay/PlayerStatusPanel" unique_id=962684981]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_constants/margin_left = 5
@@ -30,15 +39,15 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerStatusPanel/MarginContainer" unique_id=928587536]
+[node name="PlayerStats" type="VBoxContainer" parent="PlayerResourceDisplay/PlayerStatusPanel/MarginContainer" unique_id=928587536]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 
-[node name="ResourceBarScene" parent="PlayerStatusPanel/MarginContainer/VBoxContainer" unique_id=1908969633 instance=ExtResource("2_k42hb")]
+[node name="Health" parent="PlayerResourceDisplay/PlayerStatusPanel/MarginContainer/PlayerStats" unique_id=1908969633 instance=ExtResource("2_k42hb")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResourceBarScene2" parent="PlayerStatusPanel/MarginContainer/VBoxContainer" unique_id=455315218 instance=ExtResource("3_pbvhl")]
+[node name="Mana" parent="PlayerResourceDisplay/PlayerStatusPanel/MarginContainer/PlayerStats" unique_id=455315218 instance=ExtResource("3_pbvhl")]
 layout_mode = 2
 size_flags_vertical = 3
 

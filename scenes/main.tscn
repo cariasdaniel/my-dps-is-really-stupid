@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dhuwwsh7atsis"]
 
 [ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://main_screens/ui.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bwviggvb3044r" path="res://scenes/main.gd" id="1_trceg"]
 [ext_resource type="Texture2D" uid="uid://qnjos1nyf17f" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Idle.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://7sv50bf61uwp" path="res://modules/entity/player.gd" id="2_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://w31bmp080n8p" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Soldier/Soldier/Soldier-Walk.png" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://hqejvkb0p2ag" path="res://modules/entity/player/player_movement.gd" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://8oekrakbumyy" path="res://modules/state_machine/state_machine.gd" id="3_tbgi4"]
@@ -10,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cfqn8y7jb8ys0" path="res://modules/state_machine/dps_idle.gd" id="7_choun"]
 [ext_resource type="Texture2D" uid="uid://dtprtbai7c13j" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc with shadows/Orc-Walk.png" id="7_tipki"]
 [ext_resource type="Script" uid="uid://b34oumh4xkf8o" path="res://modules/state_machine/dps_state_machine.gd" id="7_ya4ey"]
+[ext_resource type="Script" uid="uid://devatxsfmemly" path="res://modules/entity/entity.gd" id="9_a8y0u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
 atlas = ExtResource("2_0wfyh")
@@ -90,7 +93,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -119,46 +122,8 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
-
-[sub_resource type="Animation" id="Animation_0ld40"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_gqmmt"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_yc10j"]
-resource_name = "walk"
-length = 0.8
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jscy8"]
-_data = {
-&"RESET": SubResource("Animation_0ld40"),
-&"idle": SubResource("Animation_gqmmt"),
-&"walk": SubResource("Animation_yc10j")
-}
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jyhfs"]
-graph_offset = Vector2(-179.2727, 54.50412)
-nodes/output/position = Vector2(600, 260)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbgi4"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tefeu"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tefeu"]
-states/BlendTree/node = SubResource("AnimationNodeBlendTree_jyhfs")
-states/BlendTree/position = Vector2(580, 128)
-states/End/position = Vector2(914, 122)
-states/Start/position = Vector2(287, 128)
-transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_tbgi4"), "BlendTree", "End", SubResource("AnimationNodeStateMachineTransition_tefeu")]
-graph_offset = Vector2(1, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0wfyh"]
 radius = 14.0
@@ -275,36 +240,72 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_0ld40"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gqmmt"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_yc10j"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jscy8"]
+_data = {
+&"RESET": SubResource("Animation_0ld40"),
+&"idle": SubResource("Animation_gqmmt"),
+&"walk": SubResource("Animation_yc10j")
+}
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jyhfs"]
+graph_offset = Vector2(81, 106)
+nodes/output/position = Vector2(600, 260)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbgi4"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tefeu"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tefeu"]
+states/BlendTree/node = SubResource("AnimationNodeBlendTree_jyhfs")
+states/BlendTree/position = Vector2(580, 128)
+states/End/position = Vector2(914, 122)
+states/Start/position = Vector2(287, 128)
+transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_tbgi4"), "BlendTree", "End", SubResource("AnimationNodeStateMachineTransition_tefeu")]
+graph_offset = Vector2(1, 20)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
 radius = 290.29123
 
 [node name="Main" type="Node" unique_id=260318962]
+script = ExtResource("1_trceg")
 
 [node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("1_o5qli")]
 
+[node name="PlayerResourceDisplay" parent="CanvasLayer" index="0" unique_id=480325217 node_paths=PackedStringArray("entity")]
+entity = NodePath("../../Player")
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1749152540]
 texture_filter = 1
+motion_mode = 1
+script = ExtResource("2_ya4ey")
 
 [node name="PlayerMovement" type="Node" parent="Player" unique_id=914559775]
 script = ExtResource("3_sugp2")
-curr_speed = 350.0
 
-[node name="StateMachine" type="Node" parent="Player/PlayerMovement" unique_id=1565648549]
+[node name="StateMachine" type="Node" parent="Player" unique_id=1565648549]
 script = ExtResource("3_tbgi4")
 
-[node name="Idle" type="Node" parent="Player/PlayerMovement/StateMachine" unique_id=1386647521]
+[node name="Idle" type="Node" parent="Player/StateMachine" unique_id=1386647521]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1693338786]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_dp3eg")
 animation = &"idle"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=149742381]
-libraries/ = SubResource("AnimationLibrary_jscy8")
-
-[node name="AnimationTree" type="AnimationTree" parent="Player" unique_id=1065996126]
-tree_root = SubResource("AnimationNodeStateMachine_tefeu")
-anim_player = NodePath("../AnimationPlayer")
 
 [node name="Hitbox" type="CollisionShape2D" parent="Player" unique_id=1033439989]
 position = Vector2(0, -4)
@@ -313,6 +314,8 @@ shape = SubResource("CapsuleShape2D_0wfyh")
 [node name="Dps" type="CharacterBody2D" parent="." unique_id=893900717]
 texture_filter = 1
 position = Vector2(0, 256)
+motion_mode = 1
+script = ExtResource("9_a8y0u")
 
 [node name="DpsMovement" type="Node" parent="Dps" unique_id=1995926600]
 script = ExtResource("6_tipki")
@@ -382,3 +385,5 @@ shape = SubResource("CapsuleShape2D_0wfyh")
 anchor_mode = 0
 
 [connection signal="body_entered" from="Dps/SafeArea" to="Dps/DpsMovement" method="_on_safe_area_body_entered"]
+
+[editable path="CanvasLayer"]

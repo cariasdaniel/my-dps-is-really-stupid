@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://0liq7ja46spx"]
 
 [ext_resource type="Texture2D" uid="uid://bfmqh6p0e4jas" path="res://assets/skill-icons/made_with_love.webp" id="1_0e38h"]
-[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skill_tree/skill_data.gd" id="1_ifsse"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="2_0e38h"]
 
 [resource]
-script = ExtResource("1_ifsse")
+script = ExtResource("2_0e38h")
 id = "recover"
 name = "WAIT!!! I'M LOW HP"
 description = "Slows your movespeed by %s%% during %s seconds, but increase HP recovery by %s%% during the same time."
@@ -14,4 +14,3 @@ max_level = 5
 tier = 1
 icon = ExtResource("1_0e38h")
 vars = Array[int]([3, 5, 20])
-metadata/_custom_type_script = "uid://d2q5b63b0hlo5"
