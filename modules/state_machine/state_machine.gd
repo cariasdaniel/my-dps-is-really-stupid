@@ -1,5 +1,5 @@
 extends Node
-class_name StateMachine
+class_name PlayerStateMachine
 
 var prev_state: State
 var curr_state: State
