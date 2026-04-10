@@ -1,5 +1,4 @@
 extends CharacterBody2D
-class_name Entity
 
 @export var max_hp: int = 100
 var current_hp:= 0
@@ -15,7 +14,14 @@ var current_mana:= 0
 @export var defense: int = 50
 @export var magic_defense: int = 30
 
+@export var move_speed:= 100.0
+
+@export var atk_range:= 400
+
 @export var skills: Array[SkillData] = []
+
+@onready var search_area: Area2D = $SearchArea
+@onready var safe_area: Area2D = $SafeArea
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -26,3 +32,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _physics_process(delta: float) -> void:
+	move_and_slide()
+	
+	if velocity.length() > 0:
+		sprite.play('walk')
+		if velocity.x > 0: 
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
+		

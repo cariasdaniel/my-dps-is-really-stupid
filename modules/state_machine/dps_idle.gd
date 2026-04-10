@@ -1,11 +1,11 @@
 extends State
 class_name DpsIdle
 
-@onready var player = $"../../../../Player"
-@onready var dps: CharacterBody2D = $"../../.."
-@onready var safe_area: Area2D = $"../../../SafeArea"
+@onready var player = $"../../../Player"
+@onready var dps: CharacterBody2D = $"../.."
+@onready var enemy: CharacterBody2D = $"../../../Enemy"
 
-@export var move_speed:= 100.0
+@onready var safe_area: Area2D = $"../../SafeArea"
 
 var move_direction: Vector2
 var wander_time: float
@@ -27,6 +27,12 @@ func update(delta):
 		randomize_wander()
 
 func physics_update(delta):
-	dps.velocity = move_direction * move_speed
-	dps.move_and_slide()
-	
+	dps.velocity = move_direction * dps.move_speed
+
+
+func _on_safe_area_body_entered(body: Node2D) -> void:
+	if body == player:
+		print("Hello friend")
+	if body == enemy:
+		print("Enemy spotted")
+		transitioned.emit(self, 'attack')
