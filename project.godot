@@ -38,6 +38,7 @@ GlobalData="*uid://bd86751uf4yud"
 ScenePaths="*uid://oilqtiyjlag4"
 SignalBus="*uid://d1curlfmsot2h"
 SceneChanger="*uid://da820lroyr6to"
+AudioManager="*uid://bfsdnno526pe1"
 ExpManager="*uid://cdqtlmtw7sax1"
 
 [display]
