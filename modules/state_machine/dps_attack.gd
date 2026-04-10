@@ -5,15 +5,15 @@ class_name DpsAttack
 var closest_target = null
 
 func enter():
-	print("DPS entered attack state")
+	print("Entered ATTACK state")
 	_get_closest_enemy_in_range()
 
 func _get_closest_enemy_in_range():
 	var closest_distance = INF
-	for body in dps.search_area.get_overlapping_bodies():
-		if not body.is_in_group('enemies'): continue
+	closest_target = null
+	for body in dps.get_enemies_in_range():
 		var distance = (body.global_position - dps.global_position).length()
-		if distance < closest_distance:
+		if distance < closest_distance and distance <= dps.atk_range:
 			closest_target = body
 
 func _is_in_danger():
@@ -21,28 +21,27 @@ func _is_in_danger():
 		if body.is_in_group('enemies'): return true
 	return false
 
+
 func physics_update(delta):
-	var move_direction = closest_target.global_position - dps.global_position
-	
 	# If enemy enters safe area, run away
 	if _is_in_danger():
 		print("DANGER!!")
-		transitioned.emit(self, 'idle')
+		transitioned.emit(self, 'flee')
+		return
 		
-	# If enemy not in range, walk in it's direction
-	elif (move_direction.length() > dps.atk_range):
-		print("Enemy left range - pursuing")
-		dps.sprite.play('walk')
-		dps.velocity = move_direction * dps.move_speed
-		
-	# If enemy in range, stop walking and attack
-	elif move_direction.length() <= dps.atk_range:
-		print("Enemy in range - attack!!")
-		dps.velocity = Vector2(0, 0)
-		if move_direction.x > 0: 
-			dps.sprite.flip_h = false
-		else:
-			dps.sprite.flip_h = true
-		dps.sprite.play('attack')
-		#TODO: add attack effects
+	_get_closest_enemy_in_range()
 	
+	# If no enemy in range, go back to idle state
+	if closest_target == null:
+		transitioned.emit(self, 'idle')
+		return
+		
+	var direction = closest_target.global_position - dps.global_position
+	
+	dps.velocity = Vector2(0, 0)
+	if direction.x > 0: 
+		dps.sprite.flip_h = false
+	else:
+		dps.sprite.flip_h = true
+	dps.sprite.play('attack')
+	#TODO: add attack effects

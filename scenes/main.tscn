@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cis0gftqahve5" path="res://modules/state_machine/dps_attack.gd" id="12_y6deb"]
 [ext_resource type="Texture2D" uid="uid://g04qjtxsjy5y" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="13_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://c3d763h0ji3wm" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="14_muem4"]
+[ext_resource type="Script" uid="uid://bo6c0dn8h3xql" path="res://modules/state_machine/dps_flee.gd" id="14_yc10j"]
 [ext_resource type="Texture2D" uid="uid://coojrqe62rm6a" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Walk.png" id="15_dp3eg"]
 [ext_resource type="Script" uid="uid://d5agktjaulvt" path="res://modules/portal/portal.gd" id="19_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://c0pxvumgawwka" path="res://assets/sprites/portal.png" id="20_yc10j"]
@@ -503,6 +504,7 @@ script = ExtResource("7_choun")
 script = ExtResource("12_y6deb")
 
 [node name="Flee" type="Node" parent="Dps/StateMachine" unique_id=1523659217]
+script = ExtResource("14_yc10j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dps" unique_id=1303653316]
 scale = Vector2(3, 3)
@@ -567,7 +569,7 @@ position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_bu4jf")
 
 [node name="TimeToSpawn" type="Timer" parent="Portal" unique_id=771995028]
-wait_time = 15.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]

@@ -17,6 +17,7 @@ func randomize_wander():
 		move_direction = (player.global_position - dps.global_position).normalized()
 
 func enter():
+	print("Entered IDLE state")
 	randomize_wander()
 
 func update(delta):
@@ -27,11 +28,11 @@ func update(delta):
 
 func physics_update(delta):
 	dps.velocity = move_direction * dps.move_speed
-
-
+	
+	if not dps.get_enemies_in_range().is_empty():
+		transitioned.emit(self, 'attack')
+	
 func _on_safe_area_body_entered(body: Node2D) -> void:
-	if body == player:
-		print("Hello friend")
 	if body.is_in_group("enemies"):
 		print("Enemy spotted")
 		transitioned.emit(self, 'attack')

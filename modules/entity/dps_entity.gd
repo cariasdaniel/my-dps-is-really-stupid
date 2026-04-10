@@ -43,3 +43,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.flip_h = true
 		
+
+func get_enemies_in_range() -> Array:
+	return search_area.get_overlapping_bodies().filter(func(b): return b.is_in_group('enemies'))
+	
