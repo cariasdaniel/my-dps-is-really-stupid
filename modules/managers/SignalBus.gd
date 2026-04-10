@@ -15,3 +15,7 @@ signal update_xp_info
 signal on_master_volume_changed
 signal on_music_volume_changed
 signal on_sfx_volume_changed
+
+# EndGame
+signal game_over
+signal game_win
