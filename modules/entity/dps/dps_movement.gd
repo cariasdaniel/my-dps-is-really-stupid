@@ -2,7 +2,6 @@ extends Node
 class_name DpsMovement
 
 @onready var player = $"../../Player"
-@onready var enemy = $"../../Enemy"
 
 var direction:= Vector2.ZERO
 var aim_direction:= Vector2.ZERO

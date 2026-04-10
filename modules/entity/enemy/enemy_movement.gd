@@ -1,9 +1,6 @@
 extends Node
 class_name EnemyMovement
 
-@onready var player = $"../../Player"
-@onready var dps = $"../../Dps"
-
 var direction:= Vector2.ZERO
 var aim_direction:= Vector2.ZERO
 
@@ -26,8 +23,6 @@ func _process(delta: float) -> void:
 		pass #play moving
 
 func _on_safe_area_body_entered(body: Node2D) -> void:
-	if body == dps:
-		print("DPS spotted")
-	if body == player:
-		print("Player spotted")
-	# Switch focus to enemy that just entered
+	if body.is_in_group('players'):
+		print("Found a player")
+	 #Switch focus to enemy that just entered

@@ -3,8 +3,8 @@ class_name DpsIdle
 
 @onready var player = $"../../../Player"
 @onready var dps: CharacterBody2D = $"../.."
-@onready var enemy: CharacterBody2D = $"../../../Enemy"
 
+@onready var search_area: Area2D = $"../../SearchArea"
 @onready var safe_area: Area2D = $"../../SafeArea"
 
 var move_direction: Vector2
@@ -12,9 +12,8 @@ var wander_time: float
 
 func randomize_wander():
 	move_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	wander_time = randf_range(1, 3)
-	if player not in safe_area.get_overlapping_bodies():
-		print("finding player")
+	wander_time = randf_range(0.1, 0.6)
+	if player not in search_area.get_overlapping_bodies():
 		move_direction = (player.global_position - dps.global_position).normalized()
 
 func enter():
@@ -33,6 +32,6 @@ func physics_update(delta):
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body == player:
 		print("Hello friend")
-	if body == enemy:
+	if body.is_in_group("enemies"):
 		print("Enemy spotted")
 		transitioned.emit(self, 'attack')

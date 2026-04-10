@@ -2,17 +2,30 @@ extends State
 class_name DpsAttack
 
 @onready var dps: CharacterBody2D = $"../.."
-@onready var enemy: CharacterBody2D = $"../../../Enemy"
+var closest_target = null
 
 func enter():
 	print("DPS entered attack state")
-	pass
-	
+	_get_closest_enemy_in_range()
+
+func _get_closest_enemy_in_range():
+	var closest_distance = INF
+	for body in dps.search_area.get_overlapping_bodies():
+		if not body.is_in_group('enemies'): continue
+		var distance = (body.global_position - dps.global_position).length()
+		if distance < closest_distance:
+			closest_target = body
+
+func _is_in_danger():
+	for body in dps.safe_area.get_overlapping_bodies():
+		if body.is_in_group('enemies'): return true
+	return false
+
 func physics_update(delta):
-	var move_direction = enemy.global_position - dps.global_position
+	var move_direction = closest_target.global_position - dps.global_position
 	
 	# If enemy enters safe area, run away
-	if enemy in dps.safe_area.get_overlapping_bodies():
+	if _is_in_danger():
 		print("DANGER!!")
 		transitioned.emit(self, 'idle')
 		
@@ -31,4 +44,5 @@ func physics_update(delta):
 		else:
 			dps.sprite.flip_h = true
 		dps.sprite.play('attack')
+		#TODO: add attack effects
 	
