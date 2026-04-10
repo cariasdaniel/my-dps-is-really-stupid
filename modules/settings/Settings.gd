@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var tab_bar: TabBar = $MarginContainer/VBoxContainer/HBoxContainer/TabBar
 @onready var v_box_container: VBoxContainer = $MarginContainer/VBoxContainer
@@ -21,3 +21,13 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 func _on_close_button_pressed() -> void:
 	get_tree().paused = false
 	queue_free()
+
+
+func _on_master_slider_value_changed(value: float) -> void:
+	AudioManager._change_master_volume(value)
+
+func _on_music_slider_value_changed(value: float) -> void:
+	AudioManager._change_music_volume(value)
+
+func _on_sfx_volume_value_changed(value: float) -> void:
+	AudioManager._change_sfx_volume(value)

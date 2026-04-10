@@ -2,18 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bsxlcmpyjppb1" path="res://modules/settings/Settings.gd" id="1_cnujn"]
 
-[node name="Settings" type="Control" unique_id=343796743]
+[node name="Settings" type="CanvasLayer" unique_id=1169219565]
 process_mode = 3
-layout_mode = 3
+script = ExtResource("1_cnujn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1974203432]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cnujn")
+color = Color(0, 0, 0, 0.79607844)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2098109289]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -86,8 +87,9 @@ text = "Master Volume"
 custom_minimum_size = Vector2(144, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
 step = 0.01
-value = 100.0
+value = 1.0
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1259100680]
 layout_mode = 2
@@ -97,8 +99,9 @@ text = "Music"
 custom_minimum_size = Vector2(144, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
 step = 0.01
-value = 100.0
+value = 1.0
 
 [node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=918715376]
 layout_mode = 2
@@ -108,8 +111,9 @@ text = "Sound Effects"
 custom_minimum_size = Vector2(144, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
 step = 0.01
-value = 100.0
+value = 1.0
 
 [node name="GameplayPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1499620029]
 visible = false
@@ -125,3 +129,6 @@ size_flags_stretch_ratio = 15.0
 
 [connection signal="tab_changed" from="MarginContainer/VBoxContainer/HBoxContainer/TabBar" to="." method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer/SfxVolume" to="." method="_on_sfx_volume_value_changed"]
