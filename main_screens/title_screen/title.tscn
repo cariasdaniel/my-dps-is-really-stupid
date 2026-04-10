@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ds5lvaity2anc" path="res://main_screens/title_screen/title_screen.gd" id="1_bdnv4"]
 [ext_resource type="Texture2D" uid="uid://dk28julmvoyre" path="res://assets/bg.png" id="2_pfg60"]
 [ext_resource type="Texture2D" uid="uid://cq8hnlaguqxpg" path="res://assets/title.png" id="3_pfg60"]
+[ext_resource type="AudioStream" uid="uid://dlu6u4e4o5b0e" path="res://assets/bgm/title-music.mp3" id="4_v4gn7"]
 
 [sub_resource type="Animation" id="Animation_j0lui"]
 length = 0.001
@@ -113,6 +114,10 @@ text = "QUIT"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1112163089]
 libraries/ = SubResource("AnimationLibrary_440id")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=684688173]
+stream = ExtResource("4_v4gn7")
+autoplay = true
 
 [connection signal="pressed" from="ButtonsMenu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonsMenu/Settings" to="." method="_on_settings_pressed"]
