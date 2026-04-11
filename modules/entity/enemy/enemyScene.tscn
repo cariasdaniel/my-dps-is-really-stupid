@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nlpb0sqhemm8"]
 
-[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy_entity.gd" id="1_4hi17"]
+[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy_entity.gd" id="1_4hi17"]
 [ext_resource type="Script" uid="uid://gjowv2d8n4b7" path="res://modules/entity/enemy/enemy_movement.gd" id="2_7l18m"]
 [ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="3_vst5v"]
 [ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="4_yp600"]
@@ -224,8 +224,8 @@ states/Start/position = Vector2(287, 128)
 transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_tbgi4"), "BlendTree", "End", SubResource("AnimationNodeStateMachineTransition_tefeu")]
 graph_offset = Vector2(1, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm3ni"]
-size = Vector2(76, 33)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hi17"]
+size = Vector2(46, 24)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=252566114]
 texture_filter = 1
@@ -234,7 +234,6 @@ script = ExtResource("1_4hi17")
 
 [node name="EnemyMovement" type="Node" parent="." unique_id=570258565]
 script = ExtResource("2_7l18m")
-curr_speed = 120.0
 
 [node name="StateMachine" type="Node" parent="." unique_id=33006872 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_vst5v")
@@ -265,5 +264,5 @@ tree_root = SubResource("AnimationNodeStateMachine_tefeu")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=276892660]
-position = Vector2(-4, 4.5)
-shape = SubResource("RectangleShape2D_pm3ni")
+position = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_4hi17")

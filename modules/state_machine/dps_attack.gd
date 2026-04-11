@@ -2,9 +2,11 @@ extends State
 class_name DpsAttack
 
 @onready var dps: CharacterBody2D = $"../.."
+var can_attack = true
+
 var closest_target = null
 
-func enter():
+func enter() -> void:
 	print("Entered ATTACK state")
 	_get_closest_enemy_in_range()
 
@@ -44,4 +46,10 @@ func physics_update(delta):
 	else:
 		dps.sprite.flip_h = true
 	dps.sprite.play('attack')
-	#TODO: add attack effects
+	# TODO implement attack effects
+	_shoot_arrow(direction)
+
+func _shoot_arrow(direction: Vector2) -> void:
+	print("Attacked!")
+	SignalBus.change_health.emit(closest_target, -1)
+	

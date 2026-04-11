@@ -1,7 +1,7 @@
 extends State
 class_name DpsIdle
 
-@onready var player = $"../../../Player"
+@onready var player: Player = $"../../../Player"
 @onready var dps: CharacterBody2D = $"../.."
 
 @onready var search_area: Area2D = $"../../SearchArea"
@@ -11,10 +11,13 @@ var move_direction: Vector2
 var wander_time: float
 
 func randomize_wander():
-	move_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	wander_time = randf_range(0.1, 0.6)
 	if player not in search_area.get_overlapping_bodies():
 		move_direction = (player.global_position - dps.global_position).normalized()
+		return
+		
+	move_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	wander_time = randf_range(0.1, 0.6)
+	
 
 func enter():
 	print("Entered IDLE state")

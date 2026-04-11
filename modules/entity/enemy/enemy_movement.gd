@@ -5,7 +5,6 @@ var direction:= Vector2.ZERO
 var aim_direction:= Vector2.ZERO
 
 @export var attack_range:= 175.0
-@export var curr_speed:= 500.0
 
 var entity: CharacterBody2D
 

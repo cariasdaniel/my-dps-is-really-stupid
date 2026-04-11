@@ -3,8 +3,6 @@ class_name EnemyIdle
 
 @onready var enemy: CharacterBody2D = $"../.."
 
-@export var move_speed:= 100.0
-
 var move_direction: Vector2
 var wander_time: float
 
@@ -22,5 +20,5 @@ func update(delta):
 		randomize_wander()
 
 func physics_update(delta):
-	if enemy: enemy.velocity = move_direction * move_speed
+	if enemy: enemy.velocity = move_direction * enemy.move_speed
 	

@@ -4,7 +4,7 @@ class_name PlayerMovement
 var direction:= Vector2.ZERO
 var aim_direction:= Vector2.ZERO
 
-@export var max_speed:= 350
+@export var max_speed:= 150
 @export var acceleration:= 20
 @export var friction:= 12
 

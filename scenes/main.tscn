@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://c3e61cp1248w7" path="res://modules/entity/dps/dps_movement.gd" id="6_tipki"]
 [ext_resource type="Script" uid="uid://cfqn8y7jb8ys0" path="res://modules/state_machine/dps_idle.gd" id="7_choun"]
 [ext_resource type="Script" uid="uid://b34oumh4xkf8o" path="res://modules/state_machine/dps_state_machine.gd" id="7_ya4ey"]
-[ext_resource type="Script" uid="uid://cdn4exdxaorm0" path="res://modules/entity/dps_entity.gd" id="8_jkv2x"]
+[ext_resource type="Script" uid="uid://cdn4exdxaorm0" path="res://modules/entity/dps/dps_entity.gd" id="8_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://c6wdw5k8efg2f" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Attack01.png" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://cis0gftqahve5" path="res://modules/state_machine/dps_attack.gd" id="12_y6deb"]
 [ext_resource type="Texture2D" uid="uid://g04qjtxsjy5y" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="13_jbj1t"]
@@ -387,6 +387,10 @@ states/Start/position = Vector2(287, 128)
 transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_tbgi4"), "BlendTree", "End", SubResource("AnimationNodeStateMachineTransition_tefeu")]
 graph_offset = Vector2(1, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yc10j"]
+radius = 14.0
+height = 42.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
 radius = 254.00197
 
@@ -484,55 +488,55 @@ animation = &"idle"
 position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_0wfyh")
 
-[node name="Dps" type="CharacterBody2D" parent="." unique_id=893900717 groups=["Players"]]
+[node name="Dps" type="CharacterBody2D" parent="." unique_id=1760791641 groups=["Players"]]
 texture_filter = 1
 position = Vector2(0, 256)
 motion_mode = 1
 script = ExtResource("8_jkv2x")
 
-[node name="DpsMovement" type="Node" parent="Dps" unique_id=1995926600]
+[node name="DpsMovement" type="Node" parent="Dps" unique_id=1735473779]
 script = ExtResource("6_tipki")
 
-[node name="StateMachine" type="Node" parent="Dps" unique_id=1587588599 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="Dps" unique_id=584374476 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_ya4ey")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="Dps/StateMachine" unique_id=723284609]
+[node name="Idle" type="Node" parent="Dps/StateMachine" unique_id=180889574]
 script = ExtResource("7_choun")
 
-[node name="Attack" type="Node" parent="Dps/StateMachine" unique_id=50384535]
+[node name="Attack" type="Node" parent="Dps/StateMachine" unique_id=1916541430]
 script = ExtResource("12_y6deb")
 
-[node name="Flee" type="Node" parent="Dps/StateMachine" unique_id=1523659217]
+[node name="Flee" type="Node" parent="Dps/StateMachine" unique_id=632028483]
 script = ExtResource("14_yc10j")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dps" unique_id=1303653316]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Dps" unique_id=482001849]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_txyw0")
 animation = &"attack"
 speed_scale = 1.3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Dps" unique_id=2019196779]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dps" unique_id=718334484]
 libraries/ = SubResource("AnimationLibrary_jscy8")
 
-[node name="AnimationTree" type="AnimationTree" parent="Dps" unique_id=1742338162]
+[node name="AnimationTree" type="AnimationTree" parent="Dps" unique_id=1602754825]
 tree_root = SubResource("AnimationNodeStateMachine_tefeu")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Hitbox" type="CollisionShape2D" parent="Dps" unique_id=8044795]
+[node name="Hitbox" type="CollisionShape2D" parent="Dps" unique_id=1242966551]
 position = Vector2(0, -4)
-shape = SubResource("CapsuleShape2D_0wfyh")
+shape = SubResource("CapsuleShape2D_yc10j")
 
-[node name="SearchArea" type="Area2D" parent="Dps" unique_id=748496664]
+[node name="SearchArea" type="Area2D" parent="Dps" unique_id=2141201800]
 position = Vector2(0, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dps/SearchArea" unique_id=1186729199]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dps/SearchArea" unique_id=708111945]
 shape = SubResource("CircleShape2D_85g3d")
 
-[node name="SafeArea" type="Area2D" parent="Dps" unique_id=1791419932]
+[node name="SafeArea" type="Area2D" parent="Dps" unique_id=1100016594]
 position = Vector2(0, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dps/SafeArea" unique_id=979586834]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dps/SafeArea" unique_id=535097711]
 shape = SubResource("CircleShape2D_y6deb")
 debug_color = Color(0.97400206, 0.15459615, 0.12724671, 0.41960785)
 
@@ -569,7 +573,7 @@ position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_bu4jf")
 
 [node name="TimeToSpawn" type="Timer" parent="Portal" unique_id=771995028]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]
