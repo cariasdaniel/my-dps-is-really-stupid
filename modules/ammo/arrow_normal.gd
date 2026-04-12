@@ -14,3 +14,4 @@ func _on_body_entered(body: Node) -> void:
 	
 func _process(delta: float) -> void:
 	position += direction * velocity
+	rotation = direction.angle()

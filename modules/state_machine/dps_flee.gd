@@ -1,10 +1,7 @@
 extends State
 class_name DpsFlee
 
-@onready var player = $"../../../Player"
 @onready var dps: CharacterBody2D = $"../.."
-
-@onready var search_area: Area2D = $"../../SearchArea"
 @onready var safe_area: Area2D = $"../../SafeArea"
 
 @onready var flee_timer: Timer = $"../../FleeTime"
@@ -13,9 +10,6 @@ func enter():
 	print("Entered FLEE state")
 	flee_timer.wait_time = dps.flee_time
 	flee_timer.start()
-
-func update(delta):
-	pass
 
 func physics_update(delta):
 	var enemies = get_enemies_in_danger_zone()
@@ -28,7 +22,7 @@ func physics_update(delta):
 	#var player_pos = player.global_position.normalized()
 	#var flee_direction = player_pos.lerp((directions / enemies.size() * -1), 0.4).normalized()
 	var flee_direction = (directions / enemies.size()) * -1
-	dps.velocity = flee_direction.normalized() * dps.move_speed
+	dps.velocity = flee_direction.normalized() * dps.flee_speed
 	
 
 func get_enemies_in_danger_zone():

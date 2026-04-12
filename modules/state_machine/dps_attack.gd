@@ -19,7 +19,7 @@ func _get_closest_enemy_in_range():
 	closest_target = null
 	for body in dps.get_enemies_in_range():
 		var distance = (body.global_position - dps.global_position).length()
-		if distance < closest_distance and distance <= dps.atk_range:
+		if distance < closest_distance:
 			closest_target = body
 
 func _is_in_danger():
@@ -48,7 +48,7 @@ func physics_update(delta):
 	_shoot_arrow(direction)
 
 func _shoot_arrow(direction: Vector2) -> void:
-	dps.sprite.play('attack')
+	dps.sprite.play('attack_2')
 	if direction.x > 0: 
 		dps.sprite.flip_h = false
 	else:

@@ -15,6 +15,8 @@ var current_mana:= 0
 @export var defense: int = 50
 @export var magic_defense: int = 30
 
+@export var move_speed:= 100.0
+
 @export var skills: Array[SkillData] = []
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D

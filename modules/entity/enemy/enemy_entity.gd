@@ -6,14 +6,14 @@ class_name Enemy
 @onready var label: Label = $Label
 var mob_name = ""
 
-@export var move_speed = 50.0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_hp = max_hp
 	current_mana = max_mana
 	
 	hp_bar.max_value = max_hp
+	
+	move_speed = 50.0
 	
 	SignalBus.change_health.connect(_on_health_changed)
 
