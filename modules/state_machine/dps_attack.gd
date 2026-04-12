@@ -2,12 +2,14 @@ extends State
 class_name DpsAttack
 
 @onready var dps: CharacterBody2D = $"../.."
-var can_attack = true
+var can_attack: bool
 
 var closest_target = null
 
 func enter() -> void:
 	#print("Entered ATTACK state")
+	dps.velocity = Vector2.ZERO
+	can_attack = true
 	_get_closest_enemy_in_range()
 
 func _get_closest_enemy_in_range():
@@ -25,12 +27,14 @@ func _is_in_danger():
 
 
 func physics_update(delta):
+	if !can_attack: return
+	
 	# If enemy enters safe area, run away
 	if _is_in_danger():
 		#print("DANGER!!")
 		transitioned.emit(self, 'flee')
 		return
-		
+	
 	_get_closest_enemy_in_range()
 	
 	# If no enemy in range, go back to idle state
@@ -40,16 +44,18 @@ func physics_update(delta):
 		
 	var direction = closest_target.global_position - dps.global_position
 	
-	dps.velocity = Vector2(0, 0)
+	_shoot_arrow(direction)
+
+func _shoot_arrow(direction: Vector2) -> void:
+	dps.sprite.play('attack')
 	if direction.x > 0: 
 		dps.sprite.flip_h = false
 	else:
 		dps.sprite.flip_h = true
-	dps.sprite.play('attack')
-	# TODO implement attack effects
-	_shoot_arrow(direction)
-
-func _shoot_arrow(direction: Vector2) -> void:
-	#print("Attacked!")
-	SignalBus.change_health.emit(closest_target, -1)
+		
+	can_attack = false
+	print("Attacked " + closest_target.mob_name)
+	await dps.sprite.animation_finished
+	SignalBus.change_health.emit(closest_target, -10)
+	can_attack = true
 	

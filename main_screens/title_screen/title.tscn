@@ -116,6 +116,7 @@ text = "QUIT"
 libraries/ = SubResource("AnimationLibrary_440id")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=684688173]
+process_mode = 3
 stream = ExtResource("4_v4gn7")
 autoplay = true
 

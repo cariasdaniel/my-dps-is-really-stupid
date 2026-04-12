@@ -173,7 +173,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vxglm")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -417,6 +417,10 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_y6deb")
 debug_color = Color(0.97400206, 0.15459615, 0.12724671, 0.41960785)
 
+[node name="FleeTime" type="Timer" parent="Dps" unique_id=1461980671]
+wait_time = 2.0
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=702909677]
 anchor_mode = 0
 
@@ -456,6 +460,7 @@ autostart = true
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]
 [connection signal="body_entered" from="Dps/SearchArea" to="Dps/StateMachine/Idle" method="_on_safe_area_body_entered"]
 [connection signal="body_entered" from="Dps/SafeArea" to="Dps/StateMachine/Idle" method="_on_safe_area_body_entered"]
+[connection signal="timeout" from="Dps/FleeTime" to="Dps/StateMachine/Flee" method="_on_flee_time_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_game_over_button_pressed"]
 [connection signal="timeout" from="Portal/TimeToSpawn" to="Portal" method="_on_time_to_spawn_timeout"]
 

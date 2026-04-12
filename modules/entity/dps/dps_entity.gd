@@ -5,6 +5,8 @@ class_name Dps
 
 @export var atk_range:= 400
 
+@export var flee_time = 1.5
+
 @onready var search_area: Area2D = $SearchArea
 @onready var safe_area: Area2D = $SafeArea
 

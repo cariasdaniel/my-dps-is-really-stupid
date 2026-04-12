@@ -20,7 +20,7 @@ func randomize_wander():
 	
 
 func enter():
-	#print("Entered IDLE state")
+	print("Entered IDLE state")
 	randomize_wander()
 
 func update(delta):
