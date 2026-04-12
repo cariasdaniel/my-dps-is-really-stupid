@@ -10,7 +10,7 @@ var entity: CharacterBody2D
 
 func _ready() -> void:
 	entity = get_parent()
-	print("loaded enemy movement")
+	#print("loaded enemy movement")
 
 func set_target(target: CharacterBody2D) -> void:
 	pass
@@ -23,5 +23,6 @@ func _process(delta: float) -> void:
 
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group('players'):
-		print("Found a player")
+		#print("Found a player")
+		pass
 	 #Switch focus to enemy that just entered

@@ -9,7 +9,8 @@ class_name DpsFlee
 
 
 func enter():
-	print("Entered FLEE state")
+	#print("Entered FLEE state")
+	pass
 
 func update(delta):
 	pass

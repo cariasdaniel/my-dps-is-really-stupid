@@ -1,5 +1,8 @@
 extends Node
 
+#Cursor Controller
+signal hover_over
+
 # Skills Hotbar
 signal skill_selected(skill)
 

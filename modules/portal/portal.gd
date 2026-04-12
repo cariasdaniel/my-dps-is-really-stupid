@@ -10,7 +10,7 @@ func _ready() -> void:
 	portal_sprite.play('default')
 
 func _on_time_to_spawn_timeout() -> void:
-	print("Enemy spawned")
+	#print("Enemy spawned")
 	var enemy = _select_enemy_to_spawn().instantiate()
 	enemy.add_to_group("enemies")
 	get_tree().root.add_child(enemy)

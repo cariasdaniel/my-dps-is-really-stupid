@@ -7,7 +7,7 @@ var can_attack = true
 var closest_target = null
 
 func enter() -> void:
-	print("Entered ATTACK state")
+	#print("Entered ATTACK state")
 	_get_closest_enemy_in_range()
 
 func _get_closest_enemy_in_range():
@@ -27,7 +27,7 @@ func _is_in_danger():
 func physics_update(delta):
 	# If enemy enters safe area, run away
 	if _is_in_danger():
-		print("DANGER!!")
+		#print("DANGER!!")
 		transitioned.emit(self, 'flee')
 		return
 		
@@ -50,6 +50,6 @@ func physics_update(delta):
 	_shoot_arrow(direction)
 
 func _shoot_arrow(direction: Vector2) -> void:
-	print("Attacked!")
+	#print("Attacked!")
 	SignalBus.change_health.emit(closest_target, -1)
 	

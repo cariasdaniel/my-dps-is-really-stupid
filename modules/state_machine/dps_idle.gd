@@ -20,7 +20,7 @@ func randomize_wander():
 	
 
 func enter():
-	print("Entered IDLE state")
+	#print("Entered IDLE state")
 	randomize_wander()
 
 func update(delta):
@@ -37,5 +37,5 @@ func physics_update(delta):
 	
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
-		print("Enemy spotted")
+		#print("Enemy spotted")
 		transitioned.emit(self, 'attack')

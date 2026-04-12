@@ -7,7 +7,7 @@ var states:= {}
 var curr_state: State
 
 func _ready():
-	print("loaded enemy state machine")
+	#print("loaded enemy state machine")
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child

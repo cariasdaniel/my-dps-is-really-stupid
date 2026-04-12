@@ -15,7 +15,7 @@ func _ready():
 	if initial_state:
 		initial_state.enter()
 		curr_state = initial_state
-		print(curr_state)
+		#print(curr_state)
 
 
 func _process(delta):
