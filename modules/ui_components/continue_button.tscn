@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6tymcb7wmtmu"]
 
-[ext_resource type="Script" uid="uid://d3j51x3yjmm80" path="res://modules/components/continue_button.gd" id="1_0tjvp"]
+[ext_resource type="Script" uid="uid://d3j51x3yjmm80" path="res://modules/ui_components/continue_button.gd" id="1_0tjvp"]
 
 [sub_resource type="SystemFont" id="SystemFont_t31kc"]
 font_names = PackedStringArray("Upheaval TT (BRK)")

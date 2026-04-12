@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ycmjfrtbmw56"]
 
 [ext_resource type="Script" uid="uid://diwgr6pg0hf7" path="res://main_screens/cutscenes/initial_cutscene.gd" id="1_6mhc4"]
-[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://modules/components/continue_button.tscn" id="2_7vwo1"]
+[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://modules/ui_components/continue_button.tscn" id="2_7vwo1"]
 [ext_resource type="AudioStream" uid="uid://dtcos4cwhidi1" path="res://assets/bgm/intro-music.mp3" id="2_cwp7o"]
 
 [node name="InitialScene" type="Control" unique_id=91329868]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djuhg0xa8h66x" path="res://modules/skill_choice/skillChoice.gd" id="1_0iace"]
 [ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="2_xccd1"]
 [ext_resource type="PackedScene" uid="uid://bkwvubpqnkgph" path="res://modules/tooltip/tooltipScene.tscn" id="3_s4bnb"]
-[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://modules/components/continue_button.tscn" id="4_c1nit"]
+[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://modules/ui_components/continue_button.tscn" id="4_c1nit"]
 
 [node name="SkillChoice" type="CanvasLayer" unique_id=412054041]
 process_mode = 3
