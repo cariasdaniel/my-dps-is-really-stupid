@@ -3,6 +3,7 @@ class_name Dps
 
 @export var move_speed:= 100.0
 
+@export var atk_speed:= 30
 @export var atk_range:= 400
 
 @export var flee_time = 1.5

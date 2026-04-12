@@ -454,7 +454,7 @@ position = Vector2(2, -2)
 shape = SubResource("CapsuleShape2D_bu4jf")
 
 [node name="TimeToSpawn" type="Timer" parent="Portal" unique_id=771995028]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]

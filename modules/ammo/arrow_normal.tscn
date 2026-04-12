@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bnohq1hrbtpkx"]
+
+[ext_resource type="Script" uid="uid://cq0td2prbhkhu" path="res://modules/ammo/arrow_normal.gd" id="1_61tk0"]
+[ext_resource type="Texture2D" uid="uid://sqis1bsh4pu0" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_j0xrl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chkjf"]
+radius = 4.0
+height = 20.0
+
+[node name="ArrowNormal" type="Area2D" unique_id=1473382599]
+script = ExtResource("1_61tk0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1820253713]
+position = Vector2(-10, 0)
+texture = ExtResource("2_j0xrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1970362855]
+position = Vector2(-9, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_chkjf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

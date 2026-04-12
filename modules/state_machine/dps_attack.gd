@@ -2,8 +2,10 @@ extends State
 class_name DpsAttack
 
 @onready var dps: CharacterBody2D = $"../.."
-var can_attack: bool
 
+var normal_arrow = preload("res://modules/ammo/arrow_normal.tscn")
+
+var can_attack: bool
 var closest_target = null
 
 func enter() -> void:
@@ -43,7 +45,6 @@ func physics_update(delta):
 		return
 		
 	var direction = closest_target.global_position - dps.global_position
-	
 	_shoot_arrow(direction)
 
 func _shoot_arrow(direction: Vector2) -> void:
@@ -54,8 +55,14 @@ func _shoot_arrow(direction: Vector2) -> void:
 		dps.sprite.flip_h = true
 		
 	can_attack = false
-	print("Attacked " + closest_target.mob_name)
+	print("Attacked at " + closest_target.mob_name)
 	await dps.sprite.animation_finished
-	SignalBus.change_health.emit(closest_target, -10)
+	
+	var ammo: Area2D = normal_arrow.instantiate()
+	get_tree().root.add_child(ammo)
+	ammo.global_position = dps.global_position
+	ammo.velocity = dps.atk_speed * 0.5
+	ammo.direction = direction.normalized()
+	
 	can_attack = true
 	
