@@ -6,7 +6,7 @@ class_name DpsFlee
 
 @onready var flee_timer: Timer = $"../../FleeTime"
 
-func enter():
+func enter(options := {}):
 	print("Entered FLEE state")
 	flee_timer.wait_time = dps.flee_time
 	flee_timer.start()

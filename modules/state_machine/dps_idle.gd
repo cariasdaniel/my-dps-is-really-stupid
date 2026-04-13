@@ -19,7 +19,7 @@ func randomize_wander():
 	wander_time = randf_range(0.1, 0.6)
 	
 
-func enter():
+func enter(options := {}):
 	#print("Entered IDLE state")
 	randomize_wander()
 

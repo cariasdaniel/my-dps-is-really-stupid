@@ -11,6 +11,9 @@ signal gain_xp(value)
 signal change_health(value)
 signal change_mana(value)
 
+# DPS behavior management
+signal force_transitioned(new_state, options)
+
 # UI management
 signal update_xp_info
 
