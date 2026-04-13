@@ -5,7 +5,6 @@ var velocity : float
 var direction:= Vector2.ZERO
 
 func _on_body_entered(body: Node) -> void:
-	print('Collision!!')
 	if body.is_in_group('enemies'):
 		SignalBus.change_health.emit(body, -damage_value)
 	
