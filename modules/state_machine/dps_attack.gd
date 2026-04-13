@@ -1,5 +1,5 @@
 extends State
-class_name DpsAttack
+class_name EnemyAttack
 
 @onready var dps: CharacterBody2D = $"../.."
 
@@ -55,7 +55,6 @@ func _shoot_arrow(direction: Vector2) -> void:
 		dps.sprite.flip_h = true
 		
 	can_attack = false
-	print("Attacked at " + closest_target.mob_name)
 	await dps.sprite.animation_finished
 	
 	var ammo: Area2D = normal_arrow.instantiate()

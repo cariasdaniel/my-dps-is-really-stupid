@@ -11,6 +11,7 @@ func randomize_wander():
 	wander_time = randf_range(1, 3)
 
 func enter():
+	print("Entered IDLE state")
 	get_tree().create_timer(3.0)
 
 func update(delta):
@@ -20,5 +21,11 @@ func update(delta):
 		randomize_wander()
 
 func physics_update(delta):
-	if enemy: enemy.velocity = move_direction * enemy.move_speed
+	enemy.velocity = move_direction * enemy.move_speed
+	
+	if not enemy.get_enemies_in_range().is_empty():
+		transitioned.emit(self, 'attack')
+		
+	if not enemy.get_enemies_in_chase_area().is_empty():
+		transitioned.emit(self, 'chase')
 	

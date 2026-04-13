@@ -1,100 +1,102 @@
 [gd_scene format=3 uid="uid://nlpb0sqhemm8"]
 
-[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy_entity.gd" id="1_4hi17"]
-[ext_resource type="Script" uid="uid://gjowv2d8n4b7" path="res://modules/entity/enemy/enemy_movement.gd" id="2_7l18m"]
-[ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="3_vst5v"]
-[ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="4_yp600"]
-[ext_resource type="Texture2D" uid="uid://c4k1307jvm7" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Attack01.png" id="5_k4ugv"]
-[ext_resource type="Texture2D" uid="uid://8yv1hnfc7i32" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Death.png" id="6_ib167"]
-[ext_resource type="Texture2D" uid="uid://ccpm4bjfd1x0q" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Idle.png" id="7_0tvl5"]
-[ext_resource type="Texture2D" uid="uid://ddq12ho4keof6" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Walk.png" id="8_ttwju"]
+[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy_entity.gd" id="1_uhx0m"]
+[ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="2_7uxu4"]
+[ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="3_mdcui"]
+[ext_resource type="Script" uid="uid://cl7gh14nuxv7d" path="res://modules/state_machine/enemy_chase.gd" id="4_7uxu4"]
+[ext_resource type="Texture2D" uid="uid://c4k1307jvm7" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Attack01.png" id="4_ikdmk"]
+[ext_resource type="Texture2D" uid="uid://8yv1hnfc7i32" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Death.png" id="5_jjup5"]
+[ext_resource type="Script" uid="uid://jc07wrtvhtbw" path="res://modules/state_machine/enemy_attack.gd" id="5_mdcui"]
+[ext_resource type="Texture2D" uid="uid://ccpm4bjfd1x0q" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Idle.png" id="6_wfyvu"]
+[ext_resource type="Texture2D" uid="uid://ddq12ho4keof6" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Walk.png" id="7_at850"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="8_wbf5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
-atlas = ExtResource("5_k4ugv")
+atlas = ExtResource("4_ikdmk")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
-atlas = ExtResource("5_k4ugv")
+atlas = ExtResource("4_ikdmk")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvyfr"]
-atlas = ExtResource("5_k4ugv")
+atlas = ExtResource("4_ikdmk")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ty1g6"]
-atlas = ExtResource("5_k4ugv")
+atlas = ExtResource("4_ikdmk")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2jfr"]
-atlas = ExtResource("5_k4ugv")
+atlas = ExtResource("4_ikdmk")
 region = Rect2(400, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjg73"]
-atlas = ExtResource("5_k4ugv")
+atlas = ExtResource("4_ikdmk")
 region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bu4jf"]
-atlas = ExtResource("6_ib167")
+atlas = ExtResource("5_jjup5")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7ddy"]
-atlas = ExtResource("6_ib167")
+atlas = ExtResource("5_jjup5")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0loja"]
-atlas = ExtResource("6_ib167")
+atlas = ExtResource("5_jjup5")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ids8r"]
-atlas = ExtResource("6_ib167")
+atlas = ExtResource("5_jjup5")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnhof"]
-atlas = ExtResource("7_0tvl5")
+atlas = ExtResource("6_wfyvu")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1v6qk"]
-atlas = ExtResource("7_0tvl5")
+atlas = ExtResource("6_wfyvu")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_augu2"]
-atlas = ExtResource("7_0tvl5")
+atlas = ExtResource("6_wfyvu")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tm6hj"]
-atlas = ExtResource("7_0tvl5")
+atlas = ExtResource("6_wfyvu")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf5aa"]
-atlas = ExtResource("7_0tvl5")
+atlas = ExtResource("6_wfyvu")
 region = Rect2(400, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5ykj"]
-atlas = ExtResource("7_0tvl5")
+atlas = ExtResource("6_wfyvu")
 region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e755i"]
-atlas = ExtResource("8_ttwju")
+atlas = ExtResource("7_at850")
 region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ro3en"]
-atlas = ExtResource("8_ttwju")
+atlas = ExtResource("7_at850")
 region = Rect2(100, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od4ux"]
-atlas = ExtResource("8_ttwju")
+atlas = ExtResource("7_at850")
 region = Rect2(200, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhfw6"]
-atlas = ExtResource("8_ttwju")
+atlas = ExtResource("7_at850")
 region = Rect2(300, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1epgm"]
-atlas = ExtResource("8_ttwju")
+atlas = ExtResource("7_at850")
 region = Rect2(400, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_152kg"]
-atlas = ExtResource("8_ttwju")
+atlas = ExtResource("7_at850")
 region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r4e17"]
@@ -186,101 +188,58 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_0ld40"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_gqmmt"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_yc10j"]
-resource_name = "walk"
-length = 0.8
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jscy8"]
-_data = {
-&"RESET": SubResource("Animation_0ld40"),
-&"idle": SubResource("Animation_gqmmt"),
-&"walk": SubResource("Animation_yc10j")
-}
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jyhfs"]
-graph_offset = Vector2(81, 106)
-nodes/output/position = Vector2(600, 260)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tbgi4"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tefeu"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tefeu"]
-states/BlendTree/node = SubResource("AnimationNodeBlendTree_jyhfs")
-states/BlendTree/position = Vector2(580, 128)
-states/End/position = Vector2(914, 122)
-states/Start/position = Vector2(287, 128)
-transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_tbgi4"), "BlendTree", "End", SubResource("AnimationNodeStateMachineTransition_tefeu")]
-graph_offset = Vector2(1, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hi17"]
-size = Vector2(46, 24)
+size = Vector2(56, 35)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=252566114]
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhx0m"]
+radius = 219.00912
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7uxu4"]
+radius = 53.009434
+
+[node name="Slime" type="CharacterBody2D" unique_id=252566114 groups=["enemies"]]
 texture_filter = 1
 motion_mode = 1
-script = ExtResource("1_4hi17")
-
-[node name="EnemyMovement" type="Node" parent="." unique_id=570258565]
-script = ExtResource("2_7l18m")
+script = ExtResource("1_uhx0m")
 
 [node name="StateMachine" type="Node" parent="." unique_id=33006872 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_vst5v")
+script = ExtResource("2_7uxu4")
 initial_state = NodePath("Wander")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=829869508]
-script = ExtResource("4_yp600")
-
 [node name="Wander" type="Node" parent="StateMachine" unique_id=556682056]
-script = ExtResource("4_yp600")
+script = ExtResource("3_mdcui")
 
 [node name="Chase" type="Node" parent="StateMachine" unique_id=579344132]
+script = ExtResource("4_7uxu4")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=1250403239]
+script = ExtResource("5_mdcui")
 
-[node name="Flee" type="Node" parent="StateMachine" unique_id=2005296393]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=1848960995]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1181009728]
+position = Vector2(0, -22)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_r4e17")
 animation = &"attack"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=555178318]
-libraries/ = SubResource("AnimationLibrary_jscy8")
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1138305989]
-tree_root = SubResource("AnimationNodeStateMachine_tefeu")
-anim_player = NodePath("../AnimationPlayer")
-
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=276892660]
-position = Vector2(3, 6)
+position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_4hi17")
 
-[node name="HpBar" type="ProgressBar" parent="." unique_id=1777046124]
-modulate = Color(1, 0.043137256, 0, 1)
-offset_left = -36.0
-offset_top = -25.0
-offset_right = 36.0
-offset_bottom = -14.0
-size_flags_horizontal = 0
-value = 100.0
-show_percentage = false
+[node name="HpBar" parent="." unique_id=1072266925 instance=ExtResource("8_wbf5k")]
+script = null
 
-[node name="Label" type="Label" parent="." unique_id=1811688419]
-offset_left = -28.0
-offset_top = 18.0
-offset_right = 28.0
-offset_bottom = 36.0
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="StartChaseArea" type="Area2D" parent="." unique_id=35475813]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartChaseArea" unique_id=1469262016]
+position = Vector2(0, -18)
+shape = SubResource("CircleShape2D_uhx0m")
+debug_color = Color(5.3425133e-06, 0.6433958, 0.3064144, 0.41960785)
+
+[node name="AttackRange" type="Area2D" parent="." unique_id=1797777094]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1457305495]
+position = Vector2(0, -18)
+shape = SubResource("CircleShape2D_7uxu4")
+debug_color = Color(0.994914, 0.058670208, 0.07624019, 0.41960785)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bd6smafetgjns"]
+
+[sub_resource type="GDScript" id="GDScript_xhjga"]
+script/source = "extends ProgressBar
+"
+
+[node name="HpBar" type="ProgressBar" unique_id=1072266925]
+modulate = Color(1, 0.043137256, 0, 1)
+offset_left = -36.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 15.0
+size_flags_horizontal = 0
+value = 100.0
+show_percentage = false
+script = SubResource("GDScript_xhjga")
