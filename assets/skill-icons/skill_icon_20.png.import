@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2cm0550onogn"
-path="res://.godot/imported/knife_and_fork.webp-13d06593f3baefb099daeb47d52efec3.ctex"
+uid="uid://0lmxr5o0ygfh"
+path="res://.godot/imported/skill_icon_20.png-4b40ea923ec0fc424c77f5f7de7625c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/skill-icons/knife_and_fork.webp"
-dest_files=["res://.godot/imported/knife_and_fork.webp-13d06593f3baefb099daeb47d52efec3.ctex"]
+source_file="res://assets/skill-icons/skill_icon_20.png"
+dest_files=["res://.godot/imported/skill_icon_20.png-4b40ea923ec0fc424c77f5f7de7625c7.ctex"]
 
 [params]
 

@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://main_screens/ui.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bwviggvb3044r" path="res://scenes/main.gd" id="1_trceg"]
-[ext_resource type="Texture2D" uid="uid://b01od15jeest3" path="res://assets/settings.png" id="3_2wyq8"]
+[ext_resource type="Texture2D" uid="uid://bubrm76fij58p" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Settings.png" id="3_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://de01tspq3bri2" path="res://assets/player-img.png" id="3_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://b65ycqo4nwake" path="res://scenes/player.tscn" id="4_0ld40"]
+[ext_resource type="Texture2D" uid="uid://c01ahoswp7ji4" path="res://assets/dps-img.png" id="4_yc10j"]
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="5_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="6_y6deb"]
 [ext_resource type="Script" uid="uid://cfqn8y7jb8ys0" path="res://modules/state_machine/dps_idle.gd" id="7_choun"]
@@ -18,8 +20,7 @@
 [ext_resource type="Script" uid="uid://d5agktjaulvt" path="res://modules/portal/portal.gd" id="19_gqmmt"]
 [ext_resource type="Texture2D" uid="uid://c0pxvumgawwka" path="res://assets/sprites/portal.png" id="20_yc10j"]
 [ext_resource type="AudioStream" uid="uid://dhpnj2ngb1ylr" path="res://assets/bgm/main-music.mp3" id="25_og1vs"]
-
-[sub_resource type="Resource" id="Resource_dp3eg"]
+[sub_resource type="Resource" id="Resource_jscy8"]
 resource_local_to_scene = true
 script = ExtResource("5_pm3ni")
 id = "heal"
@@ -334,19 +335,31 @@ script = ExtResource("1_trceg")
 
 [node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("1_o5qli")]
 
+[node name="PlayerImage" parent="CanvasLayer/PlayerResourceDisplay/PlayerStatusPanel" parent_id_path=PackedInt32Array(428319222, 434493705) index="0" unique_id=1702732632]
+texture = ExtResource("3_gqmmt")
+
+[node name="DpsImage" parent="CanvasLayer/PartyStatusLateral/DpsStatusPanel" parent_id_path=PackedInt32Array(428319222, 15253932) index="0" unique_id=1981182493]
+texture = ExtResource("4_yc10j")
+
+[node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
+offset_top = -58.0
+offset_bottom = -10.0
+theme_override_constants/separation = -6
+
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1537115382]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -62.0
+offset_left = -52.0
 offset_top = 15.0
-offset_right = -22.0
-offset_bottom = 55.0
+offset_right = -20.0
+offset_bottom = 47.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("3_2wyq8")
-stretch_mode = 5
+texture_normal = ExtResource("3_dp3eg")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("4_0ld40")]
 position = Vector2(329, 267)

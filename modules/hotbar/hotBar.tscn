@@ -7,9 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://cy2pvnv4l0loq" path="res://modules/hotbar/skillSlot.tscn" id="5_808ib"]
 
 [node name="HotBar" type="HBoxContainer" unique_id=714711800]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.5
+offset_top = -48.0
+offset_right = 126.5
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_constants/separation = -2
+theme_override_constants/separation = -7
+alignment = 1
 script = ExtResource("1_exljn")
 skills = Array[ExtResource("2_808ib")]([ExtResource("3_x3poc"), null, ExtResource("4_k133m"), null, null, null])
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5mnguuqrygec"
-path="res://.godot/imported/travelling_cook.webp-3efe56614cd5cb2fa5798463192bb43c.ctex"
+uid="uid://0p1r38sq16bc"
+path="res://.godot/imported/skill_icon_02.png-ab299ade753516e7778630467afe6d6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/skill-icons/travelling_cook.webp"
-dest_files=["res://.godot/imported/travelling_cook.webp-3efe56614cd5cb2fa5798463192bb43c.ctex"]
+source_file="res://assets/skill-icons/skill_icon_02.png"
+dest_files=["res://.godot/imported/skill_icon_02.png-ab299ade753516e7778630467afe6d6f.ctex"]
 
 [params]
 

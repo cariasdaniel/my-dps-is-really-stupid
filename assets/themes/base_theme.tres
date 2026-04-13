@@ -1,84 +1,95 @@
 [gd_resource type="Theme" format=3 uid="uid://bptlitjpwe2ap"]
 
-[ext_resource type="Texture2D" uid="uid://bujmwwwydelxx" path="res://assets/themes/button-deactivated-bg.png" id="1_dmluj"]
-[ext_resource type="Texture2D" uid="uid://djc2efyc5jgop" path="res://assets/themes/button-hover-bg.png" id="1_x8h5s"]
-[ext_resource type="Texture2D" uid="uid://duf3v48qfccun" path="res://assets/themes/button-pressed-bg.png" id="3_dmluj"]
-[ext_resource type="Texture2D" uid="uid://m24upxrmyqtg" path="res://assets/themes/panel-bg.png" id="4_eff52"]
+[ext_resource type="Texture2D" uid="uid://b51oel4blnh4l" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Long_Red.png" id="1_w5rcv"]
+[ext_resource type="Texture2D" uid="uid://nvtyqa7r4u03" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Long_Blue.png" id="2_dfkqh"]
+[ext_resource type="Texture2D" uid="uid://ctvm74honswwa" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Long_Green.png" id="3_ivb5k"]
+[ext_resource type="Texture2D" uid="uid://c4ooj67i84heo" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Small_Blue.png" id="4_bo8a6"]
 [ext_resource type="FontFile" uid="uid://iuahyxjhrsm2" path="res://assets/fonts/upheaval/upheavtt.ttf" id="5_dmluj"]
+[ext_resource type="Texture2D" uid="uid://icmm8lgo0jg7" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Small_Grey.png" id="8_3bfp0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfkqh"]
-texture = ExtResource("1_dmluj")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("1_w5rcv")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 25.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoeoq"]
-texture = ExtResource("1_x8h5s")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("2_dfkqh")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 25.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bua28"]
-texture = ExtResource("1_x8h5s")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("3_ivb5k")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 25.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkkli"]
-texture = ExtResource("4_eff52")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("2_dfkqh")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 25.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5rcv"]
-texture = ExtResource("3_dmluj")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 2.0
+texture = ExtResource("2_dfkqh")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 20.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmluj"]
-texture = ExtResource("4_eff52")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 10.0
+texture = ExtResource("4_bo8a6")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eoeoq"]
+load_path = "res://.godot/imported/button-hover-bg.png-6d28235885a78a41a1a5b57d142df440.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eff52"]
-texture = ExtResource("1_x8h5s")
+texture = SubResource("CompressedTexture2D_eoeoq")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bua28"]
+load_path = "res://.godot/imported/panel-bg.png-1a1e7ec8752da79b446268d8a49945d8.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivb5k"]
-texture = ExtResource("4_eff52")
+texture = SubResource("CompressedTexture2D_bua28")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xkkli"]
+load_path = "res://.godot/imported/button-deactivated-bg.png-2b7dd4977d5643f810b1d471e7fc4fa6.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bo8a6"]
-texture = ExtResource("1_dmluj")
+texture = SubResource("CompressedTexture2D_xkkli")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3bfp0"]
-texture = ExtResource("1_dmluj")
-texture_margin_left = 5.0
-texture_margin_top = 5.0
-texture_margin_right = 5.0
-texture_margin_bottom = 5.0
+texture = ExtResource("8_3bfp0")
+texture_margin_left = 15.0
+texture_margin_top = 25.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 1, 1, 0.8666667)
 
 [resource]
 default_font = ExtResource("5_dmluj")

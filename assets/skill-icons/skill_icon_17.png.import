@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkjffvgmdhcgp"
-path="res://.godot/imported/cooking.webp-91ef4d1a26451a76782cb5fe7791c97e.ctex"
+uid="uid://dtn8tlm7x3ee4"
+path="res://.godot/imported/skill_icon_17.png-2d1855ff3672bb8921ca08b2c1647a5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/skill-icons/cooking.webp"
-dest_files=["res://.godot/imported/cooking.webp-91ef4d1a26451a76782cb5fe7791c97e.ctex"]
+source_file="res://assets/skill-icons/skill_icon_17.png"
+dest_files=["res://.godot/imported/skill_icon_17.png-2d1855ff3672bb8921ca08b2c1647a5b.ctex"]
 
 [params]
 

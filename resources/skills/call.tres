@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://ct3c8jixowgpu"]
 
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_80ug7"]
-[ext_resource type="Texture2D" uid="uid://bkjffvgmdhcgp" path="res://assets/skill-icons/cooking.webp" id="1_wnwq6"]
+[ext_resource type="Texture2D" uid="uid://bdb0ubwinbrd6" path="res://assets/skill-icons/skill_icon_03.png" id="1_wnwq6"]
 
 [resource]
 script = ExtResource("1_80ug7")
@@ -13,4 +13,3 @@ cooldown = 60.0
 max_level = 1
 tier = 1
 icon = ExtResource("1_wnwq6")
-metadata/_custom_type_script = "uid://d2q5b63b0hlo5"

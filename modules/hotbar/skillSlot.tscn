@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cy2pvnv4l0loq"]
 
 [ext_resource type="Script" uid="uid://dxqtb3o0r3nht" path="res://modules/hotbar/skill_slot.gd" id="1_8r1bd"]
-[ext_resource type="Texture2D" uid="uid://dox1owjrlsdoe" path="res://assets/themes/hotbar-slot.png" id="1_ji42x"]
+[ext_resource type="Texture2D" uid="uid://1xt63bjw4wgl" path="res://assets/themes/hotbar-slot.png" id="1_ji42x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_740p2"]
 
@@ -35,6 +35,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ji42x")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=367713734]
 layout_mode = 1

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://lc7g4v1wywdd"]
 
-[ext_resource type="Texture2D" uid="uid://b5mnguuqrygec" path="res://assets/skill-icons/travelling_cook.webp" id="1_c3pda"]
+[ext_resource type="Texture2D" uid="uid://bdb0ubwinbrd6" path="res://assets/skill-icons/skill_icon_03.png" id="1_c3pda"]
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="2_c3pda"]
 
 [resource]

@@ -29,8 +29,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_2y3uk")
 texture_over = ExtResource("3_628o8")
 texture_progress = ExtResource("4_m583w")
-tint_over = Color(1, 0.13725491, 0.48235294, 1)
-tint_progress = Color(1, 0.13725491, 0.48235294, 1)
+tint_over = Color(0.91888684, 0.030822692, 7.70092e-07, 1)
+tint_progress = Color(0.91764706, 0.03137255, 0, 1)
 
 [node name="DamageBar" type="TextureProgressBar" parent="." unique_id=723469975]
 z_index = -1
@@ -61,4 +61,3 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "100 / 100"
 horizontal_alignment = 1
-vertical_alignment = 1
