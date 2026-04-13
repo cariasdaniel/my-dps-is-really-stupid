@@ -1,5 +1,5 @@
 extends State
-class_name DpsAttack
+class_name EnemyAttack
 
 @onready var enemy: Enemy = $"../.."
 

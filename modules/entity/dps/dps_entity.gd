@@ -16,6 +16,7 @@ var radius_scalar :float = 1.0 :
 @onready var search_area: Area2D = $SearchArea
 @onready var safe_area: Area2D = $SafeArea
 
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	

@@ -1,5 +1,5 @@
 extends State
-class_name EnemyAttack
+class_name DpsAttack
 
 @onready var dps: CharacterBody2D = $"../.."
 
@@ -8,11 +8,17 @@ var normal_arrow = preload("res://modules/ammo/arrow_normal.tscn")
 var can_attack: bool
 var closest_target = null
 
-func enter() -> void:
+var overwritten: bool
+
+func enter(options := {}) -> void:
 	#print("Entered ATTACK state")
 	dps.velocity = Vector2.ZERO
 	can_attack = true
 	_get_closest_enemy_in_range()
+	if options:
+		print("Entered ATTACK state on PLAYER's COMMAND")
+		closest_target = options.target
+		
 
 func _get_closest_enemy_in_range():
 	var closest_distance = INF
@@ -21,6 +27,7 @@ func _get_closest_enemy_in_range():
 		var distance = (body.global_position - dps.global_position).length()
 		if distance < closest_distance:
 			closest_target = body
+
 
 func _is_in_danger():
 	for body in dps.safe_area.get_overlapping_bodies():
@@ -32,15 +39,15 @@ func physics_update(delta):
 	if !can_attack: return
 	
 	# If enemy enters safe area, run away
-	if _is_in_danger():
+	if _is_in_danger() and not overwritten:
 		#print("DANGER!!")
 		transitioned.emit(self, 'flee')
 		return
 	
-	_get_closest_enemy_in_range()
+	if not overwritten: _get_closest_enemy_in_range()
 	
 	# If no enemy in range, go back to idle state
-	if closest_target == null:
+	if closest_target == null and not overwritten:
 		transitioned.emit(self, 'idle')
 		return
 		
@@ -64,4 +71,6 @@ func _shoot_arrow(direction: Vector2) -> void:
 	ammo.direction = direction.normalized()
 	
 	can_attack = true
-	
+
+func _on_overwrite_timer_timeout() -> void:
+	overwritten = false
