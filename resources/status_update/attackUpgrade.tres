@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://ds261aryj7tvx"]
 
-[ext_resource type="Texture2D" uid="uid://bfmqh6p0e4jas" path="res://assets/skill-icons/made_with_love.webp" id="1_grwql"]
+[ext_resource type="Texture2D" uid="uid://d0g55oim77yyb" path="res://assets/skill-icons/skill_icon_00.png" id="1_grwql"]
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="2_grwql"]
 
 [resource]

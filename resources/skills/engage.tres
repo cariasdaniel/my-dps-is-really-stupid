@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://db2kvighw32pk"]
 
-[ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="1_3aadu"]
+[ext_resource type="Texture2D" uid="uid://bvujrrcabuscx" path="res://assets/skill-icons/skill_icon_04.png" id="1_3aadu"]
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_4s8t6"]
 
 [resource]
@@ -17,4 +17,3 @@ vars = Array[int]([5])
 dependencies = Dictionary[String, int]({
 "call": 1
 })
-metadata/_custom_type_script = "uid://d2q5b63b0hlo5"

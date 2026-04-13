@@ -4,12 +4,15 @@
 
 [sub_resource type="SystemFont" id="SystemFont_4uoj1"]
 font_names = PackedStringArray("Ari-W9500", "Upheaval TT (BRK)")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_6eora"]
 font_names = PackedStringArray("Ari-W9500", "Upheaval TT (BRK)")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_n0td0"]
 font_names = PackedStringArray("Ari-W9500", "Upheaval TT (BRK)")
+subpixel_positioning = 0
 
 [node name="SkillTooltip" type="Control" unique_id=124368690]
 custom_minimum_size = Vector2(256, 256)

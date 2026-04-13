@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://uhxjnwtaotm6"]
 
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_1ikmi"]
-[ext_resource type="Texture2D" uid="uid://d2cm0550onogn" path="res://assets/skill-icons/knife_and_fork.webp" id="1_ihlhr"]
+[ext_resource type="Texture2D" uid="uid://ctwbpt31kngyf" path="res://assets/skill-icons/skill_icon_15.png" id="1_ihlhr"]
 
 [resource]
 script = ExtResource("1_1ikmi")

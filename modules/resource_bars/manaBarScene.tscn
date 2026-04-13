@@ -29,8 +29,8 @@ stretch_margin_bottom = 5
 texture_under = ExtResource("2_wn04l")
 texture_over = ExtResource("3_0gnul")
 texture_progress = ExtResource("4_42y6v")
-tint_over = Color(0.12156863, 0.47843137, 1, 1)
-tint_progress = Color(0.12156863, 0.47843137, 1, 1)
+tint_over = Color(0.12941177, 0.7058824, 1, 1)
+tint_progress = Color(0, 0.7607843, 1, 1)
 
 [node name="DamageBar" type="TextureProgressBar" parent="." unique_id=1557210762]
 z_index = -1
@@ -56,18 +56,11 @@ tint_progress = Color(0.12156863, 0.47843137, 1, 1)
 
 [node name="Text" type="Label" parent="." unique_id=540975992]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.5
-offset_top = -22.5
-offset_right = 42.5
-offset_bottom = 22.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "100 / 100"
 horizontal_alignment = 1
-vertical_alignment = 1
