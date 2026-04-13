@@ -13,8 +13,9 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.transitioned.connect(on_state_transition)
-			child.force_transitioned.connect(on_force_state_transition)
 			
+	SignalBus.force_transitioned.connect(on_force_state_transition)
+	
 	if initial_state:
 		initial_state.enter()
 		curr_state = initial_state

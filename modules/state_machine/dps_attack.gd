@@ -71,7 +71,6 @@ func _shoot_arrow(direction: Vector2) -> void:
 	ammo.direction = direction.normalized()
 	
 	can_attack = true
-	
 
 func _on_overwrite_timer_timeout() -> void:
 	overwritten = false

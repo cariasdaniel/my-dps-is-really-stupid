@@ -3,7 +3,7 @@ class_name State
 
 signal transitioned
 
-func enter(options:= {}): pass
+func enter(): pass
 func exit(): pass
 func update(delta): pass
 func physics_update(delta): pass
