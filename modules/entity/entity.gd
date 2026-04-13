@@ -32,10 +32,6 @@ func _ready() -> void:
 	current_hp = max_hp
 	current_mana = max_mana
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_mouse_entered_target():
 	var player = get_tree().get_first_node_in_group("Player")
