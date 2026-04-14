@@ -15,10 +15,11 @@ func _ready() -> void:
 	super()
 
 func _physics_process(_delta: float) -> void:
-	target.velocity += _knockback
+	target.velocity = _knockback
 	_knockback = lerp(_knockback, Vector2.ZERO, friction)
 	
 	if _knockback.length() <= 0.5:
+		SignalBus.interrupt.emit(get_parent())
 		end_effect.emit()
 
 func create_copy(): return Knockback.new(_force, _source)

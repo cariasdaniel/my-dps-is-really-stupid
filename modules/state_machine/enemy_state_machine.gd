@@ -15,6 +15,8 @@ func _ready():
 	if initial_state:
 		initial_state.enter()
 		curr_state = initial_state
+	
+	SignalBus.interrupt.connect(_on_interrupt)
 
 func _process(delta):
 	if curr_state:
@@ -34,3 +36,8 @@ func on_state_transition(state, new_state_name):
 	
 	new_state.enter()
 	curr_state = new_state
+
+func _on_interrupt(target):
+	if target != get_parent(): return
+
+	on_state_transition(curr_state, initial_state.name)

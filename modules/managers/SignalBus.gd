@@ -17,6 +17,7 @@ signal change_mana(value)
 
 # DPS behavior management
 signal force_transitioned(new_state, options)
+signal interrupt
 
 # Portal management
 signal portal_destroyed
