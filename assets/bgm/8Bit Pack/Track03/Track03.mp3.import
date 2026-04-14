@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drfht58hxvk48"
+path="res://.godot/imported/Track03.mp3-0284de01a02456a73cadb1870d29ac13.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/8Bit Pack/Track03/Track03.mp3"
+dest_files=["res://.godot/imported/Track03.mp3-0284de01a02456a73cadb1870d29ac13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://0c8hgx7cbbmk"]
 
 [ext_resource type="Script" uid="uid://bsxlcmpyjppb1" path="res://modules/settings/Settings.gd" id="1_cnujn"]
+[ext_resource type="Texture2D" uid="uid://c3jmrpdpadn3y" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Mid_Orange.png" id="2_kypp2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gkc8"]
+texture = ExtResource("2_kypp2")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 27.0
+expand_margin_bottom = 10.0
 
 [node name="Settings" type="CanvasLayer" unique_id=1169219565]
 process_mode = 3
@@ -14,58 +23,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.79607844)
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2098109289]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="AudioPanel" type="Panel" parent="." unique_id=1037101979]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 144
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 144
-theme_override_constants/margin_bottom = 64
+theme_override_styles/panel = SubResource("StyleBoxTexture_8gkc8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1066051024]
-layout_mode = 2
-theme_override_constants/separation = -2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=636599418]
-layout_mode = 2
-
-[node name="TabBar" type="TabBar" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2094053344]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-current_tab = 0
-close_with_middle_mouse = false
-select_with_rmb = true
-tab_count = 4
-tab_0/title = "General"
-tab_1/title = "Audio"
-tab_2/title = "Gameplay"
-tab_3/title = "Shortcuts"
-
-[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1897524563]
-layout_mode = 2
-text = " X "
-
-[node name="GeneralPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1887335944]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 15.0
-
-[node name="AudioPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1037101979]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 15.0
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/AudioPanel" unique_id=44739984]
+[node name="MarginContainer" type="MarginContainer" parent="AudioPanel" unique_id=44739984]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -59.0
+offset_right = 185.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -73,17 +55,19 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer" unique_id=1449919852]
+[node name="GridContainer" type="GridContainer" parent="AudioPanel/MarginContainer" unique_id=1449919852]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 12
 columns = 2
 
-[node name="MasterLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1618187035]
+[node name="MasterLabel" type="Label" parent="AudioPanel/MarginContainer/GridContainer" unique_id=1618187035]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=969660816]
+[node name="MasterSlider" type="HSlider" parent="AudioPanel/MarginContainer/GridContainer" unique_id=969660816]
 custom_minimum_size = Vector2(144, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -91,11 +75,13 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1259100680]
+[node name="MusicLabel" type="Label" parent="AudioPanel/MarginContainer/GridContainer" unique_id=1259100680]
+visible = false
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=349654038]
+[node name="MusicSlider" type="HSlider" parent="AudioPanel/MarginContainer/GridContainer" unique_id=349654038]
+visible = false
 custom_minimum_size = Vector2(144, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -103,11 +89,13 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=918715376]
+[node name="SfxLabel" type="Label" parent="AudioPanel/MarginContainer/GridContainer" unique_id=918715376]
+visible = false
 layout_mode = 2
 text = "Sound Effects"
 
-[node name="SfxVolume" type="HSlider" parent="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer" unique_id=1587962246]
+[node name="SfxVolume" type="HSlider" parent="AudioPanel/MarginContainer/GridContainer" unique_id=1587962246]
+visible = false
 custom_minimum_size = Vector2(144, 0)
 layout_mode = 2
 size_flags_vertical = 4
@@ -115,20 +103,24 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="GameplayPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1499620029]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 15.0
+[node name="Button" type="Button" parent="AudioPanel" unique_id=1005777615]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -84.0
+offset_right = 30.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "OK"
 
-[node name="ShortcutsPanel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1722530759]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 15.0
-
-[connection signal="tab_changed" from="MarginContainer/VBoxContainer/HBoxContainer/TabBar" to="." method="_on_tab_bar_tab_changed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/AudioPanel/MarginContainer/GridContainer/SfxVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="AudioPanel/MarginContainer/GridContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="AudioPanel/MarginContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="AudioPanel/MarginContainer/GridContainer/SfxVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="pressed" from="AudioPanel/Button" to="." method="_on_ok_button_pressed"]

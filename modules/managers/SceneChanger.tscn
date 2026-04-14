@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://da820lroyr6to"]
 
 [ext_resource type="Script" uid="uid://c08idnppk252y" path="res://modules/managers/scene_changer.gd" id="1_5ta4w"]
+[ext_resource type="Script" uid="uid://bfsdnno526pe1" path="res://modules/managers/AudioManager.gd" id="2_qu7wt"]
+[ext_resource type="AudioStream" uid="uid://dye3b4dsjb5io" path="res://assets/bgm/8Bit Pack/Track01/Track01.mp3" id="3_usfwu"]
 
 [sub_resource type="Animation" id="Animation_cu5ro"]
 length = 0.001
@@ -53,6 +55,14 @@ _data = {
 
 [node name="SceneChanger" type="CanvasLayer" unique_id=2134177604]
 script = ExtResource("1_5ta4w")
+
+[node name="AudioManager" type="Node" parent="." unique_id=1559676]
+script = ExtResource("2_qu7wt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioManager" unique_id=143811499]
+process_mode = 3
+stream = ExtResource("3_usfwu")
+autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=889609701]
 visible = false

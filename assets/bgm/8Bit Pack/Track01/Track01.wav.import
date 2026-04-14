@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dd7tgsavsbedp"
+path="res://.godot/imported/Track01.wav-c4db7f141f3eb2a0fda991dbfcb5aeb5.sample"
+
+[deps]
+
+source_file="res://assets/bgm/8Bit Pack/Track01/Track01.wav"
+dest_files=["res://.godot/imported/Track01.wav-c4db7f141f3eb2a0fda991dbfcb5aeb5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
