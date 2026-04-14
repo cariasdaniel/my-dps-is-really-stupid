@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bb31f2lyv4ub7"]
+
+[ext_resource type="Script" uid="uid://d5agktjaulvt" path="res://modules/portal/portal.gd" id="1_in2j8"]
+[ext_resource type="Texture2D" uid="uid://c0pxvumgawwka" path="res://assets/sprites/portal.png" id="2_pe5yq"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="3_pe5yq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
+atlas = ExtResource("2_pe5yq")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
+atlas = ExtResource("2_pe5yq")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvyfr"]
+atlas = ExtResource("2_pe5yq")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1g6"]
+atlas = ExtResource("2_pe5yq")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2jfr"]
+atlas = ExtResource("2_pe5yq")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjg73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txyw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc5cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvyfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty1g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2jfr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bu4jf"]
+radius = 15.0
+height = 42.0
+
+[node name="Portal" type="StaticBody2D" unique_id=1304176986 groups=["portal"]]
+script = ExtResource("1_in2j8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=340060339]
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_bjg73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1318375717]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_bu4jf")
+
+[node name="TimeToSpawn" type="Timer" parent="." unique_id=589296312]
+wait_time = 3.0
+autostart = true
+
+[node name="HpBar" parent="." unique_id=1072266925 instance=ExtResource("3_pe5yq")]
+offset_top = -52.0
+offset_bottom = -41.0
+
+[connection signal="timeout" from="TimeToSpawn" to="." method="_on_time_to_spawn_timeout"]

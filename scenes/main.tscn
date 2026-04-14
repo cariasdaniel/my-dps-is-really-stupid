@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://main_screens/ui.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bwviggvb3044r" path="res://scenes/main.gd" id="1_trceg"]
+[ext_resource type="Script" uid="uid://khnu1j1ey2ah" path="res://modules/managers/GameManager.gd" id="2_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://bubrm76fij58p" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Settings.png" id="3_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://b65ycqo4nwake" path="res://scenes/player.tscn" id="4_0ld40"]
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="5_pm3ni"]
@@ -15,8 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c3d763h0ji3wm" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="14_muem4"]
 [ext_resource type="Script" uid="uid://bo6c0dn8h3xql" path="res://modules/state_machine/dps_flee.gd" id="14_yc10j"]
 [ext_resource type="Texture2D" uid="uid://coojrqe62rm6a" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Walk.png" id="15_dp3eg"]
-[ext_resource type="Script" uid="uid://d5agktjaulvt" path="res://modules/portal/portal.gd" id="19_gqmmt"]
-[ext_resource type="Texture2D" uid="uid://c0pxvumgawwka" path="res://assets/sprites/portal.png" id="20_yc10j"]
+[ext_resource type="PackedScene" uid="uid://bb31f2lyv4ub7" path="res://modules/portal/portal.tscn" id="18_0ld40"]
 [ext_resource type="AudioStream" uid="uid://dhpnj2ngb1ylr" path="res://assets/bgm/main-music.mp3" id="25_og1vs"]
 
 [sub_resource type="Resource" id="Resource_dp3eg"]
@@ -282,55 +282,18 @@ radius = 254.00197
 [sub_resource type="CircleShape2D" id="CircleShape2D_y6deb"]
 radius = 95.005264
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
-atlas = ExtResource("20_yc10j")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
-atlas = ExtResource("20_yc10j")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvyfr"]
-atlas = ExtResource("20_yc10j")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ty1g6"]
-atlas = ExtResource("20_yc10j")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2jfr"]
-atlas = ExtResource("20_yc10j")
-region = Rect2(400, 0, 100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bjg73"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_txyw0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vc5cj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvyfr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ty1g6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2jfr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bu4jf"]
-radius = 15.0
-height = 52.0
-
 [node name="Main" type="Node" unique_id=260318962]
 script = ExtResource("1_trceg")
+
+[node name="GameManager" type="Node" parent="." unique_id=30843882]
+script = ExtResource("2_dp3eg")
+
+[node name="next_portal" type="Timer" parent="GameManager" unique_id=1235777746]
+wait_time = 60.0
+one_shot = true
+
+[node name="Portal" parent="GameManager" unique_id=1304176986 instance=ExtResource("18_0ld40")]
+position = Vector2(573, 293)
 
 [node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("1_o5qli")]
 
@@ -355,7 +318,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("4_0ld40")]
-position = Vector2(329, 267)
+position = Vector2(487, 378)
 skills = Array[ExtResource("5_pm3ni")]([SubResource("Resource_dp3eg")])
 
 [node name="Dps" type="CharacterBody2D" parent="." unique_id=1760791641 groups=["Allies", "players"]]
@@ -428,21 +391,7 @@ text = "Game Over"
 process_mode = 3
 stream = ExtResource("25_og1vs")
 
-[node name="Portal" type="StaticBody2D" parent="." unique_id=1230743618]
-position = Vector2(500, 256)
-script = ExtResource("19_gqmmt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Portal" unique_id=550634425]
-sprite_frames = SubResource("SpriteFrames_bjg73")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=123969237]
-position = Vector2(2, -2)
-shape = SubResource("CapsuleShape2D_bu4jf")
-
-[node name="TimeToSpawn" type="Timer" parent="Portal" unique_id=771995028]
-wait_time = 3.0
-autostart = true
-
+[connection signal="timeout" from="GameManager/next_portal" to="GameManager" method="_on_timer_to_portal_timeout"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]
 [connection signal="timeout" from="Dps/StateMachine/OverwriteTimer" to="Dps/StateMachine/Idle" method="_on_overwrite_timer_timeout"]
 [connection signal="timeout" from="Dps/StateMachine/OverwriteTimer" to="Dps/StateMachine/Attack" method="_on_overwrite_timer_timeout"]
@@ -451,6 +400,5 @@ autostart = true
 [connection signal="body_entered" from="Dps/SafeArea" to="Dps/StateMachine/Idle" method="_on_safe_area_body_entered"]
 [connection signal="timeout" from="Dps/FleeTime" to="Dps/StateMachine/Flee" method="_on_flee_time_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_game_over_button_pressed"]
-[connection signal="timeout" from="Portal/TimeToSpawn" to="Portal" method="_on_time_to_spawn_timeout"]
 
 [editable path="CanvasLayer"]

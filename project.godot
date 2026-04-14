@@ -55,6 +55,7 @@ enabled=PackedStringArray()
 
 enemies=""
 players=""
+portal=""
 
 [gui]
 

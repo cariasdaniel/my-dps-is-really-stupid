@@ -11,6 +11,7 @@ var xp_reward:= 1.0
 func _ready() -> void:
 	SignalBus.change_health.connect(_on_health_changed)
 
+
 func create_enemy(info: EnemyResource) -> void:
 	max_hp = info.max_hp
 	hp_recovery = info.hp_recovery
@@ -57,7 +58,7 @@ func get_enemies_in_range() -> Array:
 		)
 	
 	
-func _on_health_changed(target: Entity, value) -> void:
+func _on_health_changed(target, value) -> void:
 	if self != target: return
 	current_hp = clamp(current_hp + value, 0, max_hp)
 	if current_hp <= 0:
