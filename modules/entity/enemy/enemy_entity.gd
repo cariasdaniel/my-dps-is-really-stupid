@@ -55,8 +55,7 @@ func get_enemies_in_range() -> Array:
 	return attack_range.get_overlapping_bodies().filter(
 		func(b): return b.is_in_group('Allies')
 		)
-	
-	
+
 func _on_health_changed(target: Entity, value) -> void:
 	if self != target: return
 	current_hp = clamp(current_hp + value, 0, max_hp)
