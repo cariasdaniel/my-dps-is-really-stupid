@@ -21,6 +21,14 @@ func _process(delta: float) -> void:
 		if entity.velocity.x < 0: $"../AnimatedSprite2D".flip_h = true
 		elif entity.velocity.x > 0: $"../AnimatedSprite2D".flip_h = false
 		$"../AnimatedSprite2D".speed_scale = entity.velocity.length()/max_speed
+	
+	var dir:= Vector2.ZERO
+	if Input.is_action_pressed('move_down'): dir+= Vector2.DOWN
+	if Input.is_action_pressed('move_left'): dir+= Vector2.LEFT
+	if Input.is_action_pressed('move_up'): dir+= Vector2.UP
+	if Input.is_action_pressed('move_right'): dir+= Vector2.RIGHT
+	
+	direction = dir.normalized()
 
 func _physics_process(delta: float) -> void:	
 	var lerp_weight = delta * (acceleration if direction else friction)
@@ -28,26 +36,26 @@ func _physics_process(delta: float) -> void:
 	
 	entity.move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.is_action("move_down") || event.is_action("move_up") || \
-		   event.is_action("move_left") || event.is_action("move_right"):
-			var dir:= Vector2.ZERO
-			
-			if event.is_action_pressed("move_down"):  dir+=Vector2.DOWN
-			if event.is_action_released("move_down"): dir-=Vector2.DOWN
-			
-			if event.is_action_pressed("move_up"): dir+=Vector2.UP
-			if event.is_action_released("move_up"): dir-=Vector2.UP
-			
-			if event.is_action_pressed("move_left"): dir+=Vector2.LEFT
-			if event.is_action_released("move_left"): dir-=Vector2.LEFT
-			
-			if event.is_action_pressed("move_right"): dir+=Vector2.RIGHT
-			if event.is_action_released("move_right"): dir-=Vector2.RIGHT
-			
-			direction += dir
-	
-	if event is InputEventMouseMotion:
-		var mouse_pos = entity.get_global_mouse_position()
-		aim_direction = entity.position.direction_to(mouse_pos)
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventKey:
+		#if event.is_action("move_down") || event.is_action("move_up") || \
+		   #event.is_action("move_left") || event.is_action("move_right"):
+			#var dir:= Vector2.ZERO
+			#
+			#if event.is_action_pressed("move_down"):  dir+=Vector2.DOWN
+			#if event.is_action_released("move_down"): dir-=Vector2.DOWN
+			#
+			#if event.is_action_pressed("move_up"): dir+=Vector2.UP
+			#if event.is_action_released("move_up"): dir-=Vector2.UP
+			#
+			#if event.is_action_pressed("move_left"): dir+=Vector2.LEFT
+			#if event.is_action_released("move_left"): dir-=Vector2.LEFT
+			#
+			#if event.is_action_pressed("move_right"): dir+=Vector2.RIGHT
+			#if event.is_action_released("move_right"): dir-=Vector2.RIGHT
+			#
+			#direction += dir
+	#
+	#if event is InputEventMouseMotion:
+		#var mouse_pos = entity.get_global_mouse_position()
+		#aim_direction = entity.position.direction_to(mouse_pos)

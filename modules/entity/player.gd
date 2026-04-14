@@ -13,8 +13,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("hotbar_2"):
 		var new_area = AreaEffect.new(
 			100,
-			[Knockback.new(-100.0, self.global_position)],
-			[Knockback.new(500.0, self.global_position)]
+			[Knockback.new(200.0, self.global_position)],
+			[Knockback.new(800.0, self.global_position)]
 		)
 		add_child(new_area)
 

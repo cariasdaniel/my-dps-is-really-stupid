@@ -20,6 +20,7 @@ func connect_slots():
 		
 func update():
 	for i in range(slots.size()):
+		if i >= skills.size(): break
 		slots[i].update(skills[i])
 
 func on_slot_clicked(slot):
