@@ -1,7 +1,6 @@
 extends Control
 
 @onready var timer = $Timer
-@onready var timer2start = $Timer2
 @onready var continue_button: Button = $ContinueButton
 
 @onready var thought_labels = [
@@ -17,13 +16,6 @@ extends Control
 
 # function to show cutscene labels one by one
 func _on_timer_timeout() -> void:
-	# If "that's what dps thinks..." is visible
-	# start timer to show "continue" button
-	if disclaimer.visible:
-		timer.queue_free()
-		timer2start.start()
-		return
-	
 	# if all thoughts labels are visible, add quotes
 	# in first and last labels + show disclaimer
 	var hidden_labels = thought_labels.filter(func(l: Label): return l.visible == false)
