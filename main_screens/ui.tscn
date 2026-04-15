@@ -60,10 +60,19 @@ offset_bottom = 155.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="DpsStatusPanel" type="HBoxContainer" parent="PartyStatusLateral" unique_id=15253932]
+[node name="DpsStatusPanel" type="Control" parent="PartyStatusLateral" unique_id=536371816 node_paths=PackedStringArray("health_bar", "mana_bar")]
 layout_mode = 2
+script = ExtResource("1_pbvhl")
+health_bar = NodePath("DpsStatusPanel/MarginContainer/VBoxContainer/ResourceBarScene")
+mana_bar = NodePath("DpsStatusPanel/MarginContainer/VBoxContainer/ResourceBarScene2")
 
-[node name="DpsImage" type="TextureRect" parent="PartyStatusLateral/DpsStatusPanel" unique_id=1981182493]
+[node name="DpsStatusPanel" type="HBoxContainer" parent="PartyStatusLateral/DpsStatusPanel" unique_id=15253932]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 62.0
+
+[node name="DpsImage" type="TextureRect" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel" unique_id=1981182493]
 layout_mode = 2
 size_flags_stretch_ratio = 0.75
 texture = ExtResource("5_f7j3w")
@@ -71,7 +80,7 @@ expand_mode = 2
 stretch_mode = 5
 flip_h = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PartyStatusLateral/DpsStatusPanel" unique_id=1599120917]
+[node name="MarginContainer" type="MarginContainer" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel" unique_id=1599120917]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_constants/margin_left = 5
@@ -79,15 +88,15 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer" unique_id=2058300319]
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer" unique_id=2058300319]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="ResourceBarScene" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=800821387 instance=ExtResource("2_k42hb")]
+[node name="ResourceBarScene" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=800821387 instance=ExtResource("2_k42hb")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResourceBarScene2" parent="PartyStatusLateral/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=1247731732 instance=ExtResource("3_pbvhl")]
+[node name="ResourceBarScene2" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=1247731732 instance=ExtResource("3_pbvhl")]
 layout_mode = 2
 size_flags_vertical = 3
 

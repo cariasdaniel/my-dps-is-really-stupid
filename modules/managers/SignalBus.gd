@@ -12,8 +12,9 @@ signal skill_selected(skill)
 
 # Player management
 signal gain_xp(value)
-signal change_health(value)
-signal change_mana(value)
+signal change_health(entity, value)
+signal change_mana(entity, value)
+signal deal_damage(entity, value)
 
 # DPS behavior management
 signal force_transitioned(new_state, options)

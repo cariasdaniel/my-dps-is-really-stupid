@@ -8,7 +8,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group('Allies') and not body.is_in_group('Player'): return
 	
 	if body.is_in_group('enemies') or body.is_in_group('portal'):
-		SignalBus.change_health.emit(body, -damage_value)
+		SignalBus.deal_damage.emit(body, damage_value)
 	queue_free()
 	
 func _process(delta: float) -> void:

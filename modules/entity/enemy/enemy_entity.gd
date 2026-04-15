@@ -7,6 +7,7 @@ var xp_reward:= 1.0
 @onready var hp_bar: ProgressBar = $HpBar
 @onready var start_chase_area: Area2D = $StartChaseArea
 @onready var attack_range: Area2D = $AttackRange
+var priority_target = null
 
 func _ready() -> void:
 	SignalBus.change_health.connect(_on_health_changed)
@@ -44,8 +45,10 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
-	
-	
+
+func set_priority_target(body):
+	priority_target = body
+
 func get_enemies_in_chase_area() -> Array:
 	return start_chase_area.get_overlapping_bodies().filter(
 		func(b): return b.is_in_group('Allies')

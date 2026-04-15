@@ -6,6 +6,9 @@ var target
 var skill_in_casting: SkillData
 var select_candidate
 
+func _ready() -> void:
+	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("hotbar_1"):
 		if not learned_skills.is_empty():
@@ -13,8 +16,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("hotbar_2"):
 		var new_area = AreaEffect.new(
 			100,
-			[Knockback.new(200.0, self.global_position)],
+			[],
 			[Knockback.new(800.0, self.global_position)]
+		)
+		add_child(new_area)
+	if event.is_action_released("hotbar_3"):
+		var new_area = AreaEffect.new(
+			400,
+			[],
+			[Taunt.new(5.0, self)]
 		)
 		add_child(new_area)
 
@@ -47,3 +57,12 @@ func add_target(new_target: Node):
 func remove_target(new_target: Node): 
 	if target == new_target: target = null
 	SignalBus.hover_over.emit(target)
+
+func _on_damage_dealt_change_health(body, amount):
+	if self != body: return
+	
+	current_hp -= amount
+	add_child(DamageTag.new(amount, Color.RED))
+	SignalBus.change_health.emit(self, -amount)
+	if current_hp <= 0:
+		SceneChanger.change_to(ScenePaths.gameOver)

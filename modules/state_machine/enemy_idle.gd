@@ -26,6 +26,6 @@ func physics_update(delta):
 	if not enemy.get_enemies_in_range().is_empty():
 		transitioned.emit(self, 'attack')
 		
-	if not enemy.get_enemies_in_chase_area().is_empty():
+	if get_tree().get_nodes_in_group('players'):
 		transitioned.emit(self, 'chase')
 	

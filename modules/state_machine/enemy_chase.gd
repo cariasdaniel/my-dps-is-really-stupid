@@ -3,21 +3,22 @@ class_name mobChase
 
 @onready var mob: CharacterBody2D = $"../.."
 
-var closest_target = null
-
+var target = null
 
 func enter():
 	print("Entered CHASE state")
 
 
 func _get_closest_enemy_in_sight():
-	var closest_distance = INF
-	closest_target = null
-	for body in mob.get_enemies_in_chase_area():
-		var distance = (body.global_position - mob.global_position).length()
-		if distance < closest_distance:
-			closest_target = body
-			
+	#for body in mob.get_enemies_in_chase_area():
+	if mob.priority_target:
+		target = mob.priority_target
+	else:
+		for body: Entity in get_tree().get_nodes_in_group('players'):
+			if target != body:
+				if not target || body.threat > target.threat:
+						target = body
+
 func physics_update(delta):
 	_get_closest_enemy_in_sight()
 	
@@ -25,9 +26,9 @@ func physics_update(delta):
 		transitioned.emit(self, 'attack')
 		return
 	
-	if !closest_target:
+	if !target:
 		transitioned.emit(self, 'idle')
 		return
 	
-	var direction = closest_target.global_position - mob.global_position
+	var direction = target.global_position - mob.global_position
 	mob.velocity = direction.normalized() * mob.move_speed

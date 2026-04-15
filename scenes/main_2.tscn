@@ -7,9 +7,8 @@
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="5_664ys"]
 [ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="6_alid6"]
 [ext_resource type="PackedScene" uid="uid://nlpb0sqhemm8" path="res://scenes/enemies/slime.tscn" id="8_e1hce"]
-[ext_resource type="AudioStream" uid="uid://dhpnj2ngb1ylr" path="res://assets/bgm/main-music.mp3" id="16_r3fno"]
 
-[sub_resource type="Resource" id="Resource_r4383"]
+[sub_resource type="Resource" id="Resource_ywx0f"]
 resource_local_to_scene = true
 script = ExtResource("5_664ys")
 id = "heal"
@@ -28,6 +27,9 @@ metadata/_custom_type_script = "uid://btc8gxk1n2jwx"
 script = ExtResource("1_dhr3r")
 
 [node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("2_ghm15")]
+
+[node name="PlayerResourceDisplay" parent="CanvasLayer" index="0" unique_id=480325217 node_paths=PackedStringArray("entity")]
+entity = NodePath("../../Player")
 
 [node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
 offset_top = -58.0
@@ -50,8 +52,10 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("4_c40c1")]
-position = Vector2(473, 291)
-skills = Array[ExtResource("5_664ys")]([SubResource("Resource_r4383")])
+position = Vector2(386, 315)
+hp_recovery = 5.0
+mana_recovery = 5.0
+skills = Array[ExtResource("5_664ys")]([SubResource("Resource_ywx0f")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=702909677]
 anchor_mode = 0
@@ -72,10 +76,9 @@ text = "Game Over"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1817767766]
 process_mode = 3
-stream = ExtResource("16_r3fno")
 
 [node name="Slime" parent="." unique_id=252566114 instance=ExtResource("8_e1hce")]
-position = Vector2(586, 290)
+position = Vector2(804, 340)
 
 [node name="AnimatedSprite2D" parent="Slime" index="1" unique_id=1181009728]
 frame_progress = 0.50322264

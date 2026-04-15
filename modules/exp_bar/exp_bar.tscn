@@ -26,21 +26,6 @@ tint_over = Color(0.011702106, 0.011702109, 0.011702107, 1)
 tint_progress = Color(0.76156116, 0.7615608, 0.76156104, 1)
 script = ExtResource("1_sketp")
 
-[node name="Button" type="Button" parent="." unique_id=1335537483]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -194.0
-offset_right = 130.0
-offset_bottom = -163.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "GAIN 30 XP"
-
 [node name="LevelLabel" type="Label" parent="." unique_id=792693895]
 layout_mode = 1
 anchors_preset = 2
@@ -76,5 +61,3 @@ theme_override_constants/outline_size = 4
 text = "00.00%"
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -11,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://ddq12ho4keof6" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Walk.png" id="7_at850"]
 [ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="8_wbf5k"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
-atlas = ExtResource("4_ikdmk")
-region = Rect2(0, 0, 100, 100)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
 atlas = ExtResource("4_ikdmk")
 region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txyw0"]
+atlas = ExtResource("4_ikdmk")
+region = Rect2(0, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvyfr"]
 atlas = ExtResource("4_ikdmk")
@@ -102,13 +102,13 @@ region = Rect2(500, 0, 100, 100)
 [sub_resource type="SpriteFrames" id="SpriteFrames_r4e17"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_txyw0")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_vc5cj")
 }, {
-"duration": 1.0,
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_txyw0")
+}, {
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_nvyfr")
 }, {
 "duration": 1.0,
@@ -122,7 +122,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -222,13 +222,14 @@ position = Vector2(0, -22)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_r4e17")
 animation = &"attack"
+frame = 5
+frame_progress = 1.0
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=276892660]
 position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_4hi17")
 
 [node name="HpBar" parent="." unique_id=1072266925 instance=ExtResource("8_wbf5k")]
-script = null
 
 [node name="StartChaseArea" type="Area2D" parent="." unique_id=35475813]
 

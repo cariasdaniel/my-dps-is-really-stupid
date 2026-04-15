@@ -11,7 +11,9 @@ func _ready() -> void:
 		SignalBus.change_mana.connect(_on_change_mana_move_bar)
 		
 		health_bar.change_max_resource(entity.max_hp)
+		health_bar.set_resource(entity.current_hp)
 		mana_bar.change_max_resource(entity.max_mana)
+		mana_bar.set_resource(entity.current_mana)
 
 func _on_change_health_move_bar(target: Entity, value):
 	if target != entity: return

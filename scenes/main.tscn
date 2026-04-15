@@ -292,9 +292,15 @@ wait_time = 60.0
 one_shot = true
 
 [node name="Portal" parent="GameManager" unique_id=1304176986 instance=ExtResource("18_0ld40")]
-position = Vector2(573, 293)
+position = Vector2(1104, 293)
 
 [node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("1_o5qli")]
+
+[node name="PlayerResourceDisplay" parent="CanvasLayer" index="0" unique_id=480325217 node_paths=PackedStringArray("entity")]
+entity = NodePath("../../Player")
+
+[node name="DpsStatusPanel" parent="CanvasLayer/PartyStatusLateral" parent_id_path=PackedInt32Array(428319222, 1176638941) index="0" unique_id=536371816 node_paths=PackedStringArray("entity")]
+entity = NodePath("../../../Dps")
 
 [node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
 offset_top = -58.0
@@ -317,14 +323,15 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("4_0ld40")]
-position = Vector2(487, 378)
+position = Vector2(154, 299)
 skills = Array[ExtResource("5_pm3ni")]([SubResource("Resource_muem4")])
 
 [node name="Dps" type="CharacterBody2D" parent="." unique_id=1760791641 groups=["Allies", "players"]]
 texture_filter = 1
-position = Vector2(0, 256)
+position = Vector2(806, 291)
 motion_mode = 1
 script = ExtResource("8_jkv2x")
+threat = 150
 
 [node name="StateMachine" type="Node" parent="Dps" unique_id=584374476 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_ya4ey")
@@ -372,20 +379,6 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=702909677]
 anchor_mode = 0
 
-[node name="Button" type="Button" parent="." unique_id=750979810]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -167.0
-offset_top = -16.0
-offset_right = -31.0
-offset_bottom = 16.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Game Over"
-
 [connection signal="timeout" from="GameManager/next_portal" to="GameManager" method="_on_timer_to_portal_timeout"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]
 [connection signal="timeout" from="Dps/StateMachine/OverwriteTimer" to="Dps/StateMachine/Idle" method="_on_overwrite_timer_timeout"]
@@ -394,6 +387,5 @@ text = "Game Over"
 [connection signal="body_entered" from="Dps/SearchArea" to="Dps/StateMachine/Idle" method="_on_safe_area_body_entered"]
 [connection signal="body_entered" from="Dps/SafeArea" to="Dps/StateMachine/Idle" method="_on_safe_area_body_entered"]
 [connection signal="timeout" from="Dps/FleeTime" to="Dps/StateMachine/Flee" method="_on_flee_time_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_game_over_button_pressed"]
 
 [editable path="CanvasLayer"]
