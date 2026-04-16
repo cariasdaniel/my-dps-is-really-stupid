@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="6_y6deb"]
 [ext_resource type="Script" uid="uid://cfqn8y7jb8ys0" path="res://modules/state_machine/dps_idle.gd" id="7_choun"]
 [ext_resource type="Script" uid="uid://b34oumh4xkf8o" path="res://modules/state_machine/dps_state_machine.gd" id="7_ya4ey"]
-[ext_resource type="Script" uid="uid://cdn4exdxaorm0" path="res://modules/entity/dps/dps_entity.gd" id="8_jkv2x"]
+[ext_resource type="Script" uid="uid://cdn4exdxaorm0" path="res://modules/entity/dps/dps.gd" id="8_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://c6wdw5k8efg2f" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Attack01.png" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://cis0gftqahve5" path="res://modules/state_machine/dps_attack.gd" id="12_y6deb"]
 [ext_resource type="Texture2D" uid="uid://g04qjtxsjy5y" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="13_jbj1t"]

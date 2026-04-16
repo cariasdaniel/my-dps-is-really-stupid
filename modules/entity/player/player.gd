@@ -7,7 +7,7 @@ var skill_in_casting: SkillData
 var select_candidate
 
 func _ready() -> void:
-	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+	SignalBus.died.connect(_on_death)
 	SignalBus.level_up.connect(_on_level_up)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -59,14 +59,9 @@ func remove_target(new_target: Node):
 	if target == new_target: target = null
 	SignalBus.hover_over.emit(target)
 
-func _on_damage_dealt_change_health(body, amount):
+func _on_death(body):
 	if self != body: return
-	
-	current_hp -= amount
-	add_child(DamageTag.new(amount, Color.RED))
-	SignalBus.change_health.emit(self, -amount)
-	if current_hp <= 0:
-		SceneChanger.change_to(ScenePaths.gameOver)
+	SceneChanger.change_to(ScenePaths.gameOver)
 
 func _on_level_up():
 	max_hp += int(max_hp * 0.1)
@@ -82,7 +77,7 @@ func _on_level_up():
 	defense = int(defense * 1.1)
 	magic_defense = int(magic_defense * 1.1)
 	
-	var recover = int(max_hp * 0.3)
+	var recover = int(max_hp * 0.25)
 	SignalBus.change_health.emit(self, recover)
 	add_child(DamageTag.new(recover, Color.GREEN))
 	

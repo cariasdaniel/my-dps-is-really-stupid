@@ -15,7 +15,7 @@ var radius_scalar :float = 1.0 :
 @onready var safe_area: Area2D = $SafeArea
 
 func _ready():
-	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+	SignalBus.died.connect(_on_death)
 	SignalBus.level_up.connect(_on_level_up)
 
 
@@ -38,14 +38,9 @@ func _change_atk_range():
 	atk_range_area.shape.set_deferred("radius", base_area * radius_scalar)
 	
 
-func _on_damage_dealt_change_health(body, amount):
+func _on_death(body):
 	if self != body: return
-	
-	current_hp -= amount
-	add_child(DamageTag.new(amount, Color.RED))
-	SignalBus.change_health.emit(self, -amount)
-	if current_hp <= 0:
-		SceneChanger.change_to(ScenePaths.gameOver)
+	SceneChanger.change_to(ScenePaths.gameOver)
 
 
 func _on_level_up():

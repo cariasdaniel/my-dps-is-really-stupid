@@ -11,6 +11,7 @@ var priority_target = null
 
 func _ready() -> void:
 	SignalBus.deal_damage.connect(_on_damage_received)
+	SignalBus.died.connect(_on_death)
 	hp_bar.max_value = max_hp
 	hp_bar.value = current_hp
 
@@ -53,6 +54,7 @@ func _physics_process(delta: float) -> void:
 func set_priority_target(body):
 	priority_target = body
 
+
 func get_enemies_in_chase_area() -> Array:
 	return start_chase_area.get_overlapping_bodies().filter(
 		func(b): return b.is_in_group('Allies')
@@ -64,15 +66,14 @@ func get_enemies_in_range() -> Array:
 		func(b): return b.is_in_group('Allies')
 		)
 	
-	
+
 func _on_damage_received(body, amount) -> void:
-	if self != body: return
-	
-	current_hp -= amount
-	add_child(DamageTag.new(amount, Color.RED))
-	if current_hp <= 0:
-		SignalBus.gain_xp.emit(xp_reward)
-		queue_free()
-	
 	#TODO encapsulate HP Bar elsewhere?
 	hp_bar.value = current_hp
+	
+	
+func _on_death(body):
+	if self != body: return
+	SignalBus.gain_xp.emit(xp_reward)
+	queue_free()
+	

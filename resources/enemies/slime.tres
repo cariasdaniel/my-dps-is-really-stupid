@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_6pnpc")
 id = "slime"
-max_hp = 60
-defense = 20
-magic_defense = 35
+max_hp = 45
+attack = 12
+defense = 15
+magic_defense = 20
 xp_reward = 22.5
 metadata/_custom_type_script = "uid://18gepk5p0se1"

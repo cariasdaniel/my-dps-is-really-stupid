@@ -18,6 +18,7 @@ signal gain_xp(value)
 signal change_health(entity, value)
 signal change_mana(entity, value)
 signal deal_damage(entity, value)
+signal died
 
 # DPS behavior management
 signal force_transitioned(new_state, options)
