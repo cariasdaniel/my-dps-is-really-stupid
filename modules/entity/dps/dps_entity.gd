@@ -16,6 +16,9 @@ var radius_scalar :float = 1.0 :
 @onready var search_area: Area2D = $SearchArea
 @onready var safe_area: Area2D = $SafeArea
 
+func _ready():
+	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -35,3 +38,12 @@ func get_enemies_in_range() -> Array:
 func _change_atk_range():
 	atk_range_area.shape.set_deferred("radius", base_area * radius_scalar)
 	
+
+func _on_damage_dealt_change_health(body, amount):
+	if self != body: return
+	
+	current_hp -= amount
+	add_child(DamageTag.new(amount, Color.RED))
+	SignalBus.change_health.emit(self, -amount)
+	if current_hp <= 0:
+		SceneChanger.change_to(ScenePaths.gameOver)

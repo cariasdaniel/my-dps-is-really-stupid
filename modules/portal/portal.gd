@@ -10,7 +10,7 @@ const enemy_scene = preload("uid://nlpb0sqhemm8")
 
 func _ready() -> void:
 	portal_sprite.play('default')
-	SignalBus.change_health.connect(_on_health_changed)
+	SignalBus.deal_damage.connect(_on_damage_received)
 	
 	hp_bar.max_value = max_hp
 	hp_bar.value = current_hp
@@ -35,9 +35,9 @@ func _select_enemy_to_spawn() -> EnemyResource:
 	return enemies[0]
 
 
-func _on_health_changed(target, value) -> void:
+func _on_damage_received(target, value) -> void:
 	if self != target: return
-	current_hp = clamp(current_hp + value, 0, max_hp)
+	current_hp = clamp(current_hp - value, 0, max_hp)
 	if current_hp <= 0:
 		queue_free()
 		SignalBus.portal_destroyed.emit()

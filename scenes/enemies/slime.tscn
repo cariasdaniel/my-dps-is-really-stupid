@@ -188,8 +188,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hi17"]
-size = Vector2(56, 35)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mdcui"]
+radius = 11.0
+height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhx0m"]
 radius = 219.00912
@@ -218,18 +219,20 @@ script = ExtResource("5_mdcui")
 [node name="Hurt" type="Node" parent="StateMachine" unique_id=1848960995]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1181009728]
-position = Vector2(0, -22)
-scale = Vector2(3, 3)
+position = Vector2(0, -15)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_r4e17")
-animation = &"attack"
-frame = 5
-frame_progress = 1.0
+animation = &"walk"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=276892660]
-position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_4hi17")
+position = Vector2(0, -10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mdcui")
 
 [node name="HpBar" parent="." unique_id=1072266925 instance=ExtResource("8_wbf5k")]
+offset_left = -26.0
+offset_right = 26.0
+offset_bottom = 11.944445
 
 [node name="StartChaseArea" type="Area2D" parent="." unique_id=35475813]
 

@@ -10,14 +10,18 @@ var xp_reward:= 1.0
 var priority_target = null
 
 func _ready() -> void:
-	SignalBus.change_health.connect(_on_health_changed)
+	SignalBus.deal_damage.connect(_on_damage_received)
+	hp_bar.max_value = max_hp
+	hp_bar.value = current_hp
 
 
 func create_enemy(info: EnemyResource) -> void:
 	max_hp = info.max_hp
+	current_hp = info.max_hp
 	hp_recovery = info.hp_recovery
 
 	max_mana = info.max_mana
+	current_mana = info.max_mana
 	mana_recovery = info.mana_recovery
 
 	attack = info.attack
@@ -61,11 +65,13 @@ func get_enemies_in_range() -> Array:
 		)
 	
 	
-func _on_health_changed(target, value) -> void:
-	if self != target: return
-	current_hp = clamp(current_hp + value, 0, max_hp)
+func _on_damage_received(body, amount) -> void:
+	if self != body: return
+	
+	current_hp -= amount
+	add_child(DamageTag.new(amount, Color.RED))
 	if current_hp <= 0:
-		SignalBus.gain_xp.emit(40)
+		SignalBus.gain_xp.emit(xp_reward)
 		queue_free()
 	
 	#TODO encapsulate HP Bar elsewhere?

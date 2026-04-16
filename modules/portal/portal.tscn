@@ -63,7 +63,7 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_bu4jf")
 
 [node name="TimeToSpawn" type="Timer" parent="." unique_id=589296312]
-wait_time = 3.0
+wait_time = 6.0
 autostart = true
 
 [node name="HpBar" parent="." unique_id=1072266925 instance=ExtResource("3_pe5yq")]

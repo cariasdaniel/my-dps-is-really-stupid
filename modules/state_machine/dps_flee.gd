@@ -39,17 +39,14 @@ func physics_update(delta):
 	#var flee_direction = player_pos.lerp((directions / enemies.size() * -1), 0.4).normalized()
 	flee_direction = (mob_directions / enemies.size()) * -1
 	dps.velocity = flee_direction.normalized() * dps.flee_speed
-	
-	
+
 
 func get_enemies_in_danger_zone():
 	return dps.safe_area.get_overlapping_bodies().filter(func(b): return b.is_in_group('enemies'))
 	
 
 func _on_flee_time_timeout() -> void:
-	var enemies = get_enemies_in_danger_zone()
-	if enemies.is_empty():
-		transitioned.emit(self, 'idle')
+	transitioned.emit(self, 'idle')
 
 
 func _on_overwrite_timer_timeout() -> void:

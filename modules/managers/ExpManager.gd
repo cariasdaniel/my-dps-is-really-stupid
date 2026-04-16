@@ -1,6 +1,6 @@
 extends Node
 
-@export var base_xp = 100
+@export var base_xp = 50
 @export var growth_rate = 1.15
 
 @export var level: int = 1 : 
@@ -23,9 +23,9 @@ func _calculate(xp_gained) -> void:
 		level += 1
 		print('leveled up!')
 		
-		var choices = load(ScenePaths.lvlUpOptions).instantiate()
-		get_tree().root.add_child(choices)
-		get_tree().paused = true
+		#var choices = load(ScenePaths.lvlUpOptions).instantiate()
+		#get_tree().root.add_child(choices)
+		#get_tree().paused = true
 	else:
 		xp += xp_gained
 	
