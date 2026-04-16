@@ -51,6 +51,6 @@ func _attack(direction: Vector2) -> void:
 	SignalBus.deal_damage.emit(target, enemy.attack)
 	is_attacking = false
 	
-	await get_tree().create_timer(enemy.attack_speed).timeout
+	await get_tree().create_timer(enemy.atk_speed).timeout
 	can_attack = true
 	

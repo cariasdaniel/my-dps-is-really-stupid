@@ -1,20 +1,20 @@
 extends CharacterBody2D
 class_name Entity
 
-@export var max_hp: float = 100
+@export var max_hp: int = 100
 var current_hp:= 0.0
 @export var hp_recovery: float = 1.0
 
-@export var max_mana: float = 50
+@export var max_mana: int = 50
 var current_mana:= 0.0
 @export var mana_recovery: float = 0.5
 
 @export var attack: int = 10
 @export var magic_power: int = 10
-@export var attack_speed:= 1.0
+@export var atk_speed:= 1.0
 
-@export var defense: int = 50
-@export var magic_defense: int = 30
+@export var defense: float = 50.0
+@export var magic_defense: float = 30.0
 
 @export var move_speed:= 100.0
 
@@ -45,7 +45,6 @@ func _init() -> void:
 func _ready() -> void:
 	current_hp = max_hp
 	current_mana = max_mana
-
 
 func _on_mouse_entered_target():
 	var player = get_tree().get_first_node_in_group("Player")

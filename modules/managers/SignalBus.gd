@@ -7,6 +7,9 @@ signal hover_over
 signal apply_effect
 signal apply_effect_on_range
 
+# Progression
+signal level_up
+
 # Skills Hotbar
 signal skill_selected(skill)
 

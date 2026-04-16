@@ -21,7 +21,7 @@ func _calculate(xp_gained) -> void:
 	if ((new_xp) >= xp_needed):
 		xp = new_xp - xp_needed
 		level += 1
-		print('leveled up!')
+		SignalBus.level_up.emit()
 		
 		#var choices = load(ScenePaths.lvlUpOptions).instantiate()
 		#get_tree().root.add_child(choices)

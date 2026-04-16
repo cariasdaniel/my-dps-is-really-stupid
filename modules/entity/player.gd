@@ -8,6 +8,7 @@ var select_candidate
 
 func _ready() -> void:
 	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+	SignalBus.level_up.connect(_on_level_up)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("hotbar_1"):
@@ -66,3 +67,22 @@ func _on_damage_dealt_change_health(body, amount):
 	SignalBus.change_health.emit(self, -amount)
 	if current_hp <= 0:
 		SceneChanger.change_to(ScenePaths.gameOver)
+
+func _on_level_up():
+	max_hp += int(max_hp * 0.1)
+	hp_recovery *= 1.1
+
+	max_mana += int(max_mana * 0.1)
+	mana_recovery *= 1.1
+
+	attack = int(attack * 0.1)
+	magic_power = int(magic_power * 0.1)
+	atk_speed *= 1.1
+
+	defense = int(defense * 1.1)
+	magic_defense = int(magic_defense * 1.1)
+	
+	var recover = int(max_hp * 0.3)
+	SignalBus.change_health.emit(self, recover)
+	add_child(DamageTag.new(recover, Color.GREEN))
+	

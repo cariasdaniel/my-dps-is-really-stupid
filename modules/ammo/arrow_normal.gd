@@ -1,8 +1,11 @@
 extends Area2D
 
-@export var damage_value:= 10
-var velocity : float
+@export var damage_value : float
+var velocity := 20.0
 var direction:= Vector2.ZERO
+
+func set_damage(value):
+	damage_value = value
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group('Allies') and not body.is_in_group('Player'): return

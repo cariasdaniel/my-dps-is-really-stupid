@@ -66,8 +66,8 @@ func _shoot_arrow(direction: Vector2) -> void:
 	
 	var ammo: Area2D = normal_arrow.instantiate()
 	get_tree().root.add_child(ammo)
+	ammo.set_damage(dps.attack)
 	ammo.global_position = dps.global_position
-	ammo.velocity = dps.atk_speed * 0.5
 	ammo.direction = direction.normalized()
 	
 	can_attack = true

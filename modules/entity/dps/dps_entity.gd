@@ -1,8 +1,6 @@
 extends Entity
 class_name Dps
 
-@export var atk_speed:= 30
-
 @export var flee_time := 1.5
 @export var flee_speed := move_speed
 
@@ -18,6 +16,7 @@ var radius_scalar :float = 1.0 :
 
 func _ready():
 	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+	SignalBus.level_up.connect(_on_level_up)
 
 
 func _physics_process(delta: float) -> void:
@@ -47,3 +46,26 @@ func _on_damage_dealt_change_health(body, amount):
 	SignalBus.change_health.emit(self, -amount)
 	if current_hp <= 0:
 		SceneChanger.change_to(ScenePaths.gameOver)
+
+
+func _on_level_up():
+	max_hp += int(max_hp * 0.08)
+	hp_recovery *= 1.1
+
+	max_mana += int(max_mana * 0.1)
+	mana_recovery *= 1.1
+
+	attack += int(attack * 0.15)
+	magic_power += int(magic_power * 0.1)
+	atk_speed *= 1.15
+
+	defense += int(defense * 0.08)
+	magic_defense += int(magic_defense * 0.08)
+	
+	flee_speed *= 1.05
+	sprite.speed_scale += 0.1
+	
+	var recover = int(max_hp * 0.3)
+	SignalBus.change_health.emit(self, recover)
+	add_child(DamageTag.new(recover, Color.GREEN))
+	
