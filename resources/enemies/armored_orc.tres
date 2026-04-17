@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://cb3i8bppa3og"]
+
+[ext_resource type="Script" uid="uid://18gepk5p0se1" path="res://resources/enemy_resource.gd" id="1_c03j8"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="2_r721s"]
+
+[resource]
+script = ExtResource("1_c03j8")
+id = "armored_orc"
+level = 9
+max_hp = 400
+hp_recovery = 8.0
+max_mana = 100
+mana_recovery = 1.5
+attack = 57
+magic_power = 25
+defense = 37
+magic_defense = 40
+move_speed = 60.0
+xp_reward = 210.0
+metadata/_custom_type_script = "uid://18gepk5p0se1"

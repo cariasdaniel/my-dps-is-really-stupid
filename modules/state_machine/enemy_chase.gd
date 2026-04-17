@@ -10,7 +10,6 @@ func enter():
 
 
 func _get_closest_enemy_in_sight():
-	#for body in mob.get_enemies_in_chase_area():
 	if mob.priority_target:
 		target = mob.priority_target
 	else:
@@ -26,9 +25,9 @@ func physics_update(delta):
 		transitioned.emit(self, 'attack')
 		return
 	
-	if !target:
-		transitioned.emit(self, 'idle')
-		return
+	#if !target:
+		#transitioned.emit(self, 'idle')
+		#return
 	
 	var direction = target.global_position - mob.global_position
 	mob.velocity = direction.normalized() * mob.move_speed

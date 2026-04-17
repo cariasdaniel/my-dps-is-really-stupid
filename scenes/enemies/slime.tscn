@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="2_7uxu4"]
 [ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="3_mdcui"]
 [ext_resource type="Script" uid="uid://cl7gh14nuxv7d" path="res://modules/state_machine/enemy_chase.gd" id="4_7uxu4"]
-[ext_resource type="Texture2D" uid="uid://c4k1307jvm7" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Attack01.png" id="4_ikdmk"]
-[ext_resource type="Texture2D" uid="uid://8yv1hnfc7i32" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Death.png" id="5_jjup5"]
+[ext_resource type="Texture2D" uid="uid://c4k1307jvm7" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Slime/Slime/Slime-Attack01.png" id="4_ikdmk"]
+[ext_resource type="Texture2D" uid="uid://8yv1hnfc7i32" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Slime/Slime/Slime-Death.png" id="5_jjup5"]
 [ext_resource type="Script" uid="uid://jc07wrtvhtbw" path="res://modules/state_machine/enemy_attack.gd" id="5_mdcui"]
-[ext_resource type="Texture2D" uid="uid://ccpm4bjfd1x0q" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Idle.png" id="6_wfyvu"]
-[ext_resource type="Texture2D" uid="uid://ddq12ho4keof6" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Slime/Slime/Slime-Walk.png" id="7_at850"]
+[ext_resource type="Texture2D" uid="uid://ccpm4bjfd1x0q" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Slime/Slime/Slime-Idle.png" id="6_wfyvu"]
+[ext_resource type="Texture2D" uid="uid://ddq12ho4keof6" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Slime/Slime/Slime-Walk.png" id="7_at850"]
 [ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="8_wbf5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc5cj"]
@@ -120,9 +120,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bjg73")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
-"speed": 12.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -189,14 +189,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mdcui"]
-radius = 11.0
-height = 40.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uhx0m"]
-radius = 219.00912
+radius = 20.0
+height = 60.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7uxu4"]
-radius = 53.009434
+radius = 52.0
 
 [node name="Slime" type="CharacterBody2D" unique_id=252566114 groups=["enemies"]]
 texture_filter = 1
@@ -219,31 +216,24 @@ script = ExtResource("5_mdcui")
 [node name="Hurt" type="Node" parent="StateMachine" unique_id=1848960995]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1181009728]
-position = Vector2(0, -15)
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_r4e17")
-animation = &"walk"
+animation = &"attack"
+frame_progress = 0.82980365
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=276892660]
-position = Vector2(0, -10)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_mdcui")
 
 [node name="HpBar" parent="." unique_id=1072266925 instance=ExtResource("8_wbf5k")]
 offset_left = -26.0
+offset_top = 25.0
 offset_right = 26.0
-offset_bottom = 11.944445
-
-[node name="StartChaseArea" type="Area2D" parent="." unique_id=35475813]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartChaseArea" unique_id=1469262016]
-position = Vector2(0, -18)
-shape = SubResource("CircleShape2D_uhx0m")
-debug_color = Color(5.3425133e-06, 0.6433958, 0.3064144, 0.41960785)
+offset_bottom = 32.944443
 
 [node name="AttackRange" type="Area2D" parent="." unique_id=1797777094]
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1457305495]
-position = Vector2(0, -18)
 shape = SubResource("CircleShape2D_7uxu4")
 debug_color = Color(0.994914, 0.058670208, 0.07624019, 0.41960785)

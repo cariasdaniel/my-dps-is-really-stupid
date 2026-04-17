@@ -2,6 +2,7 @@ extends Resource
 class_name EnemyResource
 
 @export var id: String
+@export var level: int
 
 @export var max_hp: int = 100
 @export var hp_recovery: float = 1.0

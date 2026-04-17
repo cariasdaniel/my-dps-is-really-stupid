@@ -45,8 +45,7 @@ func _attack(direction: Vector2) -> void:
 		enemy.sprite.flip_h = false
 		
 	can_attack = false
-	print("ATTACKING!!!!")
-	await enemy.sprite.animation_finished
+	await enemy.sprite.animation_looped
 	
 	SignalBus.deal_damage.emit(target, enemy.attack)
 	is_attacking = false

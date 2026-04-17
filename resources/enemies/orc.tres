@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://khigtku135u3"]
+
+[ext_resource type="Script" uid="uid://18gepk5p0se1" path="res://resources/enemy_resource.gd" id="1_qrhs0"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="2_e0jbd"]
+
+[resource]
+script = ExtResource("1_qrhs0")
+id = "orc"
+level = 6
+max_hp = 250
+hp_recovery = 6.0
+max_mana = 100
+mana_recovery = 1.5
+attack = 35
+magic_power = 25
+defense = 25
+magic_defense = 20
+move_speed = 90.0
+xp_reward = 94.0
+metadata/_custom_type_script = "uid://18gepk5p0se1"
