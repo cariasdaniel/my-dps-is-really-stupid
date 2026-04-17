@@ -41,3 +41,12 @@ func _on_timer2start_timeout() -> void:
 # navigate to title screen
 func _on_continue_button_pressed() -> void:
 	SceneChanger.change_to(ScenePaths.title)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if (event.is_action_released("ui_accept") 
+		or event.is_action_released("ui_cancel")):
+			if disclaimer.visible:
+				_on_continue_button_pressed()
+			else:
+				_on_timer_timeout()
