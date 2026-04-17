@@ -29,6 +29,7 @@ signal portal_destroyed
 
 # UI management
 signal update_xp_info
+signal update_resource_bars
 
 # Audio
 signal on_master_volume_changed

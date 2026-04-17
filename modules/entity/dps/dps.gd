@@ -40,12 +40,13 @@ func _change_atk_range():
 
 func _on_death(body):
 	if self != body: return
+	print("DPS died")
 	SceneChanger.change_to(ScenePaths.gameOver)
 
 
 func _on_level_up():
 	max_hp += int(max_hp * 0.08)
-	hp_recovery *= 1.1
+	hp_recovery += 0.5
 
 	max_mana += int(max_mana * 0.1)
 	mana_recovery *= 1.1
@@ -57,10 +58,12 @@ func _on_level_up():
 	defense += int(defense * 0.08)
 	magic_defense += int(magic_defense * 0.08)
 	
+	move_speed += 5
 	flee_speed *= 1.05
 	sprite.speed_scale += 0.1
 	
-	var recover = int(max_hp * 0.3)
+	var recover = int(max_hp * 0.33)
 	SignalBus.change_health.emit(self, recover)
+	SignalBus.update_resource_bars.emit(self, max_hp, max_mana)
 	add_child(DamageTag.new(recover, Color.GREEN))
 	

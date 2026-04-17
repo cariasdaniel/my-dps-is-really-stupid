@@ -61,11 +61,12 @@ func remove_target(new_target: Node):
 
 func _on_death(body):
 	if self != body: return
+	print("Player died")
 	SceneChanger.change_to(ScenePaths.gameOver)
 
 func _on_level_up():
-	max_hp += int(max_hp * 0.1)
-	hp_recovery *= 1.1
+	max_hp += int(max_hp * 0.15)
+	hp_recovery += 1.5
 
 	max_mana += int(max_mana * 0.1)
 	mana_recovery *= 1.1
@@ -74,10 +75,12 @@ func _on_level_up():
 	magic_power = int(magic_power * 0.1)
 	atk_speed *= 1.1
 
-	defense = int(defense * 1.1)
-	magic_defense = int(magic_defense * 1.1)
+	defense = int(defense * 1.2)
+	magic_defense = int(magic_defense * 1.15)
 	
 	var recover = int(max_hp * 0.25)
+	current_hp += recover
 	SignalBus.change_health.emit(self, recover)
+	SignalBus.update_resource_bars.emit(self, max_hp, max_mana)
 	add_child(DamageTag.new(recover, Color.GREEN))
 	
