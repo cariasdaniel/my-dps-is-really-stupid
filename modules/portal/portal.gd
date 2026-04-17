@@ -3,8 +3,8 @@ extends StaticBody2D
 @onready var hp_bar: ProgressBar = $HpBar
 @onready var portal_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var max_hp = 200
-@export var current_hp = 200
+@export var max_hp = 150
+@export var current_hp = 150
 
 
 func _ready() -> void:
@@ -14,7 +14,6 @@ func _ready() -> void:
 	hp_bar.max_value = max_hp
 	hp_bar.value = current_hp
 	
-	_spawn_enemy()
 
 func _on_time_to_spawn_timeout() -> void:
 	_spawn_enemy()
@@ -26,7 +25,7 @@ func _spawn_enemy() -> void:
 
 	enemy_tscn.add_to_group("enemies")
 	enemy_tscn.create_enemy(enemy_res)
-	add_child(enemy_tscn)
+	get_tree().root.add_child(enemy_tscn)
 	enemy_tscn.global_position = global_position + Vector2(randi_range(-20, 20), randi_range(-20, 20))
 
 func _select_enemy_to_spawn() -> Array:
