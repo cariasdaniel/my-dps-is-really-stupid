@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnohq1hrbtpkx"]
 
 [ext_resource type="Script" uid="uid://cq0td2prbhkhu" path="res://modules/ammo/arrow_normal.gd" id="1_61tk0"]
-[ext_resource type="Texture2D" uid="uid://sqis1bsh4pu0" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_j0xrl"]
+[ext_resource type="Texture2D" uid="uid://sqis1bsh4pu0" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Archer/Arrow(projectile)/Arrow02(32x32).png" id="2_j0xrl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chkjf"]
 radius = 4.0

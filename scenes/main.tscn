@@ -10,12 +10,12 @@
 [ext_resource type="Script" uid="uid://cfqn8y7jb8ys0" path="res://modules/state_machine/dps_idle.gd" id="7_choun"]
 [ext_resource type="Script" uid="uid://b34oumh4xkf8o" path="res://modules/state_machine/dps_state_machine.gd" id="7_ya4ey"]
 [ext_resource type="Script" uid="uid://cdn4exdxaorm0" path="res://modules/entity/dps/dps.gd" id="8_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://c6wdw5k8efg2f" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Attack01.png" id="12_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://c6wdw5k8efg2f" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Archer/Archer with shadows/Archer-Attack01.png" id="12_jkv2x"]
 [ext_resource type="Script" uid="uid://cis0gftqahve5" path="res://modules/state_machine/dps_attack.gd" id="12_y6deb"]
-[ext_resource type="Texture2D" uid="uid://g04qjtxsjy5y" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Death.png" id="13_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://c3d763h0ji3wm" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Idle.png" id="14_muem4"]
+[ext_resource type="Texture2D" uid="uid://g04qjtxsjy5y" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Archer/Archer with shadows/Archer-Death.png" id="13_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://c3d763h0ji3wm" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Archer/Archer with shadows/Archer-Idle.png" id="14_muem4"]
 [ext_resource type="Script" uid="uid://bo6c0dn8h3xql" path="res://modules/state_machine/dps_flee.gd" id="14_yc10j"]
-[ext_resource type="Texture2D" uid="uid://coojrqe62rm6a" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Archer/Archer with shadows/Archer-Walk.png" id="15_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://coojrqe62rm6a" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Archer/Archer with shadows/Archer-Walk.png" id="15_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://bb31f2lyv4ub7" path="res://modules/portal/portal.tscn" id="18_0ld40"]
 
 [sub_resource type="Resource" id="Resource_muem4"]
@@ -276,10 +276,10 @@ radius = 14.0
 height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85g3d"]
-radius = 254.00197
+radius = 267.00186
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y6deb"]
-radius = 95.005264
+radius = 85.00588
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 size = Vector2(29.500013, 1230)
@@ -326,15 +326,16 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("4_0ld40")]
-position = Vector2(454, 330)
+position = Vector2(559, 364)
 skills = Array[ExtResource("5_pm3ni")]([SubResource("Resource_muem4")])
 
 [node name="Dps" type="CharacterBody2D" parent="." unique_id=1760791641 groups=["Allies", "players"]]
 texture_filter = 1
-position = Vector2(806, 291)
+position = Vector2(417, 414)
 motion_mode = 1
 script = ExtResource("8_jkv2x")
 threat = 150
+metadata/_edit_group_ = true
 
 [node name="StateMachine" type="Node" parent="Dps" unique_id=584374476 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_ya4ey")
@@ -376,7 +377,7 @@ shape = SubResource("CircleShape2D_y6deb")
 debug_color = Color(0.97400206, 0.15459615, 0.12724671, 0.41960785)
 
 [node name="FleeTime" type="Timer" parent="Dps" unique_id=1461980671]
-wait_time = 2.0
+wait_time = 1.75
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=702909677]
