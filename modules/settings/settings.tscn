@@ -1,15 +1,6 @@
 [gd_scene format=3 uid="uid://0c8hgx7cbbmk"]
 
 [ext_resource type="Script" uid="uid://bsxlcmpyjppb1" path="res://modules/settings/Settings.gd" id="1_cnujn"]
-[ext_resource type="Texture2D" uid="uid://c3jmrpdpadn3y" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Buttons/Button_Mid_Orange.png" id="2_kypp2"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gkc8"]
-texture = ExtResource("2_kypp2")
-texture_margin_left = 15.0
-texture_margin_top = 15.0
-texture_margin_right = 15.0
-texture_margin_bottom = 27.0
-expand_margin_bottom = 10.0
 
 [node name="Settings" type="CanvasLayer" unique_id=1169219565]
 process_mode = 3
@@ -35,7 +26,6 @@ offset_right = 200.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_8gkc8")
 
 [node name="MarginContainer" type="MarginContainer" parent="AudioPanel" unique_id=44739984]
 layout_mode = 1

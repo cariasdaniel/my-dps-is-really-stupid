@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://byu4bpcysk8pr" path="res://modules/resource_bars/resource_bar.gd" id="1_s5qdq"]
 [ext_resource type="Texture2D" uid="uid://bdb8nydg0ypir" path="res://assets/hp-bar/hp-under.png" id="2_wn04l"]
 [ext_resource type="Texture2D" uid="uid://d2yb6lxe2wopn" path="res://assets/hp-bar/hp-frame.png" id="3_0gnul"]
+[ext_resource type="Texture2D" uid="uid://c2utfu0oc2yae" path="res://assets/hp-bar/xp-frame.png" id="3_ss731"]
 [ext_resource type="Texture2D" uid="uid://lwg4ijue77lf" path="res://assets/hp-bar/hp-texture.png" id="4_42y6v"]
 
 [node name="ResourceBarScene" type="Control" unique_id=1908969633]
@@ -27,9 +28,8 @@ stretch_margin_top = 5
 stretch_margin_right = 5
 stretch_margin_bottom = 5
 texture_under = ExtResource("2_wn04l")
-texture_over = ExtResource("3_0gnul")
+texture_over = ExtResource("3_ss731")
 texture_progress = ExtResource("4_42y6v")
-tint_over = Color(0.12941177, 0.7058824, 1, 1)
 tint_progress = Color(0, 0.7607843, 1, 1)
 
 [node name="DamageBar" type="TextureProgressBar" parent="." unique_id=1557210762]
@@ -61,6 +61,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
 text = "100 / 100"
 horizontal_alignment = 1
+vertical_alignment = 1

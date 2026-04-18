@@ -306,9 +306,10 @@ entity = NodePath("../../Player")
 entity = NodePath("../../../Dps")
 
 [node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
-offset_top = -58.0
-offset_bottom = -10.0
-theme_override_constants/separation = -6
+offset_left = -131.5
+offset_top = -64.0
+offset_right = 131.5
+offset_bottom = -16.0
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1537115382]
 anchors_preset = 1
