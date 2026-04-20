@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dotpmgbtlcq6i"]
 
-[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy.gd" id="1_51o7o"]
+[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://scripts/entity/enemy/enemy.gd" id="1_51o7o"]
 [ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="2_fqiw2"]
 [ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="3_em6tp"]
 [ext_resource type="Script" uid="uid://cl7gh14nuxv7d" path="res://modules/state_machine/enemy_chase.gd" id="4_hfcyt"]
 [ext_resource type="Script" uid="uid://jc07wrtvhtbw" path="res://modules/state_machine/enemy_attack.gd" id="5_06e5c"]
 [ext_resource type="Texture2D" uid="uid://bwrp0ywiki5cl" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Werebear/Werebear with shadows/Werebear-Attack01.png" id="6_51o7o"]
 [ext_resource type="Texture2D" uid="uid://ckn7efhxms3k4" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Werebear/Werebear with shadows/Werebear-Walk.png" id="7_fqiw2"]
-[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="8_fk5fw"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://ui_components/enemy_hp_bar.tscn" id="8_fk5fw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_em6tp"]
 atlas = ExtResource("6_51o7o")

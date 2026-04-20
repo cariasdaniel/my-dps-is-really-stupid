@@ -3,8 +3,6 @@ class_name DpsAttack
 
 @onready var dps: CharacterBody2D = $"../.."
 
-var normal_arrow = preload("res://modules/ammo/arrow_normal.tscn")
-
 var can_attack: bool
 var closest_target = null
 
@@ -64,13 +62,17 @@ func _shoot_arrow(direction: Vector2) -> void:
 	can_attack = false
 	await dps.sprite.animation_finished
 	
-	var ammo: Area2D = normal_arrow.instantiate()
-	get_tree().root.add_child(ammo)
-	ammo.set_damage(dps.attack)
-	ammo.global_position = dps.global_position
-	ammo.direction = direction.normalized()
+	var selected_ammo = _select_ammo()
+	var ammo_scene: Area2D = selected_ammo.instantiate()
+	get_tree().root.add_child(ammo_scene)
+	ammo_scene.set_damage(dps.attack)
+	ammo_scene.global_position = dps.global_position
+	ammo_scene.direction = direction.normalized()
 	
 	can_attack = true
+
+func _select_ammo() -> PackedScene:
+	return load(ScenePath.arrow_normal)
 
 func _on_overwrite_timer_timeout() -> void:
 	overwritten = false

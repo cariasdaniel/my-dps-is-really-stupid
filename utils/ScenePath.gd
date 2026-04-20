@@ -1,5 +1,4 @@
 extends Node
-class_name SceneResources
 
 @onready var intro = 'uid://ycmjfrtbmw56'
 @onready var title = 'uid://dbxawqkn2om0'
@@ -8,3 +7,8 @@ class_name SceneResources
 @onready var gameWin = 'uid://bu2f3m6okuujs'
 @onready var settings = 'uid://0c8hgx7cbbmk'
 @onready var lvlUpOptions = 'uid://bg7evksmrj05j'
+
+@onready var player = 'uid://b65ycqo4nwake'
+@onready var dps_archer = 'uid://dvn1f4ptb83iq'
+
+@onready var arrow_normal = 'uid://bnohq1hrbtpkx'

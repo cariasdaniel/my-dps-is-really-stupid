@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://dhuwwsh7atsis"]
 
-[ext_resource type="Script" uid="uid://bwviggvb3044r" path="res://scripts/main.gd" id="1_q8u5g"]
-[ext_resource type="Script" uid="uid://khnu1j1ey2ah" path="res://managers/GameManager.gd" id="2_lhr70"]
-[ext_resource type="PackedScene" uid="uid://bb31f2lyv4ub7" path="res://modules/portal/portal.tscn" id="3_wp0k4"]
-[ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://scenes/GameUi.tscn" id="4_bjd11"]
-[ext_resource type="Texture2D" uid="uid://bubrm76fij58p" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Settings.png" id="5_qmy6f"]
-[ext_resource type="PackedScene" uid="uid://b65ycqo4nwake" path="res://scenes/allies/player.tscn" id="6_mwfav"]
-[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="7_3p2gp"]
-[ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="8_cvmbd"]
-[ext_resource type="PackedScene" uid="uid://dvn1f4ptb83iq" path="res://scenes/allies/dps_archer.tscn" id="9_ft6cd"]
+[ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://scenes/game_ui.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bwviggvb3044r" path="res://scenes/main.gd" id="1_trceg"]
+[ext_resource type="Script" uid="uid://khnu1j1ey2ah" path="res://modules/managers/GameManager.gd" id="2_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://bubrm76fij58p" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Settings.png" id="3_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://b65ycqo4nwake" path="res://scenes/allies/player.tscn" id="4_0ld40"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="5_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="6_y6deb"]
+[ext_resource type="PackedScene" uid="uid://dvn1f4ptb83iq" path="res://scenes/allies/dps_archer.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bb31f2lyv4ub7" path="res://modules/portal/portal.tscn" id="18_0ld40"]
 
-[sub_resource type="Resource" id="Resource_q8u5g"]
+[sub_resource type="Resource" id="Resource_choun"]
 resource_local_to_scene = true
-script = ExtResource("7_3p2gp")
+script = ExtResource("5_pm3ni")
 id = "heal"
 name = "Heal"
 description = "Heals"
@@ -22,29 +22,32 @@ current_level = 1
 max_level = 5
 distance = 40.0
 target = 1
-icon = ExtResource("8_cvmbd")
+icon = ExtResource("6_y6deb")
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 size = Vector2(29.500013, 1230)
 
 [node name="Main" type="Node" unique_id=260318962]
-script = ExtResource("1_q8u5g")
+script = ExtResource("1_trceg")
 
 [node name="GameManager" type="Node" parent="." unique_id=30843882]
-script = ExtResource("2_lhr70")
+script = ExtResource("2_dp3eg")
 
 [node name="next_portal" type="Timer" parent="GameManager" unique_id=1235777746]
 wait_time = 60.0
 one_shot = true
 
-[node name="Portal" parent="GameManager" unique_id=1304176986 instance=ExtResource("3_wp0k4")]
+[node name="Portal" parent="GameManager" unique_id=1304176986 instance=ExtResource("18_0ld40")]
 position = Vector2(1002, 293)
 
-[node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("4_bjd11")]
+[node name="CanvasLayer" parent="." unique_id=428319222 instance=ExtResource("1_o5qli")]
 
 [node name="PlayerResourceDisplay" parent="CanvasLayer" index="0" unique_id=480325217 node_paths=PackedStringArray("entity")]
 entity = NodePath("../../Player")
+
+[node name="DpsStatusPanel" parent="CanvasLayer/PartyStatusLateral" parent_id_path=PackedInt32Array(428319222, 1176638941) index="0" unique_id=536371816 node_paths=PackedStringArray("entity")]
+entity = NodePath("")
 
 [node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
 offset_left = -131.5
@@ -63,15 +66,15 @@ offset_bottom = 47.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("5_qmy6f")
+texture_normal = ExtResource("3_dp3eg")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("6_mwfav")]
+[node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("4_0ld40")]
 position = Vector2(559, 364)
-skills = Array[ExtResource("7_3p2gp")]([SubResource("Resource_q8u5g")])
+skills = Array[ExtResource("5_pm3ni")]([SubResource("Resource_choun")])
 
-[node name="Dps" parent="." unique_id=1764787347 instance=ExtResource("9_ft6cd")]
+[node name="Dps" parent="." unique_id=1764787347 instance=ExtResource("9_85g3d")]
 position = Vector2(417, 414)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=702909677]

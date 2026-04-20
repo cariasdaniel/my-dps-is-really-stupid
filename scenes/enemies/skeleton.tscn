@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bhojfccmmlh7h"]
 
-[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy.gd" id="1_vncds"]
+[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://scripts/entity/enemy/enemy.gd" id="1_vncds"]
 [ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="2_bmy85"]
 [ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="3_2t5sy"]
 [ext_resource type="Script" uid="uid://cl7gh14nuxv7d" path="res://modules/state_machine/enemy_chase.gd" id="4_pxfki"]
 [ext_resource type="Script" uid="uid://jc07wrtvhtbw" path="res://modules/state_machine/enemy_attack.gd" id="5_quxur"]
 [ext_resource type="Texture2D" uid="uid://c3opgyrrnkgmm" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Skeleton/Skeleton with shadows/Skeleton-Attack02.png" id="6_vncds"]
 [ext_resource type="Texture2D" uid="uid://ccgqi2bvff6r7" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Skeleton/Skeleton with shadows/Skeleton-Walk.png" id="7_bmy85"]
-[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="8_f0dbl"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://ui_components/enemy_hp_bar.tscn" id="8_f0dbl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2t5sy"]
 atlas = ExtResource("6_vncds")

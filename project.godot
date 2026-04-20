@@ -35,7 +35,7 @@ buses/default_bus_layout="res://assets/themes/default_bus_layout.tres"
 [autoload]
 
 GlobalData="*uid://bd86751uf4yud"
-ScenePaths="*uid://oilqtiyjlag4"
+ScenePath="*uid://oilqtiyjlag4"
 SignalBus="*uid://d1curlfmsot2h"
 SceneChanger="*uid://da820lroyr6to"
 ExpManager="*uid://cdqtlmtw7sax1"

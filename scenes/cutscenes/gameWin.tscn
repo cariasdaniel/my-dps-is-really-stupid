@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bu2f3m6okuujs"]
+
+[ext_resource type="Script" uid="uid://dr8cqsybiu7xs" path="res://scripts/screens/screen_game_win.gd" id="1_igval"]
+[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://ui_components/continue_button/continue_button.tscn" id="2_mrftq"]
+
+[node name="gameWin" type="Control" unique_id=91329868]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_igval")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=70885281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=590825357]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.2962963
+anchor_right = 0.5
+anchor_bottom = 0.78549385
+offset_left = -311.0
+offset_right = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=662867735]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WIN1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=2002779355]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WIN2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=65731415]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WIN3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=1078915861]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WIN4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=930965457]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1466095365]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "WIN5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=54526913]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "WIN6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer" unique_id=221233041]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label7" type="Label" parent="VBoxContainer" unique_id=333915707]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "WIN_DISCLAIMER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" parent="." unique_id=2082565337 instance=ExtResource("2_mrftq")]
+layout_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1998559541]
+wait_time = 1.6999999999999995
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=309202132]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer2start_timeout"]

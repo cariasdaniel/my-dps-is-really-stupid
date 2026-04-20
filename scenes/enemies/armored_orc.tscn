@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://exlakwt3h4dg"]
 
-[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy.gd" id="1_j8p2t"]
+[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://scripts/entity/enemy/enemy.gd" id="1_j8p2t"]
 [ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="2_04mlv"]
 [ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="3_o64w4"]
 [ext_resource type="Script" uid="uid://cl7gh14nuxv7d" path="res://modules/state_machine/enemy_chase.gd" id="4_tenop"]
 [ext_resource type="Script" uid="uid://jc07wrtvhtbw" path="res://modules/state_machine/enemy_attack.gd" id="5_iyhi6"]
 [ext_resource type="Texture2D" uid="uid://k0h5d13kvoqj" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Armored Orc/Armored Orc with shadows/Armored Orc-Attack02.png" id="6_j8p2t"]
 [ext_resource type="Texture2D" uid="uid://ep76huffm43c" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Armored Orc/Armored Orc with shadows/Armored Orc-Walk.png" id="7_04mlv"]
-[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="8_22vny"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://ui_components/enemy_hp_bar.tscn" id="8_22vny"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o64w4"]
 atlas = ExtResource("6_j8p2t")

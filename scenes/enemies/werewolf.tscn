@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://byjmecaevnddj"]
 
-[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://modules/entity/enemy/enemy.gd" id="1_txv0h"]
+[ext_resource type="Script" uid="uid://buyisd25lc4y8" path="res://scripts/entity/enemy/enemy.gd" id="1_txv0h"]
 [ext_resource type="Script" uid="uid://byo8ntptnhusm" path="res://modules/state_machine/enemy_state_machine.gd" id="2_7esfl"]
 [ext_resource type="Script" uid="uid://is6qu062b078" path="res://modules/state_machine/enemy_idle.gd" id="3_uubl5"]
 [ext_resource type="Script" uid="uid://cl7gh14nuxv7d" path="res://modules/state_machine/enemy_chase.gd" id="4_lyd2p"]
 [ext_resource type="Script" uid="uid://jc07wrtvhtbw" path="res://modules/state_machine/enemy_attack.gd" id="5_n7lwf"]
 [ext_resource type="Texture2D" uid="uid://cwxl44yfolmcv" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Werewolf/Werewolf with shadows/Werewolf-Attack01.png" id="6_q5oc0"]
 [ext_resource type="Texture2D" uid="uid://b8xjdhjy0lp48" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Werewolf/Werewolf with shadows/Werewolf-Walk.png" id="7_q44g6"]
-[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="10_uglhj"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://ui_components/enemy_hp_bar.tscn" id="10_uglhj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txv0h"]
 atlas = ExtResource("6_q5oc0")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d5agktjaulvt" path="res://modules/portal/portal.gd" id="1_in2j8"]
 [ext_resource type="Texture2D" uid="uid://c0pxvumgawwka" path="res://assets/sprites/portal.png" id="2_pe5yq"]
-[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://modules/ui_components/enemy_hp_bar.tscn" id="3_pe5yq"]
+[ext_resource type="PackedScene" uid="uid://bd6smafetgjns" path="res://ui_components/enemy_hp_bar.tscn" id="3_pe5yq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7ru7"]
 atlas = ExtResource("2_pe5yq")
