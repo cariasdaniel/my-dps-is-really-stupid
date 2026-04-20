@@ -6,12 +6,13 @@ extends TextureProgressBar
 
 func _ready():
 	SignalBus.update_xp_info.connect(_update_progress)
+	_update_progress()
 
 func _update_progress() -> void:
 	print('updating xp bar UI')
 	max_value = ExpManager.get_xp_to_next_level()
 	value = ExpManager.xp
-	level_label.text = "Level " + str(ExpManager.level)
+	level_label.text = tr("LEVEL") + " " + str(ExpManager.level)
 	xp_label.text = "%3.2f%%" % ((value / max_value) * 100)
 
 

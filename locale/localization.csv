@@ -1,0 +1,44 @@
+key,en_us,pt_br
+PLAY,Play,Jogar
+SETTINGS,Settings,Configurações
+AUDIO,Audio,Áudio
+SAVE,Save,Salvar
+MASTER_VOLUME,Master Volume,Geral
+MUSIC_VOLUME,Music Volume,Música
+LOAD,Load,Carregar
+QUIT,Quit,Sair
+CONTINUE,Continue,Continuar
+INTRO1,I am strong.,Eu sou forte.
+INTRO2,I am brave.,Eu sou corajoso.
+INTRO3,I am unstoppable.,Eu sou imparável.
+INTRO4,I can never die,Nada pode me matar
+INTRO5,For I am,pois eu sou
+INTRO6,INVINCIBLE.,INVENCÍVEL.
+INTRO_DISCLAIMER,"- is what your dps thinks as he enters head 
+first into a dungeon full of dangerous enemies.","- é o que seu dps pensa enquanto entra de cabeça 
+em uma caverna cheia de inimigos perigosos."
+GAME_OVER,Game Over,Fim de Jogo
+WIN1,All the portals were destroyed.,Todos os portais foram destruídos.
+WIN2,We are eternally grateful to you!,Somos eternamente gratos a você!
+WIN3,"The true hero,","O verdadeiro herói,"
+WIN4,"All-mighty,","todo-poderoso,"
+WIN5,INVINCIBLE,INVENCÍVEL
+WIN6, DPS!, DPS!
+WIN_DISCLAIMER,"gg wp to all supports out there 
+making their teammates feel invincible!","gg wp a todos os suportes que fazem
+seus times se sentirem invencíveis!"
+LEVEL,Level,Nível
+EXP,Experience,Experiência
+HP,Health,Vida
+MP,Mana,Mana
+PTC,Patience,Paciência
+ATK,Attack,Ataque
+M_ATK,Magic Attack,Ataque Mágico
+ATK_SPEED,Attack Speed,Velocidade de Ataque
+ATK_RANGE,Attack Range,Área do ataque??
+DEF,Defense,Defesa
+M_DEF,Magic Defense,Defesa Mágica
+MOVE_SPEED,Move Speed,Velocidade de Movimento
+SKILL,Skill,Habilidade
+EN_US,English,Inglês
+PT_BR,Portuguese,Português

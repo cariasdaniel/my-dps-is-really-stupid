@@ -39,7 +39,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "All the portals were destroyed."
+text = "WIN1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -47,7 +47,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "We are eternally grateful to you!"
+text = "WIN2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,7 +55,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "The truly powerful,"
+text = "WIN3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,7 +63,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "All-mighty,"
+text = "WIN4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -76,7 +76,7 @@ size_flags_vertical = 4
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "INVINCIBLE "
+text = "WIN5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -84,7 +84,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "DPS!"
+text = "WIN6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -96,7 +96,7 @@ size_flags_vertical = 3
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "gg wp to all supports out there!"
+text = "WIN_DISCLAIMER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

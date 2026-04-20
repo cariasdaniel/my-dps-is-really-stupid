@@ -7,7 +7,6 @@ font_names = PackedStringArray("Upheaval TT (BRK)")
 subpixel_positioning = 0
 
 [node name="ContinueButton" type="Button" unique_id=2082565337]
-visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -31,8 +30,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -29.0
+offset_left = -358.0
+offset_top = -33.0
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 3
@@ -40,7 +40,6 @@ mouse_filter = 1
 theme_override_fonts/normal_font = SubResource("SystemFont_t31kc")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "[pulse]Continue >[/pulse]"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 2

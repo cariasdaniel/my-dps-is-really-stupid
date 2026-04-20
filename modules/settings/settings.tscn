@@ -55,7 +55,7 @@ columns = 2
 
 [node name="MasterLabel" type="Label" parent="AudioPanel/MarginContainer/GridContainer" unique_id=1618187035]
 layout_mode = 2
-text = "Master Volume"
+text = "MASTER_VOLUME"
 
 [node name="MasterSlider" type="HSlider" parent="AudioPanel/MarginContainer/GridContainer" unique_id=969660816]
 custom_minimum_size = Vector2(144, 0)

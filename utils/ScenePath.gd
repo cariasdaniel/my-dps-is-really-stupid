@@ -1,5 +1,5 @@
 extends Node
-class_name ScenePath
+class_name SceneResources
 
 @onready var intro = 'uid://ycmjfrtbmw56'
 @onready var title = 'uid://dbxawqkn2om0'

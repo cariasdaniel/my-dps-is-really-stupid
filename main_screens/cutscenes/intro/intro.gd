@@ -14,15 +14,20 @@ extends Control
 
 @onready var disclaimer = $VBoxContainer/Label7
 
+var all_done = false
+
 # function to show cutscene labels one by one
 func _on_timer_timeout() -> void:
+	if all_done: return
+	
 	# if all thoughts labels are visible, add quotes
 	# in first and last labels + show disclaimer
 	var hidden_labels = thought_labels.filter(func(l: Label): return l.visible == false)
 	if not hidden_labels:
-		thought_labels[0].text = '"' + thought_labels[0].text
-		thought_labels[-1].text = thought_labels[-1].text + '"'
+		thought_labels[0].text = '"' + tr(thought_labels[0].text)
+		thought_labels[-1].text = tr(thought_labels[-1].text) + '"'
 		disclaimer.show()
+		all_done = true
 	
 	# if not all thought labels are shown, show next
 	for label: Label in hidden_labels:

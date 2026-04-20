@@ -39,7 +39,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "I am strong."
+text = "INTRO1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -47,7 +47,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "I am brave."
+text = "INTRO2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -55,7 +55,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "I can do whatever I want."
+text = "INTRO3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,7 +63,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "I can never die"
+text = "INTRO4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -71,7 +71,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "for I am"
+text = "INTRO5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -79,7 +79,7 @@ vertical_alignment = 1
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 38
-text = "INVINCIBLE."
+text = "INTRO6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -91,8 +91,7 @@ size_flags_vertical = 3
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "- is what your dps thinks, as he enters head 
-first into a dungeon full of dangerous enemies."
+text = "INTRO_DISCLAIMER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

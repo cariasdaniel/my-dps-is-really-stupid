@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bk7d7ivuohigc"]
+
+[ext_resource type="Script" uid="uid://cyb2oqyx0cqwk" path="res://select_language/select_language.gd" id="1_c4ftf"]
+[ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://modules/ui_components/continue_button.tscn" id="2_d7jgo"]
+
+[node name="SelectLanguage" type="Control" unique_id=2007055454]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c4ftf")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=172097141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=2045270430]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SelectEnglish" type="Button" parent="CenterContainer/HBoxContainer" unique_id=1622638366]
+layout_mode = 2
+text = "en_us"
+
+[node name="SelectPortuguese" type="Button" parent="CenterContainer/HBoxContainer" unique_id=1123045874]
+layout_mode = 2
+text = "pt_br"
+
+[node name="ContinueButton" parent="." unique_id=2082565337 instance=ExtResource("2_d7jgo")]
+layout_mode = 1
+offset_left = -347.0
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/SelectEnglish" to="." method="_on_select_english_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/SelectPortuguese" to="." method="_on_select_portuguese_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
