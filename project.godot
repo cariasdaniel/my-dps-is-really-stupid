@@ -125,7 +125,7 @@ move_right={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization/localization.en.translation", "res://localization/localization.pt.translation")
+locale/translations=PackedStringArray("res://locale/localization.en.translation", "res://locale/localization.pt.translation")
 
 [physics]
 
