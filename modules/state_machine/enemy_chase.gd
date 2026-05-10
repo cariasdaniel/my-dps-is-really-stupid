@@ -8,7 +8,6 @@ var target = null
 func enter():
 	print("Entered CHASE state")
 
-
 func _get_closest_enemy_in_sight():
 	if mob.priority_target:
 		target = mob.priority_target
@@ -18,16 +17,15 @@ func _get_closest_enemy_in_sight():
 				if not target || body.threat > target.threat:
 						target = body
 
-func physics_update(delta):
+func physics_update(_delta):
 	_get_closest_enemy_in_sight()
 	
 	if mob.get_enemies_in_range().size() > 0:
 		transitioned.emit(self, 'attack')
 		return
 	
-	#if !target:
-		#transitioned.emit(self, 'idle')
-		#return
+	if !target:
+		return
 	
 	var direction = target.global_position - mob.global_position
 	mob.velocity = direction.normalized() * mob.move_speed
