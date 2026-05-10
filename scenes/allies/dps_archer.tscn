@@ -260,6 +260,7 @@ radius = 85.00588
 
 [node name="Dps" type="CharacterBody2D" unique_id=1764787347 groups=["Allies", "players"]]
 texture_filter = 1
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_eo7tx")
 threat = 150
@@ -293,12 +294,14 @@ shape = SubResource("CapsuleShape2D_yc10j")
 
 [node name="SearchArea" type="Area2D" parent="." unique_id=1649377557]
 position = Vector2(0, -4)
+collision_mask = 3
 
 [node name="AtkRangeArea" type="CollisionShape2D" parent="SearchArea" unique_id=1669559093]
 shape = SubResource("CircleShape2D_85g3d")
 
 [node name="SafeArea" type="Area2D" parent="." unique_id=1215240624]
 position = Vector2(0, -4)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea" unique_id=2124536405]
 shape = SubResource("CircleShape2D_y6deb")
