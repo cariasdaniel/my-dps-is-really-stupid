@@ -40,5 +40,6 @@ DEF,Defense,Defesa
 M_DEF,Magic Defense,Defesa Mágica
 MOVE_SPEED,Move Speed,Velocidade de Movimento
 SKILL,Skill,Habilidade
+SELECT_LANGUAGE,Select language,Selecione o idioma
 EN_US,English,Inglês
 PT_BR,Portuguese,Português
