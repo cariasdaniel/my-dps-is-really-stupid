@@ -38,10 +38,14 @@ func _select_enemy_to_spawn() -> Array:
 	var tscn_dir_name := "res://scenes/enemies/"
 	var file_names := DirAccess.get_files_at(res_dir_name)
 	for file in file_names:
-		var data = load(res_dir_name + file)
+		var file_name = res_dir_name + file.trim_suffix('.remap')
+		var data = load(file_name)
+		
 		if data.level > ExpManager.level: continue
+		
+		var scene_name = tscn_dir_name + file.replace('tres', 'tscn').trim_suffix('.remap')
 		enemies.append(
-			[data, load(tscn_dir_name + file.replace('tres', 'tscn'))]
+			[data, load(scene_name)]
 		)
 	return enemies.pick_random()
 
