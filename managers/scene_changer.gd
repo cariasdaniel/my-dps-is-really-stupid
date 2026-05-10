@@ -8,6 +8,7 @@ extends CanvasLayer
 signal scene_changed
 
 func change_to(new_scene_path: String):
+	get_tree().paused = true
 	color_rect.visible = true
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
@@ -17,6 +18,7 @@ func change_to(new_scene_path: String):
 	
 	animation_player.play("fade_to_scene")
 	await animation_player.animation_finished
+	get_tree().paused = false
 	color_rect.visible = false
 	
 	

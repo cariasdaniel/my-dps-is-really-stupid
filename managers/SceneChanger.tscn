@@ -53,6 +53,7 @@ _data = {
 }
 
 [node name="SceneChanger" type="CanvasLayer" unique_id=2134177604]
+process_mode = 3
 script = ExtResource("1_5ta4w")
 
 [node name="AudioManager" type="Node" parent="." unique_id=1559676]
