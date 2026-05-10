@@ -63,8 +63,8 @@ size_flags_vertical = 0
 [node name="DpsStatusPanel" type="Control" parent="PartyStatusLateral" unique_id=536371816 node_paths=PackedStringArray("health_bar", "mana_bar")]
 layout_mode = 2
 script = ExtResource("1_pbvhl")
-health_bar = NodePath("DpsStatusPanel/MarginContainer/VBoxContainer/ResourceBarScene")
-mana_bar = NodePath("DpsStatusPanel/MarginContainer/VBoxContainer/ResourceBarScene2")
+health_bar = NodePath("DpsStatusPanel/MarginContainer/VBoxContainer/Health")
+mana_bar = NodePath("DpsStatusPanel/MarginContainer/VBoxContainer/Mana")
 
 [node name="DpsStatusPanel" type="HBoxContainer" parent="PartyStatusLateral/DpsStatusPanel" unique_id=15253932]
 layout_mode = 0
@@ -92,11 +92,11 @@ theme_override_constants/margin_bottom = 5
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="ResourceBarScene" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=800821387 instance=ExtResource("2_k42hb")]
+[node name="Health" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=800821387 instance=ExtResource("2_k42hb")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ResourceBarScene2" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=1247731732 instance=ExtResource("3_pbvhl")]
+[node name="Mana" parent="PartyStatusLateral/DpsStatusPanel/DpsStatusPanel/MarginContainer/VBoxContainer" unique_id=1247731732 instance=ExtResource("3_pbvhl")]
 layout_mode = 2
 size_flags_vertical = 3
 

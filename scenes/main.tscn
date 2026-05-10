@@ -48,6 +48,9 @@ position = Vector2(1002, 293)
 [node name="PlayerResourceDisplay" parent="CanvasLayer" index="0" unique_id=480325217 node_paths=PackedStringArray("entity")]
 entity = NodePath("../../Player")
 
+[node name="DpsStatusPanel" parent="CanvasLayer/PartyStatusLateral" parent_id_path=PackedInt32Array(428319222, 1176638941) index="0" unique_id=536371816 node_paths=PackedStringArray("entity")]
+entity = NodePath("../../../Dps")
+
 [node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
 offset_left = -131.5
 offset_top = -64.0
