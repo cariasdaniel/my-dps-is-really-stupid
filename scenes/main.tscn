@@ -31,6 +31,8 @@ size = Vector2(29.500013, 1230)
 [node name="Main" type="Node" unique_id=260318962]
 script = ExtResource("1_q8u5g")
 
+[node name="EnemyLayer" type="Node" parent="." unique_id=441437851]
+
 [node name="GameManager" type="Node" parent="." unique_id=30843882]
 script = ExtResource("2_lhr70")
 

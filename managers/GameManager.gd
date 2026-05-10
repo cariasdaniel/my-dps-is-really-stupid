@@ -1,5 +1,7 @@
 extends Node
 
+@onready var enemy_layer: Node = $"../EnemyLayer"
+
 @onready var main: Node = $".."
 
 @onready var portal: PackedScene = preload("res://modules/portal/portal.tscn")
@@ -12,12 +14,12 @@ var base_sec = 60.0
 func _ready():
 	SignalBus.portal_destroyed.connect(_on_portal_destroyed)
 	
-	next_portal_timer.start()
+	_start_new_game()
 
 
 func spawn_portal() -> void:
 	# select location
-	var position_to_spawn = Vector2(randi_range(0, 900), randi_range(0, 900))
+	var position_to_spawn = Vector2(randi_range(0, 950), randi_range(0, 500))
 	
 	# spawn portal
 	var p = portal.instantiate()
@@ -41,4 +43,16 @@ func _on_portal_destroyed() -> void:
 	var living_portals = portals.filter(func(p): return p.current_hp > 0)
 	if living_portals.is_empty():
 		SceneChanger.change_to(ScenePath.gameWin)
+	
+
+func _start_new_game() -> void:
+	var portals = get_children().filter(func(p): return p is StaticBody2D)
+	for p in portals:
+		p.queue_free()
+	
+	for m in enemy_layer.get_children():
+		m.queue_free()
+	
+	spawn_portal()
+	next_portal_timer.start()
 	
