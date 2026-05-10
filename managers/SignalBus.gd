@@ -12,6 +12,7 @@ signal level_up
 
 # Skills Hotbar
 signal skill_selected(skill)
+signal use_skill(slot_index)
 
 # Player management
 signal gain_xp(value)
