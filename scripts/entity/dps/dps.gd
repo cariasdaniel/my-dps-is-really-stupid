@@ -45,7 +45,7 @@ func _on_death(body):
 
 
 func _on_level_up():
-	max_hp += int(max_hp * 0.08)
+	max_hp += int(max_hp * 0.04)
 	hp_recovery += 0.5
 
 	max_mana += int(max_mana * 0.1)
@@ -63,7 +63,8 @@ func _on_level_up():
 	sprite.speed_scale += 0.1
 	
 	var recover = int(max_hp * 0.33)
+	SignalBus.update_health_bar.emit(self)
+	SignalBus.update_mana_bar.emit(self)
 	SignalBus.change_health.emit(self, recover)
-	SignalBus.update_resource_bars.emit(self, max_hp, max_mana)
 	add_child(DamageTag.new(recover, Color.GREEN))
 	

@@ -29,7 +29,8 @@ signal portal_destroyed
 
 # UI management
 signal update_xp_info
-signal update_resource_bars
+signal update_health_bar(entity, value)
+signal update_mana_bar(entity, value)
 
 # Audio
 signal on_master_volume_changed

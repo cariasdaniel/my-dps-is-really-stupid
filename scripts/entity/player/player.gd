@@ -65,7 +65,7 @@ func _on_death(body):
 	SceneChanger.change_to(ScenePath.gameOver)
 
 func _on_level_up():
-	max_hp += int(max_hp * 0.15)
+	max_hp += int(max_hp * 0.10)
 	hp_recovery += 1.5
 
 	max_mana += int(max_mana * 0.1)
@@ -80,7 +80,8 @@ func _on_level_up():
 	
 	var recover = int(max_hp * 0.25)
 	current_hp += recover
+	SignalBus.update_health_bar.emit(self)
+	SignalBus.update_mana_bar.emit(self)
 	SignalBus.change_health.emit(self, recover)
-	SignalBus.update_resource_bars.emit(self, max_hp, max_mana)
 	add_child(DamageTag.new(recover, Color.GREEN))
 	

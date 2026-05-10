@@ -42,8 +42,9 @@ func _init() -> void:
 	add_child(recovery_timer)
 	
 	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
+	SignalBus.change_health.connect(_update_current_health)
+	SignalBus.change_mana.connect(_update_current_mana)
 	
-
 func _on_mouse_entered_target():
 	var player = get_tree().get_first_node_in_group("Player")
 	assert(player, 'Player não instanciado')
@@ -56,23 +57,32 @@ func _on_mouse_exited_untarget():
 
 func _on_recovery_timer_timeout_recover_hp():
 	if current_hp < max_hp:
-		current_hp += hp_recovery
-		SignalBus.change_health.emit(self, hp_recovery)
+		_update_current_health(self, hp_recovery)
 		add_child(DamageTag.new(hp_recovery, Color.GREEN))
 	if current_mana < max_mana:
-		current_mana += mana_recovery
-		SignalBus.change_mana.emit(self, mana_recovery)
+		_update_current_mana(self, mana_recovery)
 		add_child(DamageTag.new(mana_recovery, Color.DEEP_SKY_BLUE))
 
 func _on_damage_dealt_change_health(body, amount):
 	if self != body: return
-	
 	var dmg_taken = _calculate_damage_taken(amount)
-	current_hp -= dmg_taken
+	_update_current_health(self, -dmg_taken)
 	add_child(DamageTag.new(dmg_taken, Color.RED))
-	SignalBus.change_health.emit(self, -dmg_taken)
+	print("%s took %s damage. %s health remaining" % [self, dmg_taken, current_hp])
 	if current_hp <= 0:
 		SignalBus.died.emit(self)
-	
+
 func _calculate_damage_taken(value) -> int:
 	return max(int(value - (0.25 * defense)), 1)
+
+func _update_current_health(target, value) -> void:
+	if target != self: return
+	current_hp = clampi(current_hp + value, 0, max_hp)
+	if value > 0:
+		print("%s updated health in %s. %s current health" % [self, value, current_hp])
+	SignalBus.update_health_bar.emit(self)
+	
+func _update_current_mana(target, value) -> void:
+	if target != self: return
+	current_mana = clampi(current_mana + value, 0, max_mana)
+	SignalBus.update_mana_bar.emit(self)
