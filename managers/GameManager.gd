@@ -19,7 +19,7 @@ func _ready():
 
 func spawn_portal() -> void:
 	# select location
-	var position_to_spawn = Vector2(randi_range(0, 950), randi_range(0, 500))
+	var position_to_spawn = Vector2(randi_range(0, 800), randi_range(0, 400))
 	
 	# spawn portal
 	var p = portal.instantiate()
