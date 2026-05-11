@@ -59,6 +59,8 @@ radius = 18.0
 height = 48.0
 
 [node name="Portal" type="StaticBody2D" unique_id=1304176986 groups=["portal"]]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_in2j8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=340060339]

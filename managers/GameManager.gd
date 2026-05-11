@@ -19,7 +19,7 @@ func _ready():
 
 func spawn_portal() -> void:
 	# select location
-	var position_to_spawn = Vector2(randi_range(0, 800), randi_range(0, 400))
+	var position_to_spawn = Vector2(randi_range(100, 900), randi_range(100, 500))
 	
 	# spawn portal
 	var p = portal.instantiate()
@@ -46,13 +46,16 @@ func _on_portal_destroyed() -> void:
 	
 
 func _start_new_game() -> void:
+	# Remove monsters and portals
 	var portals = get_children().filter(func(p): return p is StaticBody2D)
 	for p in portals:
 		p.queue_free()
-	
 	for m in enemy_layer.get_children():
 		m.queue_free()
-	
 	spawn_portal()
 	next_portal_timer.start()
+	
+	# Reset XP
+	ExpManager.xp = 0
+	ExpManager.level = 1
 	

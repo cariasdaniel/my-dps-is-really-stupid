@@ -6,21 +6,26 @@ class_name ResourceDisplay
 @export var entity: Entity
 
 func _ready() -> void:
-	if entity:
-		SignalBus.change_health.connect(_on_change_health_move_bar)
-		SignalBus.change_mana.connect(_on_change_mana_move_bar)
+	if !entity: print("Resource bar with no entity assigned.")
 		
-		health_bar.change_max_resource(entity.max_hp)
-		health_bar.set_resource(entity.current_hp)
-		mana_bar.change_max_resource(entity.max_mana)
-		mana_bar.set_resource(entity.current_mana)
+	SignalBus.update_health_bar.connect(_on_change_health_move_bar)
+	SignalBus.update_mana_bar.connect(_on_change_mana_move_bar)
+	
+	health_bar.update_bar_values(entity.current_hp, entity.max_hp)
+	mana_bar.update_bar_values(entity.current_mana, entity.max_mana)
+	
 
-func _on_change_health_move_bar(target: Entity, value):
+func _on_change_health_move_bar(target: Entity):
 	if target != entity: return
+	health_bar.update_bar_values(target.current_hp, target.max_hp)
 
-	health_bar.change_resource(value)
-
-func _on_change_mana_move_bar(target: Entity, value):
+func _on_change_mana_move_bar(target: Entity):
 	if target != entity: return
+	mana_bar.update_bar_values(target.current_mana, target.max_mana)
 
-	mana_bar.change_resource(value)
+#func _change_max_values(target: Entity, new_max_hp, new_max_mana):
+	#if target != entity: return
+	#
+	#health_bar.change_max_resource(new_max_hp)
+	#mana_bar.change_max_resource(new_max_mana)
+	

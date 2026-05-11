@@ -12,6 +12,7 @@ signal level_up
 
 # Skills Hotbar
 signal skill_selected(skill)
+signal use_skill(slot_index)
 
 # Player management
 signal gain_xp(value)
@@ -29,7 +30,8 @@ signal portal_destroyed
 
 # UI management
 signal update_xp_info
-signal update_resource_bars
+signal update_health_bar(entity, value)
+signal update_mana_bar(entity, value)
 
 # Audio
 signal on_master_volume_changed

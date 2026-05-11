@@ -150,6 +150,7 @@ radius = 86.00581
 
 [node name="Werewolf" type="CharacterBody2D" unique_id=252566114 groups=["enemies"]]
 texture_filter = 1
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_51o7o")
 

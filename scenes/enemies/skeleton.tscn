@@ -136,6 +136,7 @@ radius = 79.0
 
 [node name="Skeleton" type="CharacterBody2D" unique_id=252566114 groups=["enemies"]]
 texture_filter = 1
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_vncds")
 

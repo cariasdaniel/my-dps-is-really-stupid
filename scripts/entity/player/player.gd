@@ -9,26 +9,9 @@ var select_candidate
 func _ready() -> void:
 	SignalBus.died.connect(_on_death)
 	SignalBus.level_up.connect(_on_level_up)
+	SignalBus.use_skill.connect(_on_skill_use_add_effect)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("hotbar_1"):
-		if not learned_skills.is_empty():
-			skill_in_casting = learned_skills[0]
-	if event.is_action_released("hotbar_2"):
-		var new_area = AreaEffect.new(
-			100,
-			[],
-			[Knockback.new(800.0, self.global_position)]
-		)
-		add_child(new_area)
-	if event.is_action_released("hotbar_3"):
-		var new_area = AreaEffect.new(
-			400,
-			[],
-			[Taunt.new(5.0, self)]
-		)
-		add_child(new_area)
-
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 #			When click press, mark the current target as candidate for the action
@@ -51,6 +34,31 @@ func _unhandled_input(event: InputEvent) -> void:
 #			Cancels current skill cast, if casting
 			skill_in_casting = null
 
+func _on_skill_use_add_effect(index):
+	if index == 0:
+		var new_area = AreaEffect.new(
+			100,
+			[AreaHeal.new(int(max_hp * 0.1), self.global_position)],
+			[],
+			0.0,
+			false
+		)
+		add_child(new_area)
+	elif index == 1:
+		var new_area = AreaEffect.new(
+			100,
+			[],
+			[Knockback.new(800.0, self.global_position)]
+		)
+		add_child(new_area)
+	elif index == 2:
+		var new_area = AreaEffect.new(
+			400,
+			[],
+			[Taunt.new(5.0, self)]
+		)
+		add_child(new_area)
+
 func add_target(new_target: Node):
 	target = new_target
 	SignalBus.hover_over.emit(target)
@@ -65,7 +73,7 @@ func _on_death(body):
 	SceneChanger.change_to(ScenePath.gameOver)
 
 func _on_level_up():
-	max_hp += int(max_hp * 0.15)
+	max_hp += int(max_hp * 0.10)
 	hp_recovery += 1.5
 
 	max_mana += int(max_mana * 0.1)
@@ -80,7 +88,8 @@ func _on_level_up():
 	
 	var recover = int(max_hp * 0.25)
 	current_hp += recover
+	SignalBus.update_health_bar.emit(self)
+	SignalBus.update_mana_bar.emit(self)
 	SignalBus.change_health.emit(self, recover)
-	SignalBus.update_resource_bars.emit(self, max_hp, max_mana)
 	add_child(DamageTag.new(recover, Color.GREEN))
 	

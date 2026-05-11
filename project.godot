@@ -127,6 +127,12 @@ move_right={
 
 locale/translations=PackedStringArray("res://locale/localization.en.translation", "res://locale/localization.pt.translation")
 
+[layer_names]
+
+2d_physics/layer_1="Players"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Portals"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

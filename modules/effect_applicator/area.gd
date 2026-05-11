@@ -28,7 +28,8 @@ func _init(range: float = 100,
 func _ready() -> void:
 	area = Area2D.new()
 	area.collision_layer = 1
-	area.collision_mask = 1
+	area.set_collision_mask_value(1, true) # players layer
+	area.set_collision_mask_value(2, true) # enemies layer
 	area.monitoring = true
 	area.monitorable = true
 	var collision_shape = CollisionShape2D.new()
