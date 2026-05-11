@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://hqejvkb0p2ag" path="res://scripts/entity/player/player_movement.gd" id="4_y4r1p"]
 [ext_resource type="Script" uid="uid://8oekrakbumyy" path="res://modules/state_machine/state_machine.gd" id="5_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://c2b4gpi0lqi41" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Knight Templar/Knight Templar with shadows/Knight Templar-Idle.png" id="6_fjrip"]
+[ext_resource type="Script" uid="uid://ddlvcc77ewfj5" path="res://modules/skills/skill_manager.gd" id="6_utbb3"]
 [ext_resource type="Texture2D" uid="uid://bma6yj2qbcyqv" path="res://assets/sprites/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Knight Templar/Knight Templar with shadows/Knight Templar-Walk02.png" id="7_smehm"]
 
 [sub_resource type="Resource" id="Resource_og1vs"]
@@ -152,6 +153,10 @@ script = ExtResource("4_y4r1p")
 script = ExtResource("5_d2wvv")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=297708514]
+
+[node name="SkillManager" type="Node" parent="." unique_id=1070291623]
+script = ExtResource("6_utbb3")
+metadata/_custom_type_script = "uid://ddlvcc77ewfj5"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=668395430]
 scale = Vector2(3, 3)

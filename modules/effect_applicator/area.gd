@@ -1,16 +1,14 @@
-extends Node2D
+extends EffectShape
 class_name AreaEffect
 
-signal end_effect
-
 var area: Area2D 
-var _range
-var _duration
-var _ally_effects: Array[Effect]
-var _enemy_effects: Array[Effect]
+@export var _range: float
+@export var _duration: float
+@export var _ally_effects: Array[Effect]
+@export var _enemy_effects: Array[Effect]
 var bodies: Array
 
-var _self_ignore
+@export var _self_ignore: bool
 
 var internal_clock:= 0.0
 

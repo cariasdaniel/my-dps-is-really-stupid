@@ -13,5 +13,6 @@ class_name SkillData
 @export var target: int
 @export var tier: int
 @export var icon: Texture2D
+#@export var effects: Array[EffectShape]
 @export var vars: Array[int] = []
 @export var dependencies: Dictionary[String, int] = {}
