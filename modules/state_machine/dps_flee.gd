@@ -37,7 +37,7 @@ func physics_update(delta):
 
 	#var player_pos = player.global_position.normalized()
 	#var flee_direction = player_pos.lerp((directions / enemies.size() * -1), 0.4).normalized()
-	flee_direction = (mob_directions / enemies.size()) * -1
+	flee_direction = ((mob_directions / enemies.size()) - dps.global_position) * -1
 	dps.velocity = flee_direction.normalized() * dps.flee_speed
 
 
