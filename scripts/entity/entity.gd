@@ -9,13 +9,25 @@ var current_hp:= 0.0
 var current_mana:= 0.0
 @export var mana_recovery: float = 0.5
 
+@export var max_stress: int = 50
+var current_stress:= 0.0
+@export var stress_recovery: float = 0.1
+
+@export var base_attack: int = 10
 @export var attack: int = 10
+
+@export var base_magic_power: int = 10
 @export var magic_power: int = 10
+
+@export var base_atk_speed:= 1.0
 @export var atk_speed:= 1.0
 
+@export var base_defense: float = 30.0
 @export var defense: float = 30.0
+@export var base_magic_defense: float = 30.0
 @export var magic_defense: float = 30.0
 
+@export var base_move_speed:= 100.0
 @export var move_speed:= 100.0
 
 @export var threat:= 100
@@ -37,7 +49,7 @@ func _init() -> void:
 	recovery_timer.autostart = true
 	recovery_timer.one_shot = false
 	recovery_timer.wait_time = 5.0
-	recovery_timer.timeout.connect(_on_recovery_timer_timeout_recover_hp)
+	recovery_timer.timeout.connect(_on_recovery_timer_timeout)
 	
 	add_child(recovery_timer)
 	
@@ -55,13 +67,11 @@ func _on_mouse_exited_untarget():
 	assert(player, 'Player não instanciado')
 	player.remove_target(self)
 
-func _on_recovery_timer_timeout_recover_hp():
+func _on_recovery_timer_timeout():
 	if current_hp < max_hp:
 		_update_current_health(self, hp_recovery)
-		add_child(DamageTag.new(hp_recovery, Color.GREEN))
 	if current_mana < max_mana:
 		_update_current_mana(self, mana_recovery)
-		add_child(DamageTag.new(mana_recovery, Color.DEEP_SKY_BLUE))
 
 func _on_damage_dealt_change_health(body, amount):
 	if self != body: return
@@ -77,12 +87,14 @@ func _calculate_damage_taken(value) -> int:
 
 func _update_current_health(target, value) -> void:
 	if target != self: return
-	current_hp = clampi(current_hp + value, 0, max_hp)
+	current_hp = clampf(current_hp + value, 0, max_hp)
 	if value > 0:
 		print("%s updated health in %s. %s current health" % [self, value, current_hp])
+		add_child(DamageTag.new(value, Color.GREEN))
 	SignalBus.update_health_bar.emit(self)
 	
 func _update_current_mana(target, value) -> void:
 	if target != self: return
-	current_mana = clampi(current_mana + value, 0, max_mana)
+	current_mana = clampf(current_mana + value, 0, max_mana)
+	if value > 0: add_child(DamageTag.new(value, Color.DEEP_SKY_BLUE))
 	SignalBus.update_mana_bar.emit(self)
