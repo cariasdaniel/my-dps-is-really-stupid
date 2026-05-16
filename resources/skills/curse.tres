@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://b46qdkc304dws"]
+
+[ext_resource type="Script" uid="uid://dfsscxuxnu80y" path="res://scenes/skills/curse/curse.gd" id="2_yx64q"]
+[ext_resource type="Texture2D" uid="uid://cabd7nhyeajjn" path="res://assets/skill-icons/curse.png" id="3_jhngv"]
+[ext_resource type="SpriteFrames" uid="uid://iry2sdmr1vjq" path="res://assets/vfx/heal_area_vfx.tres" id="3_l174t"]
+[ext_resource type="SpriteFrames" uid="uid://ct5bdb80d5qvp" path="res://assets/vfx/individual_debuff.tres" id="3_rd2uv"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="5_mvf1r"]
+
+[resource]
+script = ExtResource("5_mvf1r")
+id = "curse"
+name = "Curse"
+description = "Curses enemy"
+icon = ExtResource("3_jhngv")
+area_vfx = ExtResource("3_l174t")
+enemy_target_vfx = ExtResource("3_rd2uv")
+cost = 5.0
+cooldown = 10.0
+current_level = 1
+max_level = 5
+tier = 1
+area = 0.0
+n_apply_effects = 999
+apply_interval = 0.5
+duration = 10.0
+distance = 200.0
+minimum_targets = 1
+enemy_effects = Array[Script]([ExtResource("2_yx64q")])
+vars = Dictionary[String, int]({
+"damage": 20
+})
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

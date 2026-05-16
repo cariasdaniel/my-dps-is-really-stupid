@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bppta0nk2hqbx"]
+
+[ext_resource type="Texture2D" uid="uid://o4mi48ddga86" path="res://assets/vfx/individual_taunt.png" id="1_cetk5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1dn6"]
+atlas = ExtResource("1_cetk5")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dja2"]
+atlas = ExtResource("1_cetk5")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgctm"]
+atlas = ExtResource("1_cetk5")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf8gl"]
+atlas = ExtResource("1_cetk5")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23lln"]
+atlas = ExtResource("1_cetk5")
+region = Rect2(400, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1dn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dja2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgctm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf8gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23lln")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]

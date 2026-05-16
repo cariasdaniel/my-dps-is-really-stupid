@@ -19,7 +19,6 @@ cost = 10.0
 cooldown = 5.0
 current_level = 1
 max_level = 5
-distance = 40.0
 target = 1
 icon = ExtResource("3_ur7pv")
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"
@@ -149,14 +148,14 @@ skills = Array[ExtResource("2_smehm")]([SubResource("Resource_og1vs")])
 [node name="PlayerMovement" type="Node" parent="." unique_id=389981403]
 script = ExtResource("4_y4r1p")
 
+[node name="SkillManager" type="Node" parent="." unique_id=2037351399 node_paths=PackedStringArray("source")]
+script = ExtResource("6_utbb3")
+source = NodePath("..")
+
 [node name="StateMachine" type="Node" parent="." unique_id=59438659]
 script = ExtResource("5_d2wvv")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=297708514]
-
-[node name="SkillManager" type="Node" parent="." unique_id=1070291623]
-script = ExtResource("6_utbb3")
-metadata/_custom_type_script = "uid://ddlvcc77ewfj5"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=668395430]
 scale = Vector2(3, 3)

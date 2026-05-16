@@ -9,9 +9,41 @@ var select_candidate
 func _ready() -> void:
 	SignalBus.died.connect(_on_death)
 	SignalBus.level_up.connect(_on_level_up)
-	SignalBus.use_skill.connect(_on_skill_use_add_effect)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("hotbar_1"):
+		SignalBus.skill_slot_pressed.emit(0)
+		#var new_area = AreaEffect.new(
+			#100,
+			#[AreaHeal.new(int(max_hp * 0.1), self.global_position)],
+			#[],
+			#0.0,
+			#false
+		#)
+		#add_child(new_area)
+	if event.is_action_released("hotbar_2"):
+		SignalBus.skill_slot_pressed.emit(1)
+		#var new_area = AreaEffect.new(
+			#100,
+			#[],
+			#[Knockback.new(800.0, self.global_position)]
+		#)
+		#add_child(new_area)
+	if event.is_action_released("hotbar_3"):
+		SignalBus.skill_slot_pressed.emit(2)
+		#var new_area = AreaEffect.new(
+			#400,
+			#[],
+			#[Taunt.new(5.0, self)]
+		#)
+		#add_child(new_area)
+	if event.is_action_released("hotbar_4"):
+		SignalBus.skill_slot_pressed.emit(3)
+	if event.is_action_released("hotbar_5"):
+		SignalBus.skill_slot_pressed.emit(4)
+	if event.is_action_released("hotbar_6"):
+		SignalBus.skill_slot_pressed.emit(5)
+		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 #			When click press, mark the current target as candidate for the action
@@ -33,31 +65,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_RIGHT && not event.pressed:
 #			Cancels current skill cast, if casting
 			skill_in_casting = null
-
-func _on_skill_use_add_effect(index):
-	if index == 0:
-		var new_area = AreaEffect.new(
-			100,
-			[AreaHeal.new(int(max_hp * 0.1), self.global_position)],
-			[],
-			0.0,
-			false
-		)
-		add_child(new_area)
-	elif index == 1:
-		var new_area = AreaEffect.new(
-			100,
-			[],
-			[Knockback.new(800.0, self.global_position)]
-		)
-		add_child(new_area)
-	elif index == 2:
-		var new_area = AreaEffect.new(
-			400,
-			[],
-			[Taunt.new(5.0, self)]
-		)
-		add_child(new_area)
 
 func add_target(new_target: Node):
 	target = new_target

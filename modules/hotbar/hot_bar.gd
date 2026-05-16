@@ -2,7 +2,6 @@ extends Control
 
 class_name HotBar
 
-@export var player : Entity
 @export var skills : Array[SkillData]
 @onready var slots = get_children()
 
@@ -11,11 +10,13 @@ var skill_selected: SkillData = null
 func _ready():
 	connect_slots()
 	update()
+	SignalBus.skill_slot_pressed.connect(_on_skill_slot_pressed)
+	SignalBus.activate_skill.connect(_on_skill_activated)
 
 func connect_slots():
 	for s: Button in slots:
-		var callable = Callable(on_slot_clicked)
-		callable = callable.bind(s)
+		var callable = Callable(_on_skill_slot_pressed)
+		callable = callable.bind(slots.find(s))
 		s.pressed.connect(callable)
 
 func update():
@@ -23,22 +24,14 @@ func update():
 		if i >= skills.size(): break
 		slots[i].update(skills[i])
 
-func on_slot_clicked(slot):
+func _on_skill_slot_pressed(index):
+	var slot = slots[index]
 	if !slot.skill: return
-	slot.activate_skill(player)
-	
-	#if !skill_selected:
-		#skill_selected = slot.skill
-		#print("Skill selected is " + str(skill_selected.name))
-		#SignalBus.skill_selected.emit(skill_selected)
-	#else:
-		#print("deselected skill " + skill_selected.name)
-		#skill_selected = null
+	if slot.in_cooldown: return
+	print("Using skill %s" % slot.skill.id)
+	SignalBus.slot_has_skill.emit(slot.skill)
 
-func _unhandled_input(event: InputEvent) -> void:
-	for i in range(slots.size()):
-		if event.is_action_released("hotbar_" + str(i + 1)):
-			var slot = slots[i]
-			if !slot.in_cooldown: SignalBus.use_skill.emit(i)
-			slot.activate_skill(player)
-			
+func _on_skill_activated(skill: SkillData, cooldown: float) -> void:
+	var slot: SkillSlot = slots.filter(func(s: SkillSlot): return s.skill == skill)[0]
+	if !slot: push_error("hot_bar.gd: slot not found")
+	slot.activate_skill(cooldown)

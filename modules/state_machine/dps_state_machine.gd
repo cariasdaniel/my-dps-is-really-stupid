@@ -44,12 +44,13 @@ func on_state_transition(state, new_state_name):
 	curr_state = new_state
 
 
-func on_force_state_transition(new_state_name, options):
+func on_force_state_transition(new_state_name, duration, options):
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state: return
 	
 	if curr_state: curr_state.exit()
 	
+	overwrite_timer.wait_time = duration
 	overwrite_timer.start()
 	new_state.enter(options)
 	curr_state = new_state

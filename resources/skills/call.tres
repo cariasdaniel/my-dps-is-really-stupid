@@ -1,15 +1,25 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://ct3c8jixowgpu"]
 
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_80ug7"]
-[ext_resource type="Texture2D" uid="uid://bdb0ubwinbrd6" path="res://assets/skill-icons/skill_icon_03.png" id="1_wnwq6"]
+[ext_resource type="Script" uid="uid://xa0d681x57dr" path="res://scenes/skills/call/call.gd" id="1_akkmc"]
+[ext_resource type="Texture2D" uid="uid://bdb0ubwinbrd6" path="res://assets/skill-icons-2/skill_icon_03.png" id="1_wnwq6"]
+[ext_resource type="SpriteFrames" uid="uid://bppta0nk2hqbx" path="res://assets/vfx/taunt_vfx.tres" id="2_akkmc"]
+[ext_resource type="SpriteFrames" uid="uid://dcyevrh1ivjuj" path="res://assets/vfx/PLACEHOLDER.tres" id="3_akkmc"]
 
 [resource]
 script = ExtResource("1_80ug7")
 id = "call"
 name = "COME BACK!!!"
 description = "The DPS walk in your direction until it's within close range."
+icon = ExtResource("1_wnwq6")
+area_vfx = ExtResource("3_akkmc")
+ally_target_vfx = ExtResource("2_akkmc")
 cost = 5.0
+cost_type = 1
 cooldown = 60.0
 max_level = 1
 tier = 1
-icon = ExtResource("1_wnwq6")
+area = 800.0
+duration = 5.0
+ignore_self = true
+ally_effects = Array[Script]([ExtResource("1_akkmc")])

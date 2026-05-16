@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://bt8j13rd0vwhe"]
+
+[ext_resource type="Script" uid="uid://df0miks20fksr" path="res://scenes/skills/healing_totem/healing_totem.gd" id="1_nhf8j"]
+[ext_resource type="SpriteFrames" uid="uid://d35hbhyyxxn5t" path="res://assets/vfx/individual_heal.tres" id="2_nhf8j"]
+[ext_resource type="SpriteFrames" uid="uid://c3vx06dk677d5" path="res://assets/vfx/healing_totem_vfx.tres" id="3_nhf8j"]
+[ext_resource type="Texture2D" uid="uid://bkxmdk0kiif1l" path="res://assets/skill-icons/heal.png" id="4_utf42"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="5_lc610"]
+
+[resource]
+script = ExtResource("5_lc610")
+id = "healing_totem"
+name = "Healing Totem"
+description = "Heals %s %% of support's HP."
+icon = ExtResource("4_utf42")
+area_vfx = ExtResource("3_nhf8j")
+ally_target_vfx = ExtResource("2_nhf8j")
+cost = 10.0
+cooldown = 5.0
+current_level = 1
+max_level = 5
+tier = 1
+area = 100.0
+n_apply_effects = 999
+apply_interval = 0.75
+duration = 5.0
+distance = 300.0
+ally_effects = Array[Script]([ExtResource("1_nhf8j")])
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

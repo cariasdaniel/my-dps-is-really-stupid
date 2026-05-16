@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://pjxp5fogmoc0"]
+
+[ext_resource type="SpriteFrames" uid="uid://dcyevrh1ivjuj" path="res://assets/vfx/PLACEHOLDER.tres" id="1_26pm5"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_m1ylm"]
+[ext_resource type="SpriteFrames" uid="uid://bppta0nk2hqbx" path="res://assets/vfx/taunt_vfx.tres" id="2_1jlhs"]
+[ext_resource type="Texture2D" uid="uid://doby57eqh055f" path="res://assets/skill-icons/taunt.png" id="2_3mdfs"]
+[ext_resource type="Script" uid="uid://bo5i0dvthiq3h" path="res://scenes/skills/taunt/taunt.gd" id="2_26pm5"]
+
+[resource]
+script = ExtResource("1_m1ylm")
+id = "taunt"
+name = "LOOK AT ME"
+description = "Taunts enemies for %s seconds."
+icon = ExtResource("2_3mdfs")
+area_vfx = ExtResource("1_26pm5")
+enemy_target_vfx = ExtResource("2_1jlhs")
+cost = 10.0
+cooldown = 25.0
+area = 300.0
+duration = 3.0
+ignore_self = true
+enemy_effects = Array[Script]([ExtResource("2_26pm5")])
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

@@ -13,7 +13,6 @@ var selected: bool = false
 var in_cooldown = false
 
 func _ready() -> void:
-	cooldown_bar.max_value = timer.wait_time
 	
 	set_process(false)
 
@@ -21,8 +20,11 @@ func _process(_delta) -> void:
 	cooldown_time_label.text = "%3.1f" % timer.time_left
 	cooldown_bar.value = timer.time_left
 
-func activate_skill(_source: Entity) -> void:
+func activate_skill(cooldown: float) -> void:
 	if in_cooldown: return
+	
+	timer.wait_time = cooldown
+	cooldown_bar.max_value = timer.wait_time
 	
 	timer.start()
 	cooldown_bar.show()

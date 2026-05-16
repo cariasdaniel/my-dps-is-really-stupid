@@ -10,7 +10,7 @@ func update_bar_values(current_resource, max_resource):
 	resource_bar.max_value = max_resource
 	
 	var prev_res = resource
-	resource = clamp(current_resource, 0, max_resource)
+	resource = clampi(current_resource, 0, max_resource)
 	resource_bar.value = resource
 	
 	bar_text.text = '%d / %d' % [resource, resource_bar.max_value]

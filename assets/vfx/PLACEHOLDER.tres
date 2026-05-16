@@ -1,0 +1,21 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dcyevrh1ivjuj"]
+
+[ext_resource type="Texture2D" uid="uid://c4jtnc3f2cmlp" path="res://assets/vfx/area_heal.png" id="1_4bkpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwvgp"]
+atlas = ExtResource("1_4bkpq")
+region = Rect2(600, 0, 100, 100)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwvgp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]

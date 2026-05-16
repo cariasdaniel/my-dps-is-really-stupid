@@ -1,17 +1,22 @@
 [gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://bt0t2jh0f80n2"]
 
-[ext_resource type="Texture2D" uid="uid://bawoabf1ak5pj" path="res://assets/skill-icons/skill_icon_19.png" id="1_ideiw"]
+[ext_resource type="Script" uid="uid://bnfsam3j5v40f" path="res://scenes/skills/area_heal/area_heal.gd" id="1_ept0b"]
 [ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_m8vy4"]
+[ext_resource type="SpriteFrames" uid="uid://d35hbhyyxxn5t" path="res://assets/vfx/individual_heal.tres" id="2_ekc00"]
+[ext_resource type="Texture2D" uid="uid://bkxmdk0kiif1l" path="res://assets/skill-icons/heal.png" id="2_f26ep"]
 
 [resource]
 script = ExtResource("1_m8vy4")
 id = "heal"
 name = "Heal"
-description = "Heals"
+description = "Heals %s %% of support's HP."
+icon = ExtResource("2_f26ep")
+ally_target_vfx = ExtResource("2_ekc00")
 cost = 10.0
 cooldown = 5.0
+current_level = 1
 max_level = 5
-distance = 40.0
-target = 1
-icon = ExtResource("1_ideiw")
+tier = 1
+area = 200.0
+ally_effects = Array[Script]([ExtResource("1_ept0b")])
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

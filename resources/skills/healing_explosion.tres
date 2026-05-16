@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://cfjqppqfajrre"]
+
+[ext_resource type="Script" uid="uid://d1bekhkrb8n22" path="res://scenes/skills/healing_explosion/healing_explosion.gd" id="1_4lsgi"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_dyf18"]
+[ext_resource type="SpriteFrames" uid="uid://d35hbhyyxxn5t" path="res://assets/vfx/individual_heal.tres" id="1_ql43v"]
+[ext_resource type="SpriteFrames" uid="uid://iry2sdmr1vjq" path="res://assets/vfx/heal_area_vfx.tres" id="2_2cdc7"]
+[ext_resource type="SpriteFrames" uid="uid://cxkek2fqqpso3" path="res://assets/vfx/individual_defense_up.tres" id="3_2cdc7"]
+[ext_resource type="Texture2D" uid="uid://dgoybm6scje0y" path="res://assets/skill-icons-2/skill_icon_10.png" id="3_uclkh"]
+[ext_resource type="Script" uid="uid://bt8pcxan1k784" path="res://scenes/skills/healing_explosion/increase_defense.gd" id="6_4lsgi"]
+
+[resource]
+script = ExtResource("1_dyf18")
+id = "healing_explosion"
+name = "I'LL HOLD 'EM OFF"
+description = "Increases your defense by %. At the end of the duration, heals around you equal to %s %% of the damage taken during this time."
+icon = ExtResource("3_uclkh")
+area_vfx = ExtResource("2_2cdc7")
+self_vfx = ExtResource("3_2cdc7")
+ally_target_vfx = ExtResource("1_ql43v")
+cost = 5.0
+cooldown = 10.0
+current_level = 1
+max_level = 5
+tier = 2
+area = 100.0
+n_apply_effects = 999
+apply_interval = 10.0
+duration = 3.0
+self_effects = Array[Script]([ExtResource("6_4lsgi")])
+ally_effects = Array[Script]([ExtResource("1_4lsgi")])
+vars = Dictionary[String, int]({
+"damage_percentage": 50,
+"defense_increase": 20
+})
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

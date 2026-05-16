@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://cr0rk5b75s7ln"]
+
+[ext_resource type="SpriteFrames" uid="uid://dcyevrh1ivjuj" path="res://assets/vfx/PLACEHOLDER.tres" id="1_iwxyb"]
+[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="1_sgbwr"]
+[ext_resource type="Script" uid="uid://cip3yggkhbm4d" path="res://scenes/skills/knockback/knockback.gd" id="2_iwxyb"]
+[ext_resource type="Texture2D" uid="uid://b4a124fwn8am7" path="res://assets/skill-icons/knockback.png" id="2_vrrvw"]
+
+[resource]
+script = ExtResource("1_sgbwr")
+id = "knockback"
+name = "LEAVE"
+description = "Knocks enemies back."
+icon = ExtResource("2_vrrvw")
+area_vfx = ExtResource("1_iwxyb")
+ally_target_vfx = ExtResource("1_iwxyb")
+enemy_target_vfx = ExtResource("1_iwxyb")
+cost = 20.0
+cooldown = 5.0
+area = 100.0
+enemy_effects = Array[Script]([ExtResource("2_iwxyb")])
+vars = Dictionary[String, int]({
+"force": 800
+})
+metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

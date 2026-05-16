@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dxqtb3o0r3nht" path="res://modules/hotbar/skill_slot.gd" id="1_8r1bd"]
 [ext_resource type="Texture2D" uid="uid://qhupl5lqc1kk" path="res://assets/ui/original/HotbarSlot.png" id="2_740p2"]
 [ext_resource type="Texture2D" uid="uid://bdb8nydg0ypir" path="res://assets/hp-bar/hp-under.png" id="3_57sxl"]
-[ext_resource type="Texture2D" uid="uid://dgoybm6scje0y" path="res://assets/skill-icons/skill_icon_10.png" id="3_jv7bp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_740p2"]
 
@@ -59,7 +58,6 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_jv7bp")
 expand_mode = 1
 
 [node name="CooldownBar" type="TextureProgressBar" parent="MarginContainer" unique_id=945366391]
@@ -81,5 +79,4 @@ vertical_alignment = 1
 wait_time = 2.0
 one_shot = true
 
-[connection signal="pressed" from="." to="." method="activate_skill"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout"]

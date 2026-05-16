@@ -11,8 +11,11 @@ signal apply_effect_on_range
 signal level_up
 
 # Skills Hotbar
-signal skill_selected(skill)
-signal use_skill(slot_index)
+#signal skill_selected(skill)
+signal skill_slot_pressed(slot_index)
+signal slot_has_skill
+#signal add_effect(effect) # apply skill effects in entity
+signal activate_skill(skill, cooldown)
 
 # Player management
 signal gain_xp(value)
