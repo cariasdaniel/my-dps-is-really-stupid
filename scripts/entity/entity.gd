@@ -32,7 +32,7 @@ var current_stress:= 0.0
 
 @export var threat:= 100
 
-@export var skills: Array[SkillData] = []
+@export var learned_skills: Array[SkillData] = []
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -56,6 +56,8 @@ func _init() -> void:
 	SignalBus.deal_damage.connect(_on_damage_dealt_change_health)
 	SignalBus.change_health.connect(_update_current_health)
 	SignalBus.change_mana.connect(_update_current_mana)
+	
+	SignalBus.level_up.connect(_on_level_up)
 	
 func _on_mouse_entered_target():
 	var player = get_tree().get_first_node_in_group("Player")
@@ -98,3 +100,13 @@ func _update_current_mana(target, value) -> void:
 	current_mana = clampf(current_mana + value, 0, max_mana)
 	if value > 0: add_child(DamageTag.new(value, Color.DEEP_SKY_BLUE))
 	SignalBus.update_mana_bar.emit(self)
+
+func _on_level_up() -> void:
+	if !self.is_in_group('players'): return
+	var recover = int(max_hp * 0.25)
+	current_hp += recover
+	SignalBus.update_health_bar.emit(self)
+	SignalBus.update_mana_bar.emit(self)
+	SignalBus.change_health.emit(self, recover)
+	add_child(DamageTag.new(recover, Color.GREEN))
+	

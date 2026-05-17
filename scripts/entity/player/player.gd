@@ -1,14 +1,14 @@
 extends Entity
 class_name Player
 
-@onready var learned_skills: Array[SkillData] = skills.duplicate()
+@onready var skill_manager: SkillManager = $SkillManager
+
 var target
 var skill_in_casting: SkillData
 var select_candidate
 
 func _ready() -> void:
 	SignalBus.died.connect(_on_death)
-	SignalBus.level_up.connect(_on_level_up)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("hotbar_1"):
@@ -93,10 +93,11 @@ func _on_level_up():
 	defense = int(defense * 1.2)
 	magic_defense = int(magic_defense * 1.15)
 	
-	var recover = int(max_hp * 0.25)
-	current_hp += recover
-	SignalBus.update_health_bar.emit(self)
-	SignalBus.update_mana_bar.emit(self)
-	SignalBus.change_health.emit(self, recover)
-	add_child(DamageTag.new(recover, Color.GREEN))
+	super()
+	
+	var choices = load(ScenePath.lvlUpOptions).instantiate()
+	get_tree().root.add_child(choices)
+	choices.populate_options(skill_manager.pick_skills_to_acquire())
+	get_tree().paused = true
+
 	

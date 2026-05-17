@@ -23,11 +23,7 @@ func _calculate(xp_gained) -> void:
 		level += 1
 		SignalBus.level_up.emit()
 		
-		#var choices = load(ScenePaths.lvlUpOptions).instantiate()
-		#get_tree().root.add_child(choices)
-		#get_tree().paused = true
 	else:
 		xp += xp_gained
 	
 	SignalBus.update_xp_info.emit()
-	print('emitting ui update')

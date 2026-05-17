@@ -10,63 +10,31 @@ extends CanvasLayer
 
 @onready var continue_button: Button = $ContinueButton
 
-var SKILL_GAIN_LVL = 4
+var options_to_choose: Array[SkillData]
 
 func _ready():
-	_populate_options()
 	get_tree().paused = true
 
-# TODO: refactor to grab list of all skills
-# TODO: refactor to smart select -
-## no duplicates
-## by tier
-## no skill already maxxed
-func _select_skills() -> Array[SkillData]:
-	if ExpManager.level % SKILL_GAIN_LVL == 0:
-		var skills = [
-			preload("res://resources/skills/call.tres"),
-			preload("res://resources/skills/engage.tres"),
-			preload("res://resources/skills/recover.tres"),
-			preload("res://resources/skills/defend.tres"),
-			preload("res://resources/skills/retreat.tres"),
-			preload("res://resources/skills/smite.tres"),
-			preload("res://resources/skills/speed.tres"),
-			preload("res://resources/skills/wait.tres"),
-		]
-		var s1 = skills.pick_random()
-		var s2 = skills.pick_random()
-		return [s1, s2]
-	else:
-		var skills = [
-			preload("res://resources/status_update/attackUpgrade.tres"),
-			preload("res://resources/status_update/defenseUpgrade.tres"),
-			preload("res://resources/status_update/magicDefenseUpgrade.tres"),
-		]
-		var s1 = skills.pick_random()
-		var s2 = skills.pick_random()
-		return [s1, s2]
-
-
-func _populate_options():
-	var skills = _select_skills()
-	var skill1 = skills[0]
+func populate_options(options):
+	options_to_choose = options
+	
+	var skill1 = options[0]
 	icon_1.texture = skill1.icon
 	skill_tooltip1.update(skill1)
 	
-	var skill2 = skills[1]
+	var skill2 = options[1]
 	icon_2.texture = skill2.icon
 	skill_tooltip2.update(skill2)
-	
 
 func _on_option_1_pressed() -> void:
 	print('option 1 selected')
 	_handle_choice(option_1)
-
+	SignalBus.learn_skill.emit(options_to_choose[0])
 
 func _on_option_2_pressed() -> void:
 	print('option 2 selected')
 	_handle_choice(option_2)
-
+	SignalBus.learn_skill.emit(options_to_choose[1])
 
 func _handle_choice(choice: Button) -> void:
 	var discarded = option_2 if choice == option_1 else option_1
@@ -75,6 +43,8 @@ func _handle_choice(choice: Button) -> void:
 	tween.tween_property(discarded, "modulate:a", 0.0, 1.0)
 	await tween.finished
 	discarded.hide()
+	
+	
 	continue_button.show_text()
 
 func _on_continue_button_pressed() -> void:

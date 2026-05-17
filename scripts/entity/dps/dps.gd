@@ -16,7 +16,6 @@ var radius_scalar :float = 1.0 :
 
 func _ready():
 	SignalBus.died.connect(_on_death)
-	SignalBus.level_up.connect(_on_level_up)
 
 
 func _physics_process(delta: float) -> void:
@@ -62,9 +61,5 @@ func _on_level_up():
 	flee_speed *= 1.05
 	sprite.speed_scale += 0.1
 	
-	var recover = int(max_hp * 0.33)
-	SignalBus.update_health_bar.emit(self)
-	SignalBus.update_mana_bar.emit(self)
-	SignalBus.change_health.emit(self, recover)
-	add_child(DamageTag.new(recover, Color.GREEN))
+	super()
 	

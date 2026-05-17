@@ -13,7 +13,6 @@ var selected: bool = false
 var in_cooldown = false
 
 func _ready() -> void:
-	
 	set_process(false)
 
 func _process(_delta) -> void:
@@ -35,6 +34,8 @@ func _start_cooldown_timer(cooldown: float) -> void:
 	set_process(true)
 
 func _on_timer_timeout() -> void:
+	timer.stop()
+	
 	disabled = false
 	cooldown_bar.value = 0
 	cooldown_bar.max_value = 0
@@ -52,7 +53,11 @@ func update(new_skill: SkillData, cooldown_time: float):
 	else:
 		skill = new_skill
 		item_sprite.texture = new_skill.icon
-		_start_cooldown_timer(cooldown_time)
+		if cooldown_time > 0: 
+			_start_cooldown_timer(cooldown_time)
+		else:
+			_on_timer_timeout()
+
 
 func _make_custom_tooltip(_n):
 	if !skill:
@@ -64,7 +69,7 @@ func _make_custom_tooltip(_n):
 	return tooltip
 
 # Drag and drop skill between slots
-func _get_drag_data(_at_potision: Vector2) -> SkillSlot:
+func _get_drag_data(_at_position: Vector2) -> SkillSlot:
 	if !skill: return
 	
 	var preview: Control = item_sprite.duplicate()
@@ -81,6 +86,7 @@ func _can_drop_data(_at_potision: Vector2, _data: Variant) -> bool:
 	
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var skill_to_replace = skill
+	var cd_left = timer.time_left
 	update(data.skill, data.timer.time_left)
-	data.update(skill_to_replace, timer.time_left)
+	data.update(skill_to_replace, cd_left)
 	

@@ -35,7 +35,7 @@ func create_enemy(info: EnemyResource) -> void:
 
 	move_speed = info.move_speed
 
-	skills = info.skills
+	learned_skills = info.skills
 
 	xp_reward = info.xp_reward
 
