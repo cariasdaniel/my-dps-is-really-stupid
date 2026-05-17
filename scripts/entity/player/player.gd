@@ -59,8 +59,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				if skill_in_casting:
 					print('> Skill conjurada: %s' % skill_in_casting.name)
 					skill_in_casting = null
-					var eff = Knockback.new(500.0, self.position)
-					target.add_child(eff)
+					#var eff = Knockback.new(500.0, self.position)
+					#target.add_child(eff)
 
 		if event.button_index == MOUSE_BUTTON_RIGHT && not event.pressed:
 #			Cancels current skill cast, if casting
