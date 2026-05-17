@@ -15,7 +15,7 @@ func update(new_skill: SkillData):
 	skill = new_skill
 	item_sprite.texture = new_skill.icon
 	label.text = "%s/%s" % [skill.current_level, skill.max_level]
-	if skill.current_level > 0: panel_container.queue_free()
+	if skill.current_level > 0: panel_container.hide()
 
 func _make_custom_tooltip(_n):
 	if !skill:
