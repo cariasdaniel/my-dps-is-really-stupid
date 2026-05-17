@@ -2,6 +2,8 @@ extends Button
 
 class_name SkillSlot
 
+@onready var label: Label = $Label
+
 @export var skill : SkillData
 @onready var item_sprite: TextureRect = $MarginContainer/ItemSprite
 
@@ -57,7 +59,8 @@ func update(new_skill: SkillData, cooldown_time: float):
 			_start_cooldown_timer(cooldown_time)
 		else:
 			_on_timer_timeout()
-
+		
+		label.text = "%s/%s" % [skill.current_level, skill.max_level]
 
 func _make_custom_tooltip(_n):
 	if !skill:
@@ -82,6 +85,7 @@ func _get_drag_data(_at_position: Vector2) -> SkillSlot:
 	return self
 	
 func _can_drop_data(_at_potision: Vector2, _data: Variant) -> bool:
+	if get_parent() != SkillList: return false
 	return true
 	
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
