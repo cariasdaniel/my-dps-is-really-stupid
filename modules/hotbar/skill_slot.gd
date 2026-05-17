@@ -22,7 +22,9 @@ func _process(_delta) -> void:
 
 func activate_skill(cooldown: float) -> void:
 	if in_cooldown: return
-	
+	_start_cooldown_timer(cooldown)
+
+func _start_cooldown_timer(cooldown: float) -> void:
 	timer.wait_time = cooldown
 	cooldown_bar.max_value = timer.wait_time
 	
@@ -35,18 +37,22 @@ func activate_skill(cooldown: float) -> void:
 func _on_timer_timeout() -> void:
 	disabled = false
 	cooldown_bar.value = 0
+	cooldown_bar.max_value = 0
 	cooldown_time_label.text = ""
 	cooldown_bar.hide()
 	in_cooldown = false
 	set_process(false)
 
-func update(new_skill: SkillData):
+func update(new_skill: SkillData, cooldown_time: float):
 	if !new_skill:
-		item_sprite = null
+		skill = null
+		item_sprite.texture = null
+		_on_timer_timeout()
 		
 	else:
 		skill = new_skill
 		item_sprite.texture = new_skill.icon
+		_start_cooldown_timer(cooldown_time)
 
 func _make_custom_tooltip(_n):
 	if !skill:
@@ -75,6 +81,6 @@ func _can_drop_data(_at_potision: Vector2, _data: Variant) -> bool:
 	
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var skill_to_replace = skill
-	update(data.skill)
-	data.update(skill_to_replace)
+	update(data.skill, data.timer.time_left)
+	data.update(skill_to_replace, timer.time_left)
 	
