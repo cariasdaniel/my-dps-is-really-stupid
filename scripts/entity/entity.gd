@@ -103,10 +103,12 @@ func _update_current_mana(target, value) -> void:
 
 func _on_level_up() -> void:
 	if !self.is_in_group('players'): return
-	var recover = int(max_hp * 0.25)
-	current_hp += recover
+	
+	var recover_hp = int(max_hp * 0.20)
+	var recover_mp = int(max_hp * 0.20)
+	
 	SignalBus.update_health_bar.emit(self)
 	SignalBus.update_mana_bar.emit(self)
-	SignalBus.change_health.emit(self, recover)
-	add_child(DamageTag.new(recover, Color.GREEN))
+	SignalBus.change_health.emit(self, recover_hp)
+	SignalBus.change_mana.emit(self, recover_mp)
 	
