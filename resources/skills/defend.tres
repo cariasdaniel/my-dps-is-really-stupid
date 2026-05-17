@@ -9,4 +9,6 @@ id = "defend"
 name = "WHAT R U DOING??"
 description = "Quickly jumps somewhere."
 icon = ExtResource("1_ggsii")
+current_level = 1
+max_level = 3
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

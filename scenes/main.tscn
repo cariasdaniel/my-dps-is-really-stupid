@@ -6,29 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://scenes/GameUi.tscn" id="4_bjd11"]
 [ext_resource type="Texture2D" uid="uid://bubrm76fij58p" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Settings.png" id="5_qmy6f"]
 [ext_resource type="PackedScene" uid="uid://b65ycqo4nwake" path="res://scenes/allies/player.tscn" id="6_mwfav"]
-[ext_resource type="Script" uid="uid://btc8gxk1n2jwx" path="res://modules/skills/skill_data.gd" id="7_3p2gp"]
-[ext_resource type="Resource" uid="uid://cr0rk5b75s7ln" path="res://resources/skills/knockback.tres" id="7_bjd11"]
-[ext_resource type="Resource" uid="uid://bt8j13rd0vwhe" path="res://resources/skills/healing_totem.tres" id="8_bjd11"]
-[ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="8_cvmbd"]
-[ext_resource type="Resource" uid="uid://pjxp5fogmoc0" path="res://resources/skills/taunt.tres" id="8_qmy6f"]
 [ext_resource type="PackedScene" uid="uid://dvn1f4ptb83iq" path="res://scenes/allies/dps_archer.tscn" id="9_ft6cd"]
-[ext_resource type="Resource" uid="uid://b46qdkc304dws" path="res://resources/skills/curse.tres" id="9_qmy6f"]
-[ext_resource type="Resource" uid="uid://ct3c8jixowgpu" path="res://resources/skills/call.tres" id="10_mwfav"]
-[ext_resource type="Resource" uid="uid://cfjqppqfajrre" path="res://resources/skills/healing_explosion.tres" id="11_3p2gp"]
-
-[sub_resource type="Resource" id="Resource_3p2gp"]
-resource_local_to_scene = true
-script = ExtResource("7_3p2gp")
-id = "heal"
-name = "Heal"
-description = "Heals"
-icon = ExtResource("8_cvmbd")
-cost = 10.0
-cooldown = 5.0
-current_level = 1
-max_level = 5
-distance = 40.0
-metadata/_custom_type_script = "uid://btc8gxk1n2jwx"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
 size = Vector2(29.500013, 1230)
@@ -61,7 +39,6 @@ offset_left = -131.5
 offset_top = -64.0
 offset_right = 131.5
 offset_bottom = -16.0
-skills = Array[ExtResource("7_3p2gp")]([ExtResource("7_bjd11"), ExtResource("8_qmy6f"), ExtResource("8_bjd11"), ExtResource("9_qmy6f"), ExtResource("10_mwfav"), ExtResource("11_3p2gp")])
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1537115382]
 anchors_preset = 1
@@ -80,7 +57,6 @@ stretch_mode = 0
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("6_mwfav")]
 position = Vector2(559, 364)
-skills = Array[ExtResource("7_3p2gp")]([SubResource("Resource_3p2gp")])
 
 [node name="Dps" parent="." unique_id=1764787347 instance=ExtResource("9_ft6cd")]
 position = Vector2(750, 351)

@@ -27,3 +27,24 @@ layout_mode = 2
 
 [node name="SkillSlot3" parent="." unique_id=160791457 instance=ExtResource("2_h1bjc")]
 layout_mode = 2
+
+[node name="SkillSlot4" parent="." unique_id=1735122855 instance=ExtResource("2_h1bjc")]
+layout_mode = 2
+
+[node name="SkillSlot5" parent="." unique_id=200258067 instance=ExtResource("2_h1bjc")]
+layout_mode = 2
+
+[node name="SkillSlot6" parent="." unique_id=1924887156 instance=ExtResource("2_h1bjc")]
+layout_mode = 2
+
+[node name="SkillSlot7" parent="." unique_id=237373340 instance=ExtResource("2_h1bjc")]
+layout_mode = 2
+
+[node name="SkillSlot8" parent="." unique_id=1896379168 instance=ExtResource("2_h1bjc")]
+layout_mode = 2
+
+[node name="SkillSlot9" parent="." unique_id=1733003553 instance=ExtResource("2_h1bjc")]
+layout_mode = 2
+
+[node name="SkillSlot10" parent="." unique_id=547577352 instance=ExtResource("2_h1bjc")]
+layout_mode = 2

@@ -11,6 +11,7 @@ description = "Call the focus of the DPS to something in the map for %s seconds.
 icon = ExtResource("1_3aadu")
 cost = 5.0
 cooldown = 15.0
+current_level = 1
 max_level = 3
 tier = 2
 dependencies = Dictionary[String, int]({

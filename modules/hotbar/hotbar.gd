@@ -21,13 +21,21 @@ func connect_slots():
 func update(known_skills):
 	for skill in known_skills:
 		# If skill already in bar
-		if slots.filter(func(s): return s.skill == skill).size() > 0: continue
+		if update_skill_if_exists(skill): continue
 		
 		# If no empty slots
 		var empty_slots = slots.filter(func(s): return !s.skill)
 		if empty_slots.size() == 0: return
 		
 		empty_slots[0].update(skill, 0)
+
+func update_skill_if_exists(skill: SkillData) -> bool:
+	for slot: SkillSlot in slots:
+		if !slot.skill: continue
+		if slot.skill.id == skill.id: 
+			slot.update(skill, slot.timer.time_left)
+			return true
+	return false
 
 func _on_skill_slot_pressed(index):
 	var slot = slots[index]

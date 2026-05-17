@@ -100,22 +100,23 @@ func pick_skills_to_acquire() -> Array[SkillData]:
 	
 	# Update available skills based on caster data
 	for s in caster.learned_skills:
-		# No skills already maxxed
-		if s.current_level == s.max_level: available_skills.erase(s.id)
+		var skill_id = s.id
 		
-		# Filter by tier
-		if s.tier > minimum_tier: available_skills.erase(s.id)
+		# No skills already maxxed
+		if s.current_level == s.max_level: available_skills.erase(skill_id)
+		else: available_skills[skill_id] = _upgrade_skill_level(available_skills[skill_id])
+		
+		# No skills with tier higher than limit
+		if s.tier > minimum_tier: available_skills.erase(skill_id)
 		
 		# Dependencies must be met
 		for req in s.dependencies.keys():
-			var caster_req_skill = caster.learned_skills.filter(func(s): return s.id == req)
+			var caster_req_skill = caster.learned_skills.filter(func(s): return skill_id == req)
 			# Pre-requisite is learned
-			if !(caster_req_skill): available_skills.erase(s.id)
+			if !(caster_req_skill): available_skills.erase(skill_id)
 			# Pre-requisite level is met
-			elif !(s.dependencies[req] > caster_req_skill[0].current_level): available_skills.erase(s.id)
+			elif !(s.dependencies[req] > caster_req_skill[0].current_level): available_skills.erase(skill_id)
 		
-		available_skills[s.id] = s 
-	
 	var skill_pool = available_skills.values()
 	# Failsafe in case there are less than 2 options to select
 	if skill_pool.size() < 2: return [null, null]
@@ -134,13 +135,17 @@ func pick_skills_to_acquire() -> Array[SkillData]:
 		#var s1 = skills.pick_random()
 		#var s2 = skills.pick_random()
 		#return [s1, s2]
-
+	
+# TODO: update skill stats on skill level up
+func _upgrade_skill_level(skill: SkillData) -> SkillData:
+	var upgraded_skill = skill.duplicate()
+	upgraded_skill.current_level += 1
+	return upgraded_skill
 
 func _learn_skill(skill: SkillData) -> void:
 	var is_learned = caster.learned_skills.find(skill)
 	if is_learned < 0: caster.learned_skills.append(skill)
-	else:
-		caster.learned_skills[is_learned].current_level += 1
-		# TODO: update skill stats on skill level up
+	else: caster.learned_skills[is_learned] = skill
+		
 	
 	SignalBus.update_skills_ui.emit(caster.learned_skills)

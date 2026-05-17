@@ -9,4 +9,6 @@ id = "smite"
 name = "I'LL DO IT MYSELF"
 description = "Deals damage to 1 enemy"
 icon = ExtResource("1_exbwt")
+current_level = 1
+max_level = 5
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

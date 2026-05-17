@@ -18,7 +18,7 @@ enum resource_cost { MANA, STRESS }
 
 @export var cooldown: float
 
-@export var current_level: int = 0
+@export var current_level: int = 1
 @export var max_level: int
 @export var tier: int
 @export var dependencies: Dictionary[String, int] = {}

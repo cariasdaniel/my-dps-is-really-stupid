@@ -9,4 +9,6 @@ id = "wait"
 name = "WAIT. ONE. SECOND."
 description = "DPS stays close and HP recover increases"
 icon = ExtResource("1_ihlhr")
+current_level = 1
+max_level = 1
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

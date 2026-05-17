@@ -73,7 +73,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = SubResource("SystemFont_4uoj1")
 theme_override_font_sizes/font_size = 18
-text = "COST: skill.cost MP"
+text = "COST: skill.cost skill.cost_type"
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1922456082]
@@ -82,6 +82,14 @@ size_flags_horizontal = 0
 theme_override_fonts/font = SubResource("SystemFont_6eora")
 theme_override_font_sizes/font_size = 18
 text = "COOLDOWN: skill.cooldown s"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=777436079]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("SystemFont_6eora")
+theme_override_font_sizes/font_size = 18
+text = "Level: skill.level"
 vertical_alignment = 1
 
 [node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1708598577]

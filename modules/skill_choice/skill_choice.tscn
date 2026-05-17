@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bg7evksmrj05j"]
 
 [ext_resource type="Script" uid="uid://djuhg0xa8h66x" path="res://modules/skill_choice/skill_choice.gd" id="1_0iace"]
+[ext_resource type="Texture2D" uid="uid://cabd7nhyeajjn" path="res://assets/skill-icons/curse.png" id="2_i5ylm"]
 [ext_resource type="PackedScene" uid="uid://bkwvubpqnkgph" path="res://modules/tooltip/tooltipScene.tscn" id="3_s4bnb"]
 [ext_resource type="PackedScene" uid="uid://6tymcb7wmtmu" path="res://ui_components/continue_button/continue_button.tscn" id="4_c1nit"]
+[ext_resource type="Texture2D" uid="uid://b4a124fwn8am7" path="res://assets/skill-icons/knockback.png" id="4_j77v2"]
 
 [node name="SkillChoice" type="CanvasLayer" unique_id=412054041]
 process_mode = 3
@@ -49,9 +51,15 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Control" type="Control" parent="HBoxContainer/Option1/VBoxContainer" unique_id=1325719440]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_vertical = 6
+
 [node name="Icon1" type="TextureRect" parent="HBoxContainer/Option1/VBoxContainer" unique_id=1514254092]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+texture = ExtResource("2_i5ylm")
 expand_mode = 1
 stretch_mode = 5
 
@@ -79,9 +87,15 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Control2" type="Control" parent="HBoxContainer/Option2/VBoxContainer" unique_id=1718245577]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+size_flags_vertical = 6
+
 [node name="Icon2" type="TextureRect" parent="HBoxContainer/Option2/VBoxContainer" unique_id=723275373]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+texture = ExtResource("4_j77v2")
 expand_mode = 1
 stretch_mode = 5
 
