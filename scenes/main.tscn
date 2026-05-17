@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bb31f2lyv4ub7" path="res://modules/portal/portal.tscn" id="3_wp0k4"]
 [ext_resource type="PackedScene" uid="uid://bvwi44xsm1hdf" path="res://scenes/GameUi.tscn" id="4_bjd11"]
 [ext_resource type="Texture2D" uid="uid://bubrm76fij58p" path="res://assets/ui/CartoonUI_IconPack_Vol1/Icons/Settings.png" id="5_qmy6f"]
+[ext_resource type="PackedScene" uid="uid://cq8cfsag5fmf8" path="res://scenes/SkillList.tscn" id="6_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://b65ycqo4nwake" path="res://scenes/allies/player.tscn" id="6_mwfav"]
 [ext_resource type="PackedScene" uid="uid://dvn1f4ptb83iq" path="res://scenes/allies/dps_archer.tscn" id="9_ft6cd"]
 
@@ -35,10 +36,8 @@ entity = NodePath("../../Player")
 entity = NodePath("../../../Dps")
 
 [node name="HotBar" parent="CanvasLayer" index="3" unique_id=714711800]
-offset_left = -131.5
-offset_top = -64.0
-offset_right = 131.5
-offset_bottom = -16.0
+theme_override_constants/separation = -4
+metadata/_edit_group_ = true
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=1537115382]
 anchors_preset = 1
@@ -54,6 +53,8 @@ size_flags_vertical = 4
 texture_normal = ExtResource("5_qmy6f")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="CanvasLayer" parent="CanvasLayer" unique_id=1524517357 instance=ExtResource("6_jlsqs")]
 
 [node name="Player" parent="." unique_id=2140152961 groups=["players"] instance=ExtResource("6_mwfav")]
 position = Vector2(559, 364)
@@ -90,7 +91,24 @@ position = Vector2(584, 649.75)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_muem4")
 
+[node name="Button" type="Button" parent="." unique_id=764849232]
+offset_left = 113.57239
+offset_top = 309.2485
+offset_right = 170.0
+offset_bottom = 337.0
+text = "MANA"
+
+[node name="Button2" type="Button" parent="." unique_id=245840038]
+process_mode = 3
+offset_left = 109.0
+offset_top = 357.0
+offset_right = 191.0
+offset_bottom = 392.0
+text = "Pause"
+
 [connection signal="timeout" from="GameManager/next_portal" to="GameManager" method="_on_timer_to_portal_timeout"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_mana_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_pause_button_pressed"]
 
 [editable path="CanvasLayer"]

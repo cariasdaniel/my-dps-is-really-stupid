@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cq8cfsag5fmf8"]
+
+[ext_resource type="Script" uid="uid://dc2rfratu1jvd" path="res://modules/hotbar/skill_list.gd" id="1_jpg1q"]
+
+[node name="CanvasLayer" type="Control" unique_id=2077355450]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 288.0
+offset_top = -142.0
+offset_right = 288.0
+offset_bottom = -142.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillList" type="Panel" parent="." unique_id=1861293646]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.5
+offset_top = -135.5
+offset_right = 226.5
+offset_bottom = 135.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jpg1q")
+
+[node name="GridContainer" type="GridContainer" parent="SkillList" unique_id=936249724]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -112.25
+offset_right = 206.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 32
+columns = 8
+
+[node name="Button" type="Button" parent="SkillList" unique_id=438881155]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -94.5
+offset_top = -51.5
+offset_right = -12.5
+offset_bottom = -16.5
+grow_horizontal = 0
+grow_vertical = 0
+text = "Close"
+
+[connection signal="pressed" from="SkillList/Button" to="SkillList" method="_on_close_button_pressed"]
