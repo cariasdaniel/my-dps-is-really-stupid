@@ -13,11 +13,14 @@ signal level_up
 # Skills Hotbar
 #signal skill_selected(skill)
 signal skill_slot_pressed(slot_index)
-signal slot_has_skill
+signal slot_has_skill(skill)
 #signal add_effect(effect) # apply skill effects in entity
-signal activate_skill(skill, cooldown)
+signal start_cooldown(skill) # start cooldown count
+#signal refresh_cooldown(skill) # removes "in_cooldown" flag
+#signal send_skill_state(skill)
+#signal get_skill_state(skill)
 signal learn_skill(skill)
-signal update_skills_ui(known_skills)
+signal update_skills_ui(skill)
 
 # Player management
 signal gain_xp(value)

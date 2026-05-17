@@ -17,6 +17,7 @@ enum resource_cost { MANA, STRESS }
 @export var cost_type: resource_cost
 
 @export var cooldown: float
+@export var cd_time_left: float = 0
 
 @export var current_level: int = 1
 @export var max_level: int

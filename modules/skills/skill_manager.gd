@@ -87,9 +87,9 @@ func _mount_skill_effect(skill: SkillData) -> void:
 	
 	# Initiate skill (consume resources & initiate cooldown)
 	SignalBus.change_mana.emit(caster, -skill.cost)
-	SignalBus.activate_skill.emit(skill, skill.cooldown)
-
-
+	SignalBus.start_cooldown.emit(skill)
+	
+func _process(delta) -> void:
 func pick_skills_to_acquire() -> Array[SkillData]:
 	""" Filter 'acquirable' skills to show upon level up """
 	var option1: SkillData = null
@@ -121,7 +121,6 @@ func pick_skills_to_acquire() -> Array[SkillData]:
 				available_skills.erase(skill_id)
 				continue
 				
-		
 		available_skills[skill_id] = s
 		
 	var skill_pool = available_skills.values().map(func(s): return _upgrade_skill_level(s))
@@ -156,4 +155,6 @@ func _learn_skill(skill: SkillData) -> void:
 	if learned_index < 0: caster.learned_skills.append(skill)
 	else: caster.learned_skills[learned_index] = skill
 	
-	SignalBus.update_skills_ui.emit(caster.learned_skills)
+	all_skills[skill.id] = _upgrade_skill_level(skill)
+	
+	SignalBus.update_skills_ui.emit(skill)

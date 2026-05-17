@@ -9,6 +9,6 @@ id = "retreat"
 name = "STOP RUNNING FROM ME!!"
 description = "Increases yours and DPSs defense."
 icon = ExtResource("1_pu4ml")
-current_level = 1
+current_level = 0
 max_level = 3
 metadata/_custom_type_script = "uid://btc8gxk1n2jwx"

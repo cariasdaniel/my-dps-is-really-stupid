@@ -11,6 +11,6 @@ description = "Increase DPS's move speed by %s%% for %s seconds."
 icon = ExtResource("1_c3pda")
 cost = 15.0
 cooldown = 15.0
-current_level = 1
+current_level = 0
 max_level = 2
 tier = 1

@@ -11,6 +11,6 @@ description = "Slows your movespeed by %s%% during %s seconds, but increase HP r
 icon = ExtResource("1_0e38h")
 cost = 20.0
 cooldown = 60.0
-current_level = 1
+current_level = 0
 max_level = 5
 tier = 1
