@@ -22,7 +22,7 @@ func connect_slots():
 func update():
 	for i in range(slots.size()):
 		if i >= skills.size(): break
-		slots[i].update(skills[i])
+		slots[i].update(skills[i], 0)
 
 func _on_skill_slot_pressed(index):
 	var slot = slots[index]
