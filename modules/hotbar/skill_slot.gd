@@ -47,7 +47,6 @@ func update(new_skill: SkillData):
 	else:
 		skill = new_skill
 		item_sprite.texture = new_skill.icon
-		
 
 func _make_custom_tooltip(_n):
 	if !skill:
@@ -57,3 +56,25 @@ func _make_custom_tooltip(_n):
 	tooltip.update(skill)
 	
 	return tooltip
+
+# Drag and drop skill between slots
+func _get_drag_data(_at_potision: Vector2) -> SkillSlot:
+	if !skill: return
+	
+	var preview: Control = item_sprite.duplicate()
+	var c = Control.new() # Centers icon in cursor during drag
+	c.add_child(preview)
+	preview.position -= preview.custom_minimum_size / 2
+	c.modulate = Color(c.modulate, 0.75)
+	
+	set_drag_preview(c)
+	return self
+	
+func _can_drop_data(_at_potision: Vector2, _data: Variant) -> bool:
+	return true
+	
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	var skill_to_replace = skill
+	update(data.skill)
+	data.update(skill_to_replace)
+	
